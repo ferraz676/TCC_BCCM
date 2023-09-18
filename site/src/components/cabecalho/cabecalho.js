@@ -9,7 +9,7 @@ export default function Cabecalho() {
           </div>
 
       <div className='mid'>
-            <a href='../../pages/Home'><img className='logo' src='/assets/images/logo.png' height={150} alt=''/></a>
+            <a href='../../pages/Home'><img className='logo' src='/assets/images/logo.png' height={200} alt=''/></a>
 
             
         <div className='inpt'>

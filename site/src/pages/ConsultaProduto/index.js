@@ -70,13 +70,22 @@ export default function ConsultaProdutos() {
         <div className='pagina-listar'>
           <div className='container2'>
             <h1> Edição de Inventário </h1>
-            <input></input>
+
+          <div className='buttons'>  
+            <input type='text' placeholder='Pesquisar'></input>
             <div className='filtros'>
             
-              <img className='lupa' onClick={buscarProdutos} src='/assets/images/lupa.svg' width={30} alt=''/>
+              <img className='lupa' onClick={buscarProdutos} src='/assets/images/lupa.svg' width={30} 
+              alt=''/>
+
+              <button>Inserir Produto</button>
+
+              <button>Editar</button>
+            </div>
+
             </div>
     
-            <table>
+            <table className='tabela'>
               <thead>
                 <tr>
                   <th>Id</th>

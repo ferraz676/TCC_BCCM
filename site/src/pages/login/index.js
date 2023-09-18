@@ -7,7 +7,7 @@ function Login() {
 
   return (
     <div className='pagina-login'>
-      <div className='cab'>
+      <div className='cabec'>
         <div className='sla'>
         <img src='/assets/images/casinha.png' height={80} alt=''/>
         <a href='../Home'>Home</a>

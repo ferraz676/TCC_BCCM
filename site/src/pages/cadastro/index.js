@@ -4,7 +4,7 @@ import './index.scss';
 export default function Cadastrotcc(){
 
 return(
-<div className='tudo'>
+<div className='cadastro'>
     <div className='cabeçalho'>
 
         <p>Garantimos que você fez a melhor escolha!</p>

@@ -3,7 +3,7 @@
     flex-direction: column;
 }
 
-.cab{
+.cabec{
     display: flex;
     flex-direction: row;
     height: 15vh;
@@ -94,6 +94,16 @@
                 font-size: 3vh;
                 padding-left: 2vh;
                 color: #fff;
+            }
+            input:focus{
+                font-size: 20px;
+                color: #fff;
+                padding-left: 3vh;
+            }
+            input::blur{
+                font-size: 20px;
+                color: #fff;
+                padding-left: 3vh;
             }
 
         }
