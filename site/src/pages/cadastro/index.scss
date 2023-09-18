@@ -1,0 +1,215 @@
+.tudo{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+   
+
+}
+
+.cabeçalho{
+    display: flex;
+  justify-content: space-between;
+    background-color: adjust-color($color: #D9D9D9);
+    height: 115px;
+    width: auto;
+}
+
+.cabeçalho img{
+    display: flex;
+    height: 195px;
+    margin-top: -20px;
+   align-items: center;
+   margin-right: 50px;
+}
+
+.cabeçalho p{
+    display: flex;
+    margin-top: 50px;
+    font-size: 20px;
+    margin-right: 50px;
+    margin-left: 30px;
+
+}
+
+.conteudo{
+    display: flex;
+    background-color:adjust-color($color: #162b32); ;
+    height: 780px;
+    width: 100%;
+}
+
+
+.cds{
+    display: flex;
+    flex-direction: column;
+    background-color: adjust-color($color: #D9D9D9);
+   
+    height: 700px;
+    margin-left: 450px;
+    margin-top: 50px;
+    width: 450px;
+}
+
+.cds h1 {
+    display: flex;
+    width: 100%;
+    font-size: 0px;
+    align-items: center;
+    justify-content: center;
+background-color: #ffffff;
+width: 450px;
+margin-top: -10px;
+height: 40px;
+}
+
+.prf{
+    display: flex;
+    justify-content: flex-start;
+
+}
+
+.prf p{
+    display: flex;
+    margin-left: 40px;
+     font-size: 17px;
+}
+
+.bt1{
+    display: flex;
+    height: 35px;
+
+}
+
+.bt1 input{
+    display: flex;
+    width: 380px;
+    margin-left: 35px;
+    font-size: 15px;
+  margin-right: 50px;
+}
+
+.mrc{
+    display: flex;
+  margin-left: 35px;
+margin-top: 15px;
+
+}
+
+.mrc p{ 
+    display: flex;
+    font-size: 13px;
+}
+
+.bt2 input{
+    display: flex;
+    width: 380px;
+    margin-left: 35px;
+    font-size: 15px;
+  margin-right: 50px;
+}
+
+.bt2{
+    display: flex;
+    height: 35px;
+
+}
+
+.nm input{
+        display: flex;
+        width: 380px;
+        margin-left: 35px;
+        font-size: 15px;
+      margin-right: 50px;  
+      margin-top: 20px;
+      height: 30px;
+}
+
+.nm{
+    display: flex;
+    height: 55px;
+
+}
+
+.dt input{
+    display: flex;
+    width: 390px;
+    margin-left: 35px;
+    font-size: 15px;
+  margin-right: 50px;  
+  margin-top: 20px;
+  height: 30px;
+}
+
+.dt{
+    display: flex;
+    height: 55px;
+
+}
+
+
+.tl input{
+    display: flex;
+    width: 380px;
+    font-size: 15px;
+  margin-right: 40px;  
+  margin-top: 40px;
+height: 30px;
+width: 134px;
+margin-left: 35px;
+}
+
+.tl{
+    display: flex;
+    height: 55px;
+   
+}
+
+.wt{
+        display: flex;
+      margin-left: 40px;
+    margin-top: 40px;
+}
+
+.wt p{ 
+    display: flex;
+    font-size: 14px;
+}
+
+.pd{
+    display: flex;
+      margin-left: 40px;
+    margin-top: -10px;
+}
+
+.pd p{ 
+    display: flex;
+    font-size: 14px;
+   
+}
+
+.sa input{
+    display: flex;
+    font-size: 15px; 
+height: 30px;
+margin-top: 20px;
+margin-left: 35px;
+width: 350px;
+}
+
+.botao{
+    display: flex;
+   margin-left: 128px;
+   margin-top: 40px;
+   background-color: #162b32;
+   color: #ffffff;
+   height: 50px;
+   width: 190px;
+   font-size: 20PX;
+align-items: center;
+justify-content: center;
+border: none;
+border-radius: 10px;
+border: 5px solid #000;
+}
+
+

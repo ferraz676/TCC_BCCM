@@ -1,0 +1,133 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+}
+
+.pagina-insercao{
+    display: flex;
+    flex-direction: column;
+
+
+    .mid{
+        display: flex;
+        flex-direction: column;
+        background-color: #d9d9d9;
+
+        .title{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 4vh;
+
+            h1{
+                color: #000 ;
+            }
+        }
+    
+
+        .inserir{
+            display: flex;
+            flex-direction: column;
+            border: 2px solid black;
+            height: 68vh;
+            width: 170vh;
+            margin-top: 5vh;
+            background-color: #fff;
+
+
+            .pt{
+                margin-top: 2vh;
+                display: flex;
+                flex-direction: column;
+                margin-left: 4vh;
+                width: 30vh;
+
+                h1{
+                    font-size: 3vh;
+                    margin-bottom: 1vh;
+                    width: 50vh;
+                }
+
+                input{
+                    height: 6vh;
+                    width: 70vh;
+                }
+
+                input::placeholder{
+                    font-size: 3vh;
+                    padding-left: 2vh;
+                }
+
+                img{
+                    position: absolute;
+                    right: 111vh;
+                    bottom: 32.5vh;
+                }
+                p{
+                    position: absolute;
+                    right: 115vh;
+                    bottom: 31.3vh;
+                    width: 1px;
+                    height: 6vh;
+                    background-color: #000;
+                }
+            }
+
+
+            .pt2{
+                display: flex;
+                flex-direction: row !important;
+                gap: 4vh;
+
+                margin-top: 2vh;
+                display: flex;
+                flex-direction: column;
+                margin-left: 4vh;
+                width: 20vh;
+
+                h1{
+                    font-size: 3vh;
+                    margin-bottom: 1vh;
+                }
+
+                input{
+                    height: 6vh;
+                    width: 33vh;
+                }
+
+
+            }
+
+
+
+
+            button{
+                background-color: #2D5A68;
+                color: #fff;
+                border: none;
+                padding: 20px 30px;
+                font-size: 3vh;
+                margin-top: 5vh;
+                width: 40vh;
+                margin-left: -20vh;
+            }
+
+        }
+
+
+
+
+
+    }
+
+    
+
+
+
+    .tudo{
+        display: flex;
+        flex-direction: row;
+    }
+
+}
+
