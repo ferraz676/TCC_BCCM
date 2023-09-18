@@ -1,4 +1,5 @@
 import './index.scss';
+import { confirmAlert } from 'react-confirm-alert';
 import 'react-toastify/dist/ReactToastify.css';
 import Cabecalho from '../../components/cabecalho/cabecalho.js'
 import './index.scss';
@@ -20,10 +21,47 @@ export default function ConsultaProdutos() {
   const [erro, setErro] = useState('');
   
 
+  function alterarProdutos(item) {
+    setNome(item.nome);
+    setMarca(item.marca);
+    setPreco(item.preco);
+    setDisponivel(item.disponivel);
+    setQuantidade(item.quantidade);
+    setMedida(item.medida);
+    setId(item.id);
+  }
+
     async function buscarProdutos() {
       let r = await axios.get('http://localhost:5000/produto');
       setListaProdutos(r.data);
     }
+
+    async function removerProdutos(id) {
+      confirmAlert({
+        title: 'Remoção de Cliente',
+        message: 'Tem certeza que deseja remover?',
+        buttons: [
+          {
+            label: 'Sim',
+            onClick: async () => {
+              try {
+                let r = await axios.delete('http://localhost:5000/produto/' + id);
+                alert('Veículo removido com sucesso!');
+                buscarProdutos();
+              }
+              catch (err) {
+                alert(err.response.data.erro);
+              }
+            }
+          },
+          {
+            label: 'Não'
+          }
+        ]
+      });
+    }
+
+    
 
   return (
     <div className='pagina-produto'>
@@ -58,6 +96,7 @@ export default function ConsultaProdutos() {
                     <td>{item.valor}</td>
                     <td>{item.categoria}</td>
                     <td>{item.marca}</td>
+                    <td className='btns' style={{ display: 'flex', height: 20 }}><i onClick={alterarProdutos} class="fa-regular fa-pen-to-square"></i> <i onClick={removerProdutos} class="fa-solid fa-delete-left"></i></td>
                   </tr>  
                 )}
               </tbody>
