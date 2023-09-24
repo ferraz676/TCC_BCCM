@@ -8,32 +8,37 @@ import axios from 'axios';
 export default function Login() {
 
   const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+  const [erro, setErro] = useState('');
 
-  const [formData, setFormData] = useState({
-    email: '',
-    senha: '',
-  });
+  async function entrar(event) {
+      event.preventDefault();
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
+      if (email === '' || senha === '') {
+          setErro('Preencha todos os campos');
+      }
+      else {
+          let dados = {
+              text: senha,
+              subject: email
+          }
 
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
+          let resp = await axios.post('http://localhost:5000/cliente/postar', dados);
+          console.log(resp);
 
-    try {
-      const response = await axios.get('/cliente', formData);
-      const token = response.data.token;
-      navigate('/pagina_de_cadastro');
-    } catch (error) {
-      console.error('Erro de autenticação:', error);
-    }
-  };
+          try {
+              const r = await axios.post('http://localhost:5000/cliente/postar', {senha: senha, email: email});
+              console.log(r);
+              alert('Entrou com Sucesso :)');
+              navigate('../Home');
+  
+          } catch (err) {
+              alert(err.message);
+          }
+      }
 
+  }
 
   return (
     <div className='pagina-login'>
@@ -53,27 +58,16 @@ export default function Login() {
       <div className='mid'>
         <div className='blocao'>
 
-        <form onSubmit={handleFormSubmit}>
-  <div className='l1'>
-    <img src='/assets/images/perfil2.png' height={60} alt='' />
-    <input
-      type='text'
-      placeholder='EMAIL'
-      name='email'
-      value={formData.email}
-      onChange={handleInputChange}/>
-  </div>
+        
+      <div className='l1'>
+      <img src='/assets/images/perfil2.png' height={60} alt='' />
+      <input type='text' placeholder='E-mail' value={email} onChange={e => setEmail(e.target.value)} />
+      </div>
 
-  <div className='l1'>
-    <img src='/assets/images/cadeado.png' height={60} alt='' />
-    <input
-      type='password'
-      placeholder='SENHA'
-      name='senha'
-      value={formData.senha}
-      onChange={handleInputChange}
-    />
-  </div>
+     <div className='l1'>
+     <img src='/assets/images/cadeado.png' height={60} alt='' />
+     <input type='text' placeholder='Senha' value={senha} onChange={e => setSenha(e.target.value)} />
+     </div>
 
           <div className='check'>
             <div className='lembre'>
@@ -84,11 +78,10 @@ export default function Login() {
           </div>
           
             <div className='last'>
-              <button>LOGIN</button>
+              <button onClick={entrar}>LOGIN</button>
               <p>Não tem uma conta?</p>
               <a href='../cadastro'>Cadastre-se</a>
             </div>
-          </form>
         </div>
       </div>
     </div>
