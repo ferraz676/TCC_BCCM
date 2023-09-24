@@ -1,9 +1,39 @@
 import './index.scss';
 import 'react-toastify/dist/ReactToastify.css';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 
+export default function Login() {
 
-function Login() {
+  const navigate = useNavigate();
+
+  const [formData, setFormData] = useState({
+    email: '',
+    senha: '',
+  });
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const response = await axios.get('/cliente', formData);
+      const token = response.data.token;
+      navigate('/pagina_de_cadastro');
+    } catch (error) {
+      console.error('Erro de autenticação:', error);
+    }
+  };
+
 
   return (
     <div className='pagina-login'>
@@ -23,16 +53,27 @@ function Login() {
       <div className='mid'>
         <div className='blocao'>
 
-          <div className='l1'>
-          <img src='/assets/images/perfil2.png' height={60} alt=''/>
-          <input type='text' placeholder='EMAIL'></input>
-          </div>
+        <form onSubmit={handleFormSubmit}>
+  <div className='l1'>
+    <img src='/assets/images/perfil2.png' height={60} alt='' />
+    <input
+      type='text'
+      placeholder='EMAIL'
+      name='email'
+      value={formData.email}
+      onChange={handleInputChange}/>
+  </div>
 
-
-          <div className='l1'>
-          <img src='/assets/images/cadeado.png' height={60} alt=''/>
-          <input type='text' placeholder='SENHA'></input>
-          </div>
+  <div className='l1'>
+    <img src='/assets/images/cadeado.png' height={60} alt='' />
+    <input
+      type='password'
+      placeholder='SENHA'
+      name='senha'
+      value={formData.senha}
+      onChange={handleInputChange}
+    />
+  </div>
 
           <div className='check'>
             <div className='lembre'>
@@ -47,12 +88,10 @@ function Login() {
               <p>Não tem uma conta?</p>
               <a href='../cadastro'>Cadastre-se</a>
             </div>
-      
+          </form>
         </div>
       </div>
     </div>
   );
 
 }
-
-export default Login;

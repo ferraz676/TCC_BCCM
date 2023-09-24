@@ -1,4 +1,4 @@
-import {listar, inserir,alterar,deletar} from '../repository/clienteRepository.js';
+import {consultar, inserir,alterar,deletar} from '../repository/clienteRepository.js';
 
 import { Router } from 'express';
 const endpoints = Router();
@@ -9,7 +9,7 @@ const endpoints = Router();
 
 endpoints.get('/cliente', async (req, resp) => {
     try {
-      let r = await listar();
+      let r = await consultar();
       resp.send(r);
     }
     catch (err) {

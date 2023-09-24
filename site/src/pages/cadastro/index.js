@@ -1,5 +1,5 @@
 import './index.scss';
-
+import axios from 'axios';
 
 export default function Cadastrotcc(){
 
@@ -8,7 +8,7 @@ return(
     <div className='cabeçalho'>
 
         <p>Garantimos que você fez a melhor escolha!</p>
-        <img src='/assets/images/logobccm.png'/>
+        <img src='/assets/images/logobccm.png' alt=""/>
         <p>Seja parte da nossa Família!</p>
 
     </div>
