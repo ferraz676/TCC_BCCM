@@ -1,4 +1,4 @@
-import {consultar, inserir,alterar,deletar} from '../repository/clienteRepository.js';
+import {consultar, inserir,alterar,deletar, Login} from '../repository/clienteRepository.js';
 
 import { Router } from 'express';
 const endpoints = Router();
@@ -17,9 +17,7 @@ endpoints.get('/cliente', async (req, resp) => {
     }
   })
 
-  
-
-endpoints.post('/cliente/postar', async (req, resp) => {
+endpoints.post('/cliente/cadastro', async (req, resp) => {
   try {
     let tcc = req.body;
     let r = await inserir(tcc);
@@ -30,8 +28,19 @@ endpoints.post('/cliente/postar', async (req, resp) => {
   }
 })
 
-
-
+endpoints.post('/cliente/login', async (req, resp) => {
+  try {
+    let tcc = req.body;
+    let r = await Login(tcc.email,tcc.senha);
+    if(r.length != 1){
+      throw new Error('Usuário ou Senha incorretos!')
+    }
+    resp.send(r);
+  }
+  catch (err) {
+    resp.status(500).send(err.message);
+  }
+})
 
 endpoints.put('/cliente/:id', async (req, resp) => {
   try {

@@ -15,28 +15,19 @@ export default function Login() {
   async function entrar(event) {
       event.preventDefault();
 
-      if (email === '' || senha === '') {
-          setErro('Preencha todos os campos');
-      }
-      else {
-          let dados = {
-              text: senha,
-              subject: email
-          }
-
-          let resp = await axios.post('http://localhost:5000/cliente/postar', dados);
-          console.log(resp);
-
           try {
-              const r = await axios.post('http://localhost:5000/cliente/postar', {senha: senha, email: email});
+              const r = await axios.post('http://localhost:5000/cliente/login', {senha: senha, email: email});
               console.log(r);
               alert('Entrou com Sucesso :)');
               navigate('../Home');
   
           } catch (err) {
-              alert(err.message);
+            if(err.response)
+            {
+              alert(err.response.data)
+            } 
           }
-      }
+
 
   }
 
