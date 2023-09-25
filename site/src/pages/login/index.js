@@ -57,7 +57,7 @@ export default function Login() {
 
      <div className='l1'>
      <img src='/assets/images/cadeado.png' height={60} alt='' />
-     <input type='text' placeholder='Senha' value={senha} onChange={e => setSenha(e.target.value)} />
+     <input type='password' placeholder='Senha' value={senha} onChange={e => setSenha(e.target.value)} />
      </div>
 
           <div className='check'>
