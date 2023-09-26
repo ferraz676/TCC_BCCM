@@ -4,12 +4,15 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
-import Cadastro from './pages/cadastro'
-import Produtos from './pages/PaginaProdutos'
-import Home from './pages/Home'
-import ConsultaProduto from './pages/ConsultaProduto'
-import Login from './pages/login'
-import InsercaoProduto from './pages/InsercaoProduto'
+import Cadastro from './pages/cadastro';
+import Produtos from './pages/Whey';
+import Home from './pages/Home';
+import Login from './pages/login';
+import InsercaoProduto from './pages/InsercaoProduto';
+import ConsultaProduto from './pages/ConsultaProduto';
+import Whey from './pages/Whey';
+
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -18,12 +21,14 @@ root.render(
     <BrowserRouter>
       <Routes>
 
-        <Route path= '/cadastro' element={<Cadastro/>} />
-       <Route path='/Pagina-Produtos' element={<Produtos/>}/>
+      <Route path= '/cadastro' element={<Cadastro/>} />
+       <Route path='/Produtos' element={<Produtos/>}/>
       <Route path='/Home' element={<Home/>} />
-      <Route path='/ConsultaProduto' element={<ConsultaProduto/>} />
       <Route path='/InsercaoProduto' element={<InsercaoProduto/>} />
       <Route path='/Login' element={<Login/>} />
+      <Route path='/ConsultaProduto' element={<ConsultaProduto/>} />
+      <Route path= '/cadastro' element={<Cadastro/>} />
+      <Route path= '/Whey' element={<Whey/>} />
 
         
 

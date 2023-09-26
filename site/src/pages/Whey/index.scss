@@ -1,0 +1,72 @@
+.tudo{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+   
+}
+
+.titulo{
+    display: flex;
+    background-color:#162b32 ;
+    height: 300px;
+}
+
+.plvs{
+    display: flex;
+    color: rgb(255, 255, 255);
+    flex-direction: column;
+    margin-left: 150px;
+}
+
+.plvs h1{
+    display: flex;
+    font-size: 50px;
+    margin-top: 85px;
+}
+
+
+.imagem{
+    display: flex;
+    height: 270px;
+    margin-left: 180px;
+    margin-top: 15px;
+}
+
+.cont{
+    display: flex;
+    flex-direction:row ;
+    background-color: #162b32;
+    margin-top: 120px;
+    width: 170px;
+    margin-left: 35px;
+    height: 400px;
+    border-radius: 30px;
+}
+
+.sabores{
+    
+    margin-top: 20px
+}
+
+.sabores input{
+display: flex;
+margin-top: 20px;
+margin-left: 20px;
+}
+
+.sabores P{
+    display: flex;
+    margin-top: -19px;
+    margin-left: 45px;
+    font-size: 17px;
+    color: #ffffff;
+}
+
+.tm{
+    display: flex;
+    flex-direction: row;
+    background-color: #D9D9D9 ;
+    background-image: url('../../../public/assets/images/logo-cortada.png');
+    background-size:100%;
+
+}

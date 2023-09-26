@@ -17,8 +17,8 @@ export async function inserir(produto) {
       produto.medida
     ])
   
-  cliente.id = resp.insertId;
-  return cliente;
+  produto.id = resp.insertId;
+  return produto;
 }
 
 export async  function consultar(nome) {
@@ -29,12 +29,13 @@ export async  function consultar(nome) {
             bt_disponivel   as disponivel, 
             qtd_disponivel  as quantidade, 
             ds_medida       as medida,
+            ve.id_categoria as categoria
         from tb_produto			as ve
-        inner join tb_categoria	as tv  ON tv.id_categoria = ve.id_categoria
-        where nm_produto like  ?
+        where nm_produto like  '%%';
   `
 
-  let [dados] = await con.query(comando, ['%' + nome + '%'])
+  let [dados] = await con.query(comando, ['%' + nome + '%']);
+  console.log(dados);
   return dados;
 }
 

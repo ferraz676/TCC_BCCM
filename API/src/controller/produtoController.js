@@ -9,7 +9,12 @@ const endpoints = Router();
 
 endpoints.get('/produto', async (req, resp) => {
     try {
-      let r = await consultar();
+      let nome = req.query.nome;
+
+      if(!nome)
+        nome = '';
+
+      let r = await consultar(nome);
       resp.send(r);
     }
     catch (err) {
