@@ -33,6 +33,7 @@ function Home() {
                   <a className='whey'><img className='wheyzin'src='/assets/images/wheyzin.png'/></a>
                   <a className='multivitaminico'><img className='crea'src='/assets/images/multivitaminico.png'/></a>
                   <a className='barrinhas'><img className='crea'src='/assets/images/barra.png'/></a>
+                  <h2></h2>
                   <a className='anabolizantes'><img className='crea'src='/assets/images/bomba.png'/></a>
                 </div>
 
