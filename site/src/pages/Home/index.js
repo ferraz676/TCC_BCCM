@@ -28,11 +28,12 @@ function Home() {
 
                 <div className='produtos'>
                   
-                  <div className='creatina'></div>
-                  <div className='whey'></div>
-                  <div className='multivitaminico'></div>
-                  <div className='barrinhas'></div>
-                  <div className='barrinhas'></div>
+                  <a className='creatina'> <img className='crea'src='/assets/images/crea.png'/></a>
+                 
+                  <a className='whey'><img className='wheyzin'src='/assets/images/wheyzin.png'/></a>
+                  <a className='multivitaminico'><img className='crea'src='/assets/images/multivitaminico.png'/></a>
+                  <a className='barrinhas'><img className='crea'src='/assets/images/barra.png'/></a>
+                  <a className='anabolizantes'><img className='crea'src='/assets/images/bomba.png'/></a>
                 </div>
 
                 <div className='div'></div>
