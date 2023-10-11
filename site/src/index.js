@@ -12,7 +12,7 @@ import InsercaoProduto from './pages/InsercaoProduto';
 import ConsultaProduto from './pages/ConsultaProduto';
 import Whey from './pages/Whey';
 import DadosPessoais from './pages/dadosPessoais';
-
+import Carrinho from './pages/carrinho';
 
 
 
@@ -32,7 +32,7 @@ root.render(
       <Route path= '/cadastro' element={<Cadastro/>} />
       <Route path= '/Whey' element={<Whey/>} />
       <Route path= '/DadosPessoais' element={<DadosPessoais/>} />
-
+      <Route path= '/carrinho' element={<Carrinho/>} />
 
         
 
