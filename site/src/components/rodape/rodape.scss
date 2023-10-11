@@ -1,0 +1,64 @@
+.roda{
+    display: flex;
+    flex-direction: row;
+    background-color: #2D5A68;
+    height: 27vh;
+
+
+    .tudo{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100vw;
+        gap:80px;
+        margin-left: 5vh;
+    }
+
+    .pt1{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+
+        h1{
+            color: #00FEFE;
+            font-size: 1.5vh;
+        }
+
+        p{
+            font-size: 1.3vh;
+            color: #fff;
+        }
+    }
+
+    .siga{
+        display: flex;
+        flex-direction: column;
+        margin-right: 8vh;
+        align-items: center;
+        margin-top: 2vh;
+        h1{
+            font-size: 3vh;
+            margin-bottom: 2vh;
+        }
+
+        .logo{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            gap: 30px;
+
+            img{
+                height: 40px;
+            }
+        }
+
+
+        .cartoes{
+            height: 130px;
+        }
+    }
+}
+

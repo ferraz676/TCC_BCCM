@@ -12,6 +12,8 @@ import InsercaoProduto from './pages/InsercaoProduto';
 import ConsultaProduto from './pages/ConsultaProduto';
 import Whey from './pages/Whey';
 import DadosPessoais from './pages/dadosPessoais';
+import Senha from './pages/senha';
+
 
 
 
@@ -32,6 +34,8 @@ root.render(
       <Route path= '/cadastro' element={<Cadastro/>} />
       <Route path= '/Whey' element={<Whey/>} />
       <Route path= '/DadosPessoais' element={<DadosPessoais/>} />
+      <Route path= '/senha' element={<Senha/>} />
+
 
 
         
