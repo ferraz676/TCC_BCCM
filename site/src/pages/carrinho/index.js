@@ -43,7 +43,34 @@ export default function Carrinho(){
              </div>            
 </div>
 
+<div className='quase'>
+        <div className='mage'>
+         <img className='vit' src='/assets/images/abc.png' height={30} />
+        </div>
 
+        <div className='text'>
+            <p>Nossos envios estão ocorrendo normalmente.</p>
+
+        </div>
+
+
+
+</div>
+
+<div className='final'>
+
+<div className='b1'>
+    <button>Finalizar compra</button>
+</div>
+    
+<div className='b2'>
+    <button>Escolher outros produtos </button>
+</div>
+
+
+
+
+</div>
 
 </div>
 
