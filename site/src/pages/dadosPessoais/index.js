@@ -37,14 +37,6 @@ function Home() {
                         <img className='imgs' src='/assets/images/voltar.png' alt=''/>
                         <h1 className='tpgs'>Sair</h1>
                     </div>
-
-                    
-
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
                 </div>
             </div>
 
