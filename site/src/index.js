@@ -14,7 +14,8 @@ import Whey from './pages/Whey';
 import DadosPessoais from './pages/dadosPessoais';
 import Carrinho from './pages/carrinho';
 import Senha from './pages/senha';
-
+import Lucros from './pages/lucros';
+import Pagamento from './pages/pagamento';
 
 
 
@@ -37,6 +38,9 @@ root.render(
       <Route path= '/DadosPessoais' element={<DadosPessoais/>} />
       <Route path= '/carrinho' element={<Carrinho/>} />
       <Route path= '/senha' element={<Senha/>} />
+      <Route path= '/lucros' element={<Lucros/>} />
+      <Route path= '/pagamento' element={<Pagamento/>} />
+
 
       </Routes>
     </BrowserRouter>

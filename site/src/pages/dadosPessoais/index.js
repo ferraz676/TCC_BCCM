@@ -11,7 +11,7 @@ function Home() {
       <Cabecalho/>
         <div className='mid-1'>
             <div className='block'>
-                <div className='paginas'>
+                <div className='paginas2'>
 
                     <div className='pgs'>
                         <img className='imgs' src='/assets/images/mala.png' alt=''/>
@@ -23,7 +23,7 @@ function Home() {
                         <h1 className='tpgs'>Trocar senha</h1>
                     </div>
 
-                    <div className='pgs'>
+                    <div className='pgs3'>
                         <img className='imgs' src='/assets/images/boneco.png' alt=''/>
                         <h1 className='tpgs'>Dados pessoais</h1>
                     </div>
