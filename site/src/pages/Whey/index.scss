@@ -51,13 +51,13 @@
 .sabores input{
 display: flex;
 margin-top: 20px;
-margin-left: 20px;
+margin-left: 40px;
 }
 
 .sabores P{
     display: flex;
-    margin-top: -19px;
-    margin-left: 45px;
+    margin-top: -15px;
+    margin-left: 27px;
     font-size: 17px;
     color: #ffffff;
 }
@@ -67,6 +67,138 @@ margin-left: 20px;
     flex-direction: row;
     background-color: #D9D9D9 ;
     background-image: url('../../../public/assets/images/logo-cortada.png');
-    background-size:100%;
+    background-size:57%;
+    background-repeat: no-repeat;
+    background-position: 550px;
+    position: relative ;
+   
+}
 
+.l1{
+    display: flex;
+    flex-direction: row;
+    margin-left: 200px;
+    margin-top: 50px;
+}
+
+.l1 h1{
+    display: flex;
+    color: #108D1C;
+    font-size: 25px;
+    margin-top: 10px;
+}
+
+.produto1{
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+.produto1 img{
+    display: flex;
+height: 300px;
+width:250px;
+}
+
+.produto1 p{
+    display: flex;
+  width: 400px !important;
+  margin-top: 10px;
+}
+
+.produto2{
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+}
+
+.produto2 img{
+    display: flex;
+height: 300px;
+width:250px;
+}
+
+.produto2 p{
+    display: flex;
+    width: 300px;
+    margin-top: 10px;
+}
+
+.l2{
+    display: flex;
+    flex-direction: row;
+    margin-left: 200px;
+    margin-top: 70px;
+}
+
+.l2 h1{
+    display: flex;
+    color: #108D1C;
+    font-size: 25px;
+    margin-top: 10px;
+}
+
+
+.produto3{
+    display: flex;
+    flex-direction: column;
+}
+
+.produto3 img{
+    display: flex;
+height: 300px;
+width:250px;
+}
+
+.produto3 p{
+    display: flex;
+  width: 400px !important;
+  margin-top: 5px;
+}
+
+.produto4{
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+}
+
+.produto4 img{
+    display: flex;
+height: 300px;
+width:250px;
+}
+
+.produto4 p{
+    display: flex;
+    width: 300px;
+    margin-top: 10px;
+}
+
+.l3{
+    display: flex;
+    flex-direction: column;
+    margin-left: 200px;
+    margin-top: 70px;
+}
+
+.l3 img{
+    display: flex;
+height: 300px;
+width:250px;
+}
+
+
+.l3 h1{
+    display: flex;
+    color: #108D1C;
+    font-size: 25px;
+    margin-top: 10px;
+}
+
+
+.l3 p{
+    display: flex;
+  width: 280px !important;
+  margin-top: 5px;
 }
