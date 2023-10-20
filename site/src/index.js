@@ -19,6 +19,7 @@ import Pagamento from './pages/pagamento';
 import EntregaPedido from './pages/entregaPedido';
 
 
+import Produto from './pages/produto'
 
 
 
@@ -32,6 +33,7 @@ root.render(
       <Route path= '/cadastro' element={<Cadastro/>} />
       <Route path= '/entregaPedido' element={<EntregaPedido/>} />
        <Route path='/Produtos' element={<Produtos/>}/>
+       <Route path='/produto' element={<Produto/>}/>
       <Route path='/Home' element={<Home/>} />
       <Route path='/InsercaoProduto' element={<InsercaoProduto/>} />
       <Route path='/Login' element={<Login/>} />
@@ -43,7 +45,7 @@ root.render(
       <Route path= '/senha' element={<Senha/>} />
       <Route path= '/lucros' element={<Lucros/>} />
       <Route path= '/pagamento' element={<Pagamento/>} />
-
+      
 
       </Routes>
     </BrowserRouter>

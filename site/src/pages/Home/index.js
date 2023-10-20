@@ -2,6 +2,7 @@ import './index.scss';
 import 'react-toastify/dist/ReactToastify.css';
 import Cabecalho from '../../components/cabecalho/cabecalho.js'
 import Rodape from '../../components/rodape/rodape.js'
+import Rodape from '../../components/rodape/rodape';
 
 
 function Home() {
@@ -89,8 +90,9 @@ function Home() {
 
                   </div>
 
-      
-          <Rodape/>
+
+      <Rodape/>
+
     </div>
   );
 
