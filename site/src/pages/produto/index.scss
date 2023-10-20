@@ -1,0 +1,101 @@
+.pri{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+}
+
+.conteu{
+    display: flex;
+ 
+
+ height: 100%;
+}
+
+.zoon{
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    width: 60px;
+    margin-left: 70px;
+    margin-top: 120px;
+    justify-content: space-between;
+}
+
+.anabo{
+    display:flex;
+  height: 480px;
+  width: 5px;
+margin-top: 30px;
+}
+
+.avaliação{
+    display: flex;
+    height: 30px;
+    margin-top: 460px;
+    margin-left: 135px;
+}
+
+.gor{
+display: flex;
+flex-direction: row;
+margin-top: 100px;
+margin-left: 65px;
+}
+
+.gor img{
+    display: flex;
+    height: 55px;
+}
+
+.gor h1{
+    display: flex;
+    font-size: 20px;
+    margin-left: 20px;
+    margin-top: 5px;
+    width:450px;
+    text-align: center;
+}
+
+.for{
+    display: flex;
+    flex-direction: row;
+    margin-top: 100px;
+    margin-left: 70px;
+}
+
+.for img{
+    display: flex;
+    height: 55px;
+}
+
+.for h1{
+    display: flex;
+    font-size: 20px;
+    margin-left: 20px;
+    margin-top: 5px;
+    width:430px;
+    text-align: center;
+}
+
+.ps{
+    display: flex;
+    flex-direction: row;
+    margin-top: 100px;
+    margin-left: 60px;
+}
+
+.ps img{
+    display: flex;
+    height: 90px;
+    margin-top: -15px;
+}
+
+.ps h1{
+    display: flex;
+    font-size: 20px;
+    margin-left: 20px;
+    margin-top: 5px;
+    width:430px;
+    text-align: center;
+}
