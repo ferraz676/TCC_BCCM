@@ -1,5 +1,6 @@
 import './index.scss';
 import Cabecalho from '../../components/cabecalho/cabecalho';
+import Rodape from '../../components/rodape/rodape';
 
 export default function Weytcc(){
 
@@ -83,8 +84,10 @@ return(
             </div>
   </div>
        
-  
+ 
 </div>
+
+<Rodape/>
 
     </div>
 )
