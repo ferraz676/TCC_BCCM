@@ -72,8 +72,8 @@ function Home() {
 
 
                             <div className='textos'>
-                          <p className='text'> <span className='p'>Criamos</span> esse web site a fim de um projeto escolar e também para apoiar uma grande causa, a qual acreditamos ser de grande importância para o mundo, o esporte.</p>
-                          <p className='text'> <span className='p'>Mais</span> voltado para o meio do fisiculturismo, temos como missão promover o bem-estar a longo prazo na vida de qualquer indivíduo e o aumento de sua autoestima, através da melhora de sua rotina alimentar e desempenho físico.</p>
+                          <p className='texto'> <span className='pc'>Criamos</span> esse web site a fim de um projeto escolar e também para apoiar uma grande causa, a qual acreditamos ser de grande importância para o mundo, o esporte.</p>
+                          <p className='texto'> <span className='pc'>Mais</span> voltado para o meio do fisiculturismo, temos como missão promover o bem-estar a longo prazo na vida de qualquer indivíduo e o aumento de sua autoestima, através da melhora de sua rotina alimentar e desempenho físico.</p>
                           </div>
 
                     </div>
