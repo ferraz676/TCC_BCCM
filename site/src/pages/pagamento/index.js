@@ -5,7 +5,7 @@ import Rodape from '../../components/rodape/rodape.js'
 
 
 
-export default function Senha() {
+export default function Pagamento() {
 
   return (
     <div className='pagina-pagamento'>
@@ -16,8 +16,12 @@ export default function Senha() {
       <div className='principal'>
       
       <div className='identificacao'>
-            <h1>1.identificação</h1>
+            <h1 className='ident'>1.Identificação</h1>
         </div>
+
+              <div className='dados'>
+                <h1>Dados Pessoais</h1>
+              </div>
 
 
                <div className='pt1'> 
@@ -26,8 +30,7 @@ export default function Senha() {
                
               </div>
 
-              
-
+             
               <div className='pt1'> 
                 <h1>E-mail</h1>
                 <input type='text'></input>
@@ -65,6 +68,7 @@ export default function Senha() {
 
               <div className='atualizar'>
                 <h1>Atualizar</h1>
+
             </div>
 
             </div>
