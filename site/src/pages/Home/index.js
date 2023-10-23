@@ -2,7 +2,6 @@ import './index.scss';
 import 'react-toastify/dist/ReactToastify.css';
 import Cabecalho from '../../components/cabecalho/cabecalho.js'
 import Rodape from '../../components/rodape/rodape.js'
-import Rodape from '../../components/rodape/rodape';
 
 
 function Home() {
@@ -13,10 +12,24 @@ function Home() {
 
       <div className='section'>
                     <div className='info'>
-                    <div className='frete'></div>
-                    <div className='pagamento'></div>
-                    <div className='consulte'></div>
-                    <div className='QRcode'></div>
+
+                    <div className='frete'>
+                      <img src='/assets/images/caminhao.png' height={40} alt=''/>
+                      <p>FRETE GRÁTIS (CONSULTE CEP)</p>
+                    </div>
+
+                    <div className='frete'>
+                    <img src='/assets/images/barras.png' height={40} alt=''/>
+                    <p>PAGMENTO VIA BOLETO</p>
+                    </div>
+                    <div className='frete'>
+                    <img src='/assets/images/msg.png' height={40} alt=''/>
+                    <p>CONSULTE NOSSA NUTRICIONISTA</p>
+                    </div>
+                    <div className='frete'>
+                    <img src='/assets/images/code.png' height={40} alt=''/>
+                    <p>ESCANEIE NOSSO QR CODE</p>
+                    </div>
                                    
                     </div>
 
@@ -26,7 +39,7 @@ function Home() {
 
 
                 <h1 className='escolha'>ESCOLHA O QUE VOCÊ DESEJA</h1>
-
+              <div className='roleta'>
                 <div className='produtos'>
                   
                   <a className='creatina'> <img className='crea'src='/assets/images/crea.png'/></a>
@@ -38,6 +51,15 @@ function Home() {
                   <a className='anabolizantes'><img className='crea'src='/assets/images/bomba.png'/></a>
                 </div>
 
+                <div className='nms'>
+                    <p>Creatina</p>
+                    <p>Whey Protein</p>
+                    <p>Multivitamínico</p>
+                    <p>Barrinhas</p>
+                    <p>Anabolizantes</p>
+                </div>
+
+              </div>
                 <div className='div'></div>
 
                 <div className='section-2'>
