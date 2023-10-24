@@ -4,7 +4,7 @@ import axios from 'axios';
 export default function Cadastrotcc(){
 
 return(
-<div className='cadastro'>
+<div className='pagina-cadastro'>
     <div className='cabeçalho'>
 
         <p>Garantimos que você fez a melhor escolha!</p>

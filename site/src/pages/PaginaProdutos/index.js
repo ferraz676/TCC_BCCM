@@ -6,7 +6,7 @@ export default function Weytcc(){
 return(
     <div className='tudo'>
     <Cabecalho/>
-        <div className='titulo'>
+        <div className='pagina-produtos'>
 
             <div className='plvs'>
             <h1>Whey Protein </h1>

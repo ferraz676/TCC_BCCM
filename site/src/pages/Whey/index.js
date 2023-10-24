@@ -5,7 +5,7 @@ import Rodape from '../../components/rodape/rodape';
 export default function Weytcc(){
 
 return(
-    <div className='tudo'>
+    <div className='pagina-whey'>
     <Cabecalho/>
         <div className='titulo'>
 
