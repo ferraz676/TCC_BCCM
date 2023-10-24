@@ -17,10 +17,9 @@ import Senha from './pages/senha';
 import Lucros from './pages/lucros';
 import Pagamento from './pages/pagamento';
 import EntregaPedido from './pages/entregaPedido';
-
-
+import Meupedido from './pages/meupedido';
 import Produto from './pages/produto'
-
+import Teladm from './pages/teladm';
 
 
 
@@ -45,7 +44,11 @@ root.render(
       <Route path= '/senha' element={<Senha/>} />
       <Route path= '/lucros' element={<Lucros/>} />
       <Route path= '/pagamento' element={<Pagamento/>} />
-      
+      <Route path= '/meupedido' element={<Meupedido/>} />
+      <Route path= '/teladm' element={<Teladm/>} />
+
+
+
 
       </Routes>
     </BrowserRouter>

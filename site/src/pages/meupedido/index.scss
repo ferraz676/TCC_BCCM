@@ -1,0 +1,44 @@
+.ti{
+    display: flex;
+    margin-top: 3vh;
+}
+
+.pn{
+   display: flex;
+   margin-left: 47vh; 
+   margin-top:  3vh;
+    height: 30px;
+   
+}
+
+.pn button{
+display: flex;
+background-color:#162B32 ;
+color: white;
+border-radius: 5px;
+justify-content: center;
+align-items: center;
+
+}
+
+.pn input{
+    display: flex;
+    border-radius: 5px;
+    
+}
+
+
+.tabela{
+display: flex;
+justify-content: space-between;
+width: 88vh;
+margin-left: 50vh;
+margin-top: 5vh;
+
+}
+
+.tabela p1{
+    display: flex;
+    border: solid black 1px;
+
+}
