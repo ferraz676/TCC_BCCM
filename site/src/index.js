@@ -17,6 +17,7 @@ import Senha from './pages/senha';
 import Lucros from './pages/lucros';
 import Pagamento from './pages/pagamento';
 import EntregaPedido from './pages/entregaPedido';
+import Endereco from './pages/endereco';
 
 
 import Produto from './pages/produto'
@@ -36,6 +37,7 @@ root.render(
        <Route path='/produto' element={<Produto/>}/>
       <Route path='/Home' element={<Home/>} />
       <Route path='/InsercaoProduto' element={<InsercaoProduto/>} />
+      <Route path='/endereco' element={<Endereco/>} />
       <Route path='/Login' element={<Login/>} />
       <Route path='/ConsultaProduto' element={<ConsultaProduto/>} />
       <Route path= '/cadastro' element={<Cadastro/>} />
