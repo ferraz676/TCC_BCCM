@@ -12,69 +12,90 @@ export default function Pagamento() {
       <Cabecalho/>
 
     
+      <div className='conteudo'>
+        <div className='cds'>
+           <div>
 
-      <div className='principal'>
-      
-      <div className='identificacao'>
-            <h1 className='ident'>1.Identificação</h1>
+            <h1>1.Identificação</h1>
+              <hr/>
+            </div>
+
+            <div className='prf'>
+                <p>Nome Completo</p>
+            </div>
+
+            <div className='bt1'>
+           <input type='text' placeholder=''/>
+            </div>
+
+            <div className='prf'>
+                <p>E-mail</p>
+            </div>
+            
+            <div className='bt1'>
+           <input type='text' placeholder=''/>
+            </div>
+
+          <div className='endereco'>
+            <h2>Endereço para entrega</h2>
+          </div>
+
+        <div className='bloco'>
+          <div className='verd'></div>
+          <p>Rua Alberto Luizia  978, Jardim novo Horizonte
+São Paulo, SP </p>
         </div>
 
-              <div className='dados'>
-                <h1>Dados Pessoais</h1>
-              </div>
+          <div className='ou'>
+            <h2>ou</h2>
+          </div>
 
+          <div className='cep'>
+            <h2>Insira seu CEP para o Frete</h2>
+          </div>
 
-               <div className='pt1'> 
-                <h1>Nome Completo</h1>
-                <input type='text'></input>
-               
-              </div>
-
-             
-              <div className='pt1'> 
-                <h1>E-mail</h1>
-                <input type='text'></input>
-              </div>
-
-              <div className='pt2'>
-                <div className='d1'> 
-                <h1>Telefone Celular</h1>
-                <input type='text'></input>
-                </div>
-                <div className='d1'>
-                <h1>Telefone Fixo(Opcional)</h1>
-                <input type='text'></input>
-                </div>
-              </div>
-
-
-              <div className='pt3'>
-              <h1>Gênero</h1>
-                <div className='d1'> 
-                <input type='checkbox'></input>
-                <h1>Masculino</h1>
-                
-                </div>
-                <div className='d1'>
-                <input type='checkbox'></input>
-                <h1>Feminino</h1>
-                </div>
-              </div>
-
-              <div className='pt1'> 
-                <h1>Dados de Acesso (Email)</h1>
-                <input type='text'></input>
-              </div>
-
-              <div className='atualizar'>
-                <h1>Atualizar</h1>
-
+          <div className='bt2'>
+           <input type='text' placeholder=''/>
+           <button className='calc'>Calcular</button>
             </div>
 
+            <div className='opcao'>
+              <h2>Escolha a melhor opção de entrega</h2>
             </div>
 
+            <div className='bloco2'>
+              <p>Expresso | R$9,86</p>
+              <div className='dif'>
+                <div className='verd'></div> 
+                <p>Média: 4 dias úteis</p>
+              </div>
+              <p>Máximo: 8 dias úteis</p>
+            </div>
 
+           
+          <div className='inf'>
+            <p>Informamos que a sua encomenda poderá ficar aguardando retirada em uma agência mais próxima caso o seu endereço tenha restrição de entrega ou seja de difícil acesso.</p>
+          </div>
 
+          <div className='prazo'>
+          <p>*Prazo de entrega após postagem da encomenda.
+</p>
+          </div>
+
+          <div className='pag'>
+            <button className='bt-verd'>Ir para o pagamento</button>
+          </div>
+
+         
+
+            
+        </div>
+
+        /</div>
+
+     
+      
+      
 
     
 
