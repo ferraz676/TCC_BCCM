@@ -19,11 +19,11 @@ import Pagamento from './pages/pagamento';
 import EntregaPedido from './pages/entregaPedido';
 import Meupedido from './pages/meupedido';
 import Endereco from './pages/endereco';
-
-
+import Creatina from './pages/creatina'
+import Anabolizante from './pages/anabolizante';
 import Produto from './pages/produto'
 import Teladm from './pages/teladm';
-
+import Multivitaminico from './pages/multivitaminico';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -50,8 +50,9 @@ root.render(
       <Route path= '/pagamento' element={<Pagamento/>} />
       <Route path= '/meupedido' element={<Meupedido/>} />
       <Route path= '/teladm' element={<Teladm/>} />
-
-
+      <Route path= '/creatina' element={<Creatina/>} />
+      <Route path= '/anabolizante' element={<Anabolizante/>} />
+      <Route path= '/multivitaminico' element={<Multivitaminico/>} />
 
 
       </Routes>
