@@ -19,10 +19,9 @@ import Pagamento from './pages/pagamento';
 import EntregaPedido from './pages/entregaPedido';
 import Meupedido from './pages/meupedido';
 import Endereco from './pages/endereco';
-
-
 import Produto from './pages/produto'
 import Teladm from './pages/teladm';
+import DesempenhoVendas from './pages/desempenhoVendas';
 
 
 
@@ -33,6 +32,7 @@ root.render(
       <Routes>
 
       <Route path= '/cadastro' element={<Cadastro/>} />
+      <Route path= '/desempenhoVendas' element={<DesempenhoVendas/>} />
       <Route path= '/entregaPedido' element={<EntregaPedido/>} />
        <Route path='/Produtos' element={<Produtos/>}/>
        <Route path='/produto' element={<Produto/>}/>

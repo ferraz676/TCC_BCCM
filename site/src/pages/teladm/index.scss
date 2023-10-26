@@ -1,9 +1,15 @@
-
-
 .ti{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:5vh;
+}
+
+.ti1{
 display: flex;
-background-color: white;
-height: 50px;
+color: #162B32;
+font-style: italic;
+
 
 }
 
@@ -13,7 +19,8 @@ height: 50px;
     align-items: center;
     margin-top: 40px;
     background-color: #ACACAC;
-    
+    font-style: italic;
+    padding-top: 5vh;
 }
 
 
@@ -24,7 +31,7 @@ height: 50px;
     background: #162B32;
     width: 270px;
     height: 115px;
-    margin-left: 40px;
+    margin-left: 10px;
     margin-top: 65px; 
     
 }
@@ -62,7 +69,7 @@ margin-left: 40px;
     background: #162B32;
     width: 270px;
     height: 115.5px;
-    margin-left: 38vh;
+    margin-left: 35vh;
     margin-top: -112px; 
 
     
@@ -102,7 +109,7 @@ margin-left: 21px;
     background: #162B32;
     width: 270px;
     height: 115px;
-    margin-left: 73vh;
+    margin-left: 70vh;
     margin-top: -112px;
    
 
@@ -143,7 +150,7 @@ margin-left: 21px;
     background: #162B32;
     width: 270px;
     height: 115px;
-    margin-left: 107vh;
+    margin-left: 104vh;
     margin-top: -112px;
 
 
@@ -177,14 +184,12 @@ margin-left: 21px;
     width: 50vh;
 }
 
-
-
-.ti{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+.b{
+    background-color: #ACACAC;
+    height: 61.9vh;
 }
+
+
 
 
 

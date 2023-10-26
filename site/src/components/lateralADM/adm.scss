@@ -1,0 +1,51 @@
+.adm-lateral{
+
+.block{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    width:45vh;
+    border-radius: 10px;
+    height: 45vh;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3vh;
+    margin-left: 3vh;
+    background-color: #D9D9D9;
+    box-shadow: 5px 10px #888888;
+
+
+    .paginas2{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+
+    .pgs{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+        h1{
+            font-size: 2.5vh;
+        }
+    }
+
+    .pgs3{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap:20px;
+        background-color: #ACACAC;
+        width: 121% !important;
+        height: 7vh;
+        margin-left: -3.9vh;
+        padding-left: 3vh;
+
+        h1{
+            font-size: 2.5vh;
+        }
+    }
+}
+}
