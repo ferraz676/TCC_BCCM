@@ -1,6 +1,6 @@
 import './index.scss';
 import Cabecalho from '../../components/cabecalho/cabecalho';
-
+import Rodape from '../../components/rodape/rodape';
 
 export default function produto(){
 
@@ -78,11 +78,21 @@ export default function produto(){
 
 
          <div className='cpm'>
-            <button>COMPRAR</button>
-           
-            <img src='/assets/images/carrinho.png' alt=''/>
-       
+            <button>COMPRAR</button>     
+      <div className='cari'>
+      <img src='/assets/images/carrinho.png' alt=''/>
+      </div>
+         </div>
 
+         <div className='estoque'>
+         <img src='/assets/images/etq.png' alt=''/>
+         <h1>EM ESTOQUE. ENVIO IMEDIATO!</h1>
+         </div>
+
+         <div className='frete'>
+         <img src='/assets/images/vector.png' alt=''/>
+        <h1>FRETE GRÁTIS</h1>
+        <h2> Saiba como</h2>
          </div>
 
         
@@ -90,6 +100,7 @@ export default function produto(){
 </div>
 </div>
 
+<Rodape/>
 </div>
 
 
