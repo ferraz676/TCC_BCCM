@@ -3,7 +3,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Cabecalho from '../../components/cabecalho/cabecalho.js'
 import { useState } from 'react';
 import axios from 'axios';
-
+import { API_URL } from '../../constants.js';
 
 export default function InsercaoProduto() {
 

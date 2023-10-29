@@ -5,7 +5,7 @@ import Cabecalho from '../../components/cabecalho/cabecalho.js'
 import './index.scss';
 import { useState } from 'react';
 import axios from 'axios';
-
+import { API_URL } from '../../constants.js';
 
 export default function ConsultaProdutos() {
 
