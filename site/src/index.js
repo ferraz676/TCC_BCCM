@@ -25,7 +25,6 @@ import DesempenhoVendas from './pages/desempenhoVendas';
 
 import Creatina from './pages/creatina'
 import Anabolizante from './pages/anabolizante';
-import Produto from './pages/produto'
 import Teladm from './pages/teladm';
 import Multivitaminico from './pages/multivitaminico';
 
