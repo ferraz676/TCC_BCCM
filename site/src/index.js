@@ -22,10 +22,8 @@ import Endereco from './pages/endereco';
 import Produto from './pages/produto'
 import Teladm from './pages/teladm';
 import DesempenhoVendas from './pages/desempenhoVendas';
-
 import Creatina from './pages/creatina'
 import Anabolizante from './pages/anabolizante';
-import Teladm from './pages/teladm';
 import Multivitaminico from './pages/multivitaminico';
 
 
