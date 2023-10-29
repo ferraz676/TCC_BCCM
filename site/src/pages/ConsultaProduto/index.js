@@ -32,7 +32,7 @@ export default function ConsultaProdutos() {
   }
 
     async function buscarProdutos() {
-      let r = await axios.get('http://localhost:5000/produto');
+      let r = await axios.get(API_URL + '/produto');
       setListaProdutos(r.data);
     }
 
@@ -45,7 +45,7 @@ export default function ConsultaProdutos() {
             label: 'Sim',
             onClick: async () => {
               try {
-                let r = await axios.delete('http://localhost:5000/produto/' + id);
+                let r = await axios.delete(API_URL + '/produto/' + id);
                 alert('Veículo removido com sucesso!');
                 buscarProdutos();
               }

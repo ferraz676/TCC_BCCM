@@ -3,7 +3,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
+import { API_URL } from '../../constants.js';
 
 export default function Login() {
 
@@ -16,7 +16,7 @@ export default function Login() {
       event.preventDefault();
 
           try {
-              const r = await axios.post('http://localhost:5000/cliente/login', {senha: senha, email: email});
+              const r = await axios.post(API_URL + '/cliente/login', {senha: senha, email: email});
               console.log(r);
               alert('Entrou com Sucesso :)');
               navigate('../Home');

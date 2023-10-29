@@ -19,7 +19,7 @@ export default function InsercaoProduto() {
   const [erro, setErro] = useState('');
 
   async function buscarProdutos() {
-    let r = await axios.get('http://localhost:5000/produto');
+    let r = await axios.get(API_URL + '/produto');
     setListaProdutos(r.data);
   }
 
@@ -47,11 +47,11 @@ export default function InsercaoProduto() {
         medida: medida
       }
       if (id == 0) {
-        let r = await axios.post('http://localhost:5000/produto', produto);
+        let r = await axios.post(API_URL + '/produto', produto);
         alert('Produto cadastrado com sucesso!');
       }
       else {
-        let r = await axios.put('http://localhost:5000/produto/' + id, produto);
+        let r = await axios.put(API_URL + '/produto/' + id, produto);
         alert('Produto alterado com sucesso!');
         buscarProdutos();
         limpar();
