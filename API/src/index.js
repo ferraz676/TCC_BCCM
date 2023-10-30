@@ -12,8 +12,5 @@ servidor.use(express.json());
 servidor.use(produtoController);
 servidor.use(clienteController);
 
-
-
 servidor.listen(process.env.PORT,
-                () => console.log('API ESTABELECIDA COM SUCESSO!'));
-                
+                () => console.log('API ESTABELECIDA COM SUCESSO!'));              

@@ -20,6 +20,8 @@ export default function Pagamento() {
               <hr/>
             </div>
 
+
+
             <div className='prf'>
                 <p>Nome Completo</p>
             </div>
@@ -86,10 +88,42 @@ São Paulo, SP </p>
             <button className='bt-verd'>Ir para o pagamento</button>
           </div>
 
+          </div>
+
+          <div className='part-2'>
+           <div>
+
+            <h1>2.Pagamento</h1>
+              <hr/>
+            </div>
+
+        
+            <div className='formas'>
+            <img className='card' src='/assets/images/cartao.png' alt=''/> 
+            <p className='pagm'>Cartão de crédito</p>
+            </div>
+
+        
+            <div className='formas'>
+            <img className='card-d' src='/assets/images/debito.png' alt=''/> 
+            <p className='pagm'>Cartão de débito</p>
+            </div>
+            
+            <div className='formas'>
+            <img className='pix' src='/assets/images/pix.png' alt=''/> 
+            <p className='pagm'>Pix</p>
+            </div>
+
+            <div className='formas'>
+            <img className='bole' src='/assets/images/boleto.png' alt=''/> 
+            <p className='pagm'>Boleto bancário</p>
+            </div>
+      </div>
+
          
 
             
-        </div>
+        
 
         /</div>
 
@@ -101,6 +135,11 @@ São Paulo, SP </p>
 
 
 
+
+       
+       
+       
+         
 
 
 

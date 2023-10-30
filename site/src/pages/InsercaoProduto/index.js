@@ -11,7 +11,6 @@ export default function InsercaoProduto() {
   const [nome, setNome] = useState('');
   const [marca, setMarca] = useState('');
   const [preco, setPreco] = useState('');
-  const [disponivel, setDisponivel] = useState('');
   const [categoria, setCategoria] = useState('');
   const [quantidade, setQuantidade] = useState('');
   const [medida, setMedida] = useState('');
@@ -29,7 +28,6 @@ export default function InsercaoProduto() {
     setNome(item.nome);
     setMarca(item.marca);
     setPreco(item.preco);
-    setDisponivel(item.disponivel);
     setQuantidade(item.quantidade);
     setMedida(item.medida);
     setId(item.id);
@@ -37,19 +35,18 @@ export default function InsercaoProduto() {
 
 
   async function salvarProdutos() {
-
     try{  
       let produto = {
         produto: nome,
         marca: marca,
         categoria: categoria,
         preco: preco,
-        disponivel: disponivel,
         quantidade: quantidade,
         medida: medida
       }
+
       if (id == 0) {
-        let r = await axios.post(API_URL + '/produto', produto);
+        let r = await axios.post(API_URL + '/produto/postar', produto);
         alert('Produto cadastrado com sucesso!');
       }
       else {
@@ -59,8 +56,10 @@ export default function InsercaoProduto() {
         limpar();
       }
       
+      console.log('igao');
         
     } catch (err) {
+      console.log(err);
       setErro(err.response.data.erro);  
     }
     }
@@ -70,11 +69,25 @@ export default function InsercaoProduto() {
       setMarca('');
       setCategoria('');
       setPreco('');
-      setDisponivel('');
       setQuantidade('');
       setMedida('');
       setId(0);
     }
+
+    async function enviarImagemProduto(imagem){
+      const formData = new formData();
+      formData.append('capa', imagem);
+    
+    
+      const resposta = await axios.put(`/produto/${id}/capa`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data"
+        },
+      }); 
+      
+      return resposta.status;
+    }
+    
 
   return (
     <div className='pagina-insercao'>
@@ -111,7 +124,7 @@ export default function InsercaoProduto() {
 
         <div className='pts'>
           <h1>Volume Disp.</h1>
-          <input type='text' value={disponivel} onChange={e => setDisponivel(e.target.value)}></input>
+          <input type='text' value={quantidade} onChange={e => setQuantidade(e.target.value)}></input>
         </div>
 
         </div>
@@ -127,7 +140,7 @@ export default function InsercaoProduto() {
 
         <div className='pts'>
           <h1>Valor Unitário </h1>
-          <input type='text' value={preco} onChange={e => setPreco(e.target.value)}></input>
+          <input type='number' value={preco} onChange={e => setPreco(e.target.value)}></input>
         </div>
 
         <div className='pts'>
