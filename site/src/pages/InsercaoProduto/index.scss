@@ -120,14 +120,20 @@
 
     }
 
-    
-
-
-
     .tudo{
         display: flex;
         flex-direction: row;
     }
 
+
+    .adicionar{
+        position: relative;
+        bottom:25vh;
+        border: 2px solid black;
+        padding: 50px;
+        left: 20vh;
+
+
 }
 
+}

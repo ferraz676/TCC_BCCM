@@ -19,26 +19,24 @@ export default function Cabecalho() {
 
         <div className='profile'>
             <img src='/assets/images/perfil.png' height={50} alt=''/>
-            <p><strong><a href=''>Cadastre-se</a></strong> ou Faça <strong> <a href=''>Login</a></strong></p>
+            <p><strong><a href='../../pages/cadastro'>Cadastre-se</a></strong> ou Faça <strong> <a href='../../pages/login'>Login</a></strong></p>
 
-            <a href=''><img className='vrum-vrum' src='/assets/images/carrinho.png' height={50} alt=''/></a>
+            <a href='../../pages/carrinho'><img className='vrum-vrum' src='/assets/images/carrinho.png' height={50} alt=''/></a>
 
         </div>
       </div>
 
 
       <div className='low'>
-        <a href=''><img src='/assets/images/barrinhas.png' alt='' height={30}/></a>
+        <a href='../../pages/'><img src='/assets/images/barrinhas.png' alt='' height={30}/></a>
+        
+        <a href='../../pages/creatina'> Creatina </a>
+        
+        <a href='../../pages/anabolizante'> Anabolizantes </a>
+        
+        <a href='../../pages/Whey'> Whey Protein </a>
 
-        <a href=''> Categorias </a>
-        
-        <a href=''> Creatina </a>
-        
-        <a href=''> Anabolizantes </a>
-        
-        <a href=''> Whey Protein </a>
-
-        <a href=''> Vitaminas </a>
+        <a href='../../pages/multivitaminico'> Vitaminas </a>
       </div>
 
 

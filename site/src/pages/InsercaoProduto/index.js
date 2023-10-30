@@ -5,6 +5,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { API_URL } from '../../constants.js';
 
+
 export default function InsercaoProduto() {
 
   const [nome, setNome] = useState('');
@@ -41,6 +42,7 @@ export default function InsercaoProduto() {
       let produto = {
         produto: nome,
         marca: marca,
+        categoria: categoria,
         preco: preco,
         disponivel: disponivel,
         quantidade: quantidade,
@@ -66,6 +68,7 @@ export default function InsercaoProduto() {
     function limpar() {
       setNome('');
       setMarca('');
+      setCategoria('');
       setPreco('');
       setDisponivel('');
       setQuantidade('');
@@ -75,6 +78,7 @@ export default function InsercaoProduto() {
 
   return (
     <div className='pagina-insercao'>
+      
       <Cabecalho/>
     
     <div className='mid'>
@@ -102,12 +106,12 @@ export default function InsercaoProduto() {
 
         <div className='pts'>
           <h1>Marca / Empresa </h1>
-          <input type='text' value={marca} onChange={e => setNome(e.target.value)}></input>
+          <input type='text' value={marca} onChange={e => setMarca(e.target.value)}></input>
         </div>
 
         <div className='pts'>
           <h1>Volume Disp.</h1>
-          <input type='text' value={disponivel} onChange={e => setNome(e.target.value)}></input>
+          <input type='text' value={disponivel} onChange={e => setDisponivel(e.target.value)}></input>
         </div>
 
         </div>
@@ -115,9 +119,7 @@ export default function InsercaoProduto() {
 
         <div className='pt'>
           <h1>Categoria do Produto</h1>
-          <input type='text' value={categoria} onChange={e => setNome(e.target.value)} placeholder='Selecionar'></input>
-          <p></p>
-          <img src='/assets/images/setinha.png' height={20} width={20} alt=''/>
+          <input type='text' value={categoria} onChange={e => setCategoria(e.target.value)} ></input>
         </div>
 
 
@@ -125,18 +127,19 @@ export default function InsercaoProduto() {
 
         <div className='pts'>
           <h1>Valor Unitário </h1>
-          <input type='text' value={preco} onChange={e => setNome(e.target.value)}></input>
+          <input type='text' value={preco} onChange={e => setPreco(e.target.value)}></input>
         </div>
 
         <div className='pts'>
           <h1>Qtnd.(Medida)</h1>
-          <input type='text' value={medida} onChange={e => setNome(e.target.value)}></input>
+          <input type='text' value={medida} onChange={e => setMedida(e.target.value)}></input>
 
           
         <button onClick={salvarProdutos}>Inserir Produto</button>
         </div>
 
 
+        <img className='adicionar' src='./assets/images/mais.png' height={350} alt=''/>
 
 
 
