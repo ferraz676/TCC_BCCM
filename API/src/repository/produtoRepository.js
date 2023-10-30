@@ -4,16 +4,18 @@ import con from "./connection.js";
 export async function inserir(produto) {
   let comando = `
       insert into tb_produto (nm_produto, ds_marca, ds_categoria, vl_preco, bt_disponivel, qtd_disponivel, ds_medida)
-                      values (?, ?, ?, ?, ?, ?)
+                      values (?, ?, ?, ?, ?, ?, ?)
       `
+
+      console.log(produto);
 
   let [resp] = await con.query(comando,
     [
-      produto.nome,
+      produto.produto,
       produto.marca,
       produto.categoria,
       produto.preco,
-      produto.disponivel,
+      true,
       produto.quantidade,
       produto.medida
     ])
@@ -24,16 +26,12 @@ export async function inserir(produto) {
 
 
 export async function enviarImagemProduto(id, imagem){
-  const formData = new formData();
-  formData.append('capa', imagem);
 
+  let sql =
+  `
+    
+  `
 
-  const resposta = await con.put(`/produto/${id}/capa`, formData, {
-    headers: {
-      "Content-Type": "multipart/form-data"
-    },
-  }); 
-  
   return resposta.status;
 }
 

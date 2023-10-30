@@ -23,8 +23,8 @@ create table tb_adm (
 
 create table tb_produto (
 	id_produto int primary key auto_increment,
-	id_categoria int not null,
 	nm_produto varchar(200) not null,
+	ds_categoria varchar(200) not null,
 	ds_marca varchar(200) not null,
 	vl_preco decimal not null,
 	bt_disponivel boolean not null,

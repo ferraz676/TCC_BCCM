@@ -174,12 +174,77 @@
 
     .bt-verd{
     background-color: #02FF1B;
+    color: #ffff;
+    width: 250px;
+    height: 25px;
+    font-size: 15px;
     }
 
 
+    .conteudo{
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 50px;
+        margin-left: -420px;
+        margin-right: 0px;
+    }
+
+.formas{
+    border: solid black 1px;
+    width: 300px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 8px;
+    border-radius: 10px;
+}
+
+.part-2{
+    display: flex;
+    flex-direction: column;
+    margin-left: 200px;
+    border: solid black 1px;
+    width: 400px;
+    align-items: center;
+    height: 500px;
+    margin-top: 49px;
+
+}
 
 
 
+.card{
+width: 40px;
+margin-right: 10px;
+}
+
+.card-d{
+    width: 40px;
+    margin-right: 10px;
+}
+
+.pix{
+    width: 40px;
+    margin-right: 10px;
+}
+
+.bole{
+    width: 40px;
+    margin-right: 10px;
+}
+
+.pagm{
+    margin-top: 8px;
+}
+
+
+.part-2 > h1{
+display: flex;
+width: 100%;
+font-family: italic;
+align-items: center;
+justify-content: center;
+}
 
 
 
