@@ -25,7 +25,7 @@ import DesempenhoVendas from './pages/desempenhoVendas';
 import Creatina from './pages/creatina'
 import Anabolizante from './pages/anabolizante';
 import Multivitaminico from './pages/multivitaminico';
-
+import Histopedido from './pages/histopedido';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -55,7 +55,7 @@ root.render(
       <Route path= '/creatina' element={<Creatina/>} />
       <Route path= '/anabolizante' element={<Anabolizante/>} />
       <Route path= '/multivitaminico' element={<Multivitaminico/>} />
-
+      <Route path= '/histopedido' element={<Histopedido/>} />
 
       </Routes>
     </BrowserRouter>
