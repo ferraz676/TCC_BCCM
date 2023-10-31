@@ -97,29 +97,88 @@ height: 30px;
     margin: 0 auto;
     border-collapse: collapse;
     text-align: left;
-    display: flex;
-    flex-direction: column;
+    display: table;
 }
 
 /* Estilos para as células de cabeçalho da tabela */
 .tabela th {
-    background-color: #3498db;
-    color: white;
+    border: solid black 1px;
+    color: black;
     font-weight: bold;
-    padding: 10px;
-    border: 1px solid #ccc;
+    padding: 9px;
+    
+    
 }
 
 /* Estilos para as células de dados da tabela */
 .tabela td {
     padding: 10px;
-    border: 1px solid #ccc;
+    border: solid black 1px;
 }
 
 /* Estilize linhas alternadas, por exemplo, com uma cor de fundo diferente */
 .tabela tbody tr:nth-child(odd) {
-    background-color: #f2f2f2;
+    border: solid black 1px;
 }
+
+
+.sac{
+    display: flex;
+    
+    align-items: center;
+ 
+}
+
+.sac img{
+display: flex;
+height: 25px;
+margin-right: 10px;
+}
+
+.ca{
+    display: flex;
+    
+    align-items: center;
+ 
+}
+
+.ca img{
+display: flex;
+height: 25px;
+margin-right: 10px;
+
+
+
+
+
+}
+
+
+
+.ca1{
+    display: flex;
+    
+    align-items: center;
+ 
+}
+
+.ca1 img{
+display: flex;
+height: 25px;
+margin-right: 10px;
+
+
+
+
+
+}
+
+
+
+
+
+
+
 
 }
 

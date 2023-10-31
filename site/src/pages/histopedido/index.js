@@ -37,31 +37,44 @@ export default function histopedido() {
       <table class="tabela">
         <thead>
             <tr>
-                <th>pedida</th>
+                <th>pedido</th>
                 <th>realizado em</th>
                 <th>cliente</th>
-                <th></th>
-                <th>Email</th>
-                <th>Telefone</th>
+                <th>tipo</th>
+                <th>pagamento</th>
+                <th>situação</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>João</td>
-                <td>25</td>
-                <td>Engenheiro</td>
-                <td>São Paulo</td>
-                <td>joao@email.com</td>
-                <td>(11) 1234-5678</td>
+                <td>011</td>
+                <td>01/03/2023</td>
+                <td>Matheus Ferraz</td>
+                <td className='sac'><img src='./assets/images/sacola.png' alt="" /> Retirada  </td>
+                <td >Pix</td>
+                <td>entregue</td>
             </tr>
             <tr>
-                <td>Maria</td>
-                <td>30</td>
-                <td>Médica</td>
-                <td>Rio de Janeiro</td>
-                <td>maria@email.com</td>
-                <td>(21) 9876-5432</td>
+                <td>012</td>
+                <td>05/03/2023</td>
+                <td>Caio Guilherme</td>
+                <td className='ca'> <img src='./assets/images/ca.png' alt="" /> entrega </td>
+                <td>Pix</td>
+                <td>Entregue</td>
             </tr>
+
+
+            <tr>
+            <td>014</td>
+                <td>10/03/2023</td>
+                <td>Breno Correia</td>
+                <td className='ca1'><img src='./assets/images/saco1.png' alt="" /> Retirada</td>
+                <td>Débito</td>
+                <td>Cancelado</td>
+
+
+            </tr>
+
         </tbody>
     </table>
       
