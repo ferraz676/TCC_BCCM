@@ -8,7 +8,7 @@ import Rodape from '../../components/rodape/rodape.js'
 export default function Pagamento() {
 
   return (
-    <div className='pagina-pagamento'>
+    <div className='pagina-pagamento2'>
       <Cabecalho/>
 
     
@@ -16,7 +16,7 @@ export default function Pagamento() {
         <div className='cds'>
            <div>
 
-            <h1 className='titulo'>1.Identificação</h1>
+            <h1 className='titulo'>1.Identificação <img className='verificado' src='/assets/images/verificado.png' alt=''/> </h1>
               <hr/>
             </div>
 
@@ -27,7 +27,7 @@ export default function Pagamento() {
             </div>
 
             <div className='bt1'>
-           <input type='text' placeholder=''/>
+           <p className='nom'>Jailton Neves</p>
             </div>
 
             <div className='prf'>
@@ -35,7 +35,7 @@ export default function Pagamento() {
             </div>
             
             <div className='bt1'>
-           <input type='text' placeholder=''/>
+           <p className='nom'>jailtonneves@hotmail.com</p>
             </div>
 
           <div className='endereco'>
@@ -48,21 +48,9 @@ export default function Pagamento() {
 São Paulo, SP </p>
         </div>
 
-          <div className='ou'>
-            <h2>ou</h2>
-          </div>
-
-          <div className='cep'>
-            <h2>Insira seu CEP para o Frete</h2>
-          </div>
-
-          <div className='bt2'>
-           <input type='text' placeholder=''/>
-           <button className='calc'>Calcular</button>
-            </div>
 
             <div className='opcao'>
-              <h2>Escolha a melhor opção de entrega</h2>
+              <h2>Opção de entrega</h2>
             </div>
 
             <div className='bloco2'>
@@ -75,19 +63,7 @@ São Paulo, SP </p>
             </div>
 
            
-          <div className='inf'>
-            <p>Informamos que a sua encomenda poderá ficar aguardando retirada em uma agência mais próxima caso o seu endereço tenha restrição de entrega ou seja de difícil acesso.</p>
-          </div>
-
-          <div className='prazo'>
-          <p>*Prazo de entrega após postagem da encomenda.
-</p>
-          </div>
-
-          <div className='pag'>
-            <button className='bt-verd'>Ir para o pagamento</button>
-          </div>
-
+         
           </div>
 
           <div className='part-2'>
