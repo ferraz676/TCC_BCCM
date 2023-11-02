@@ -1,7 +1,7 @@
 import con from "./connection.js";
 
 
-export async function inserir(cliente) {
+export async function inserirCliente(cliente) {
   let comando = `
       insert into tb_cliente (nm_cliente, ds_telefone, ds_cpf, ds_email, ds_senha, ds_genero, ds_fixo, dt_nascimento)
                       values (?, ?, ?, ?, ?, ?, ?, ?)
@@ -23,7 +23,7 @@ export async function inserir(cliente) {
   return cliente;
 }
 
-export async  function consultar(nome) {
+export async  function consultarCliente(nome) {
   let comando = `
       select id_cliente       as id,
              nm_cliente       as nome,
@@ -43,7 +43,7 @@ export async  function consultar(nome) {
 }
 
 
-export async function alterar(id, cliente) {
+export async function alterarCliente(id, cliente) {
   let comando = `
       update tb_cliente
          set nm_cliente    = ?,
@@ -73,7 +73,7 @@ export async function alterar(id, cliente) {
   return resp.affectedRows;
 }
 
-export async function deletar(id) {
+export async function deletarCliente(id) {
   let comando = `
       delete from tb_cliente
             where id_cliente = ?

@@ -52,7 +52,7 @@ endpoints.put("/produto/:id/capa", upload.single("capa"), async (req, resp) => {
 
     resp.status(204).send();
   } catch (err) {
-    resp.status(400).send({
+    resp.status(500).send({
       erro: err.message,
     });
   }

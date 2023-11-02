@@ -1,4 +1,4 @@
-import {consultar, inserir,alterar,deletar, Login, loginCliente} from '../repository/clienteRepository.js';
+import {consultarCliente, inserirCliente,alterarCliente,deletarCliente, loginCliente} from '../repository/clienteRepository.js';
 
 import { Router } from 'express';
 const endpoints = Router();
@@ -9,7 +9,7 @@ const endpoints = Router();
 
 endpoints.get('/cliente', async (req, resp) => {
     try {
-      let r = await consultar();
+      let r = await consultarCliente();
       resp.send(r);
     }
     catch (err) {
@@ -20,7 +20,7 @@ endpoints.get('/cliente', async (req, resp) => {
 endpoints.post('/cliente/cadastro', async (req, resp) => {
   try {
     let tcc = req.body;
-    let r = await inserir(tcc);
+    let r = await inserirCliente(tcc);
     resp.send(r);
   }
   catch (err) {
@@ -46,7 +46,7 @@ endpoints.put('/cliente/:id', async (req, resp) => {
   try {
     let id = req.params.id;
     let tcc = req.body;
-    let r = await alterar(id, tcc);
+    let r = await alterarCliente(id, tcc);
 
     resp.send();
   }
@@ -59,7 +59,7 @@ endpoints.put('/cliente/:id', async (req, resp) => {
 endpoints.delete('/cliente/:id', async (req, resp) => {
   try {
     let id = req.params.id;
-    let r = await deletar(id);
+    let r = await deletarCliente(id);
     resp.send();
   }
   catch (err) {
