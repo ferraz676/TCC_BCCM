@@ -42,7 +42,7 @@ root.render(
       <Route path='/' element={<Home/>} />
       <Route path='/InsercaoProduto' element={<InsercaoProduto/>} />
       <Route path='/endereco' element={<Endereco/>} />
-      <Route path='/Login' element={<Login/>} />
+      <Route path='/login' element={<Login/>} />
       <Route path='/ConsultaProduto' element={<ConsultaProduto/>} />
       <Route path= '/cadastro' element={<Cadastro/>} />
       <Route path= '/Whey' element={<Whey/>} />

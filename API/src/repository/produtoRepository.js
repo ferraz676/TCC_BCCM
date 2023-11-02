@@ -15,7 +15,6 @@ export async function inserir(produto) {
       produto.marca,
       produto.categoria,
       produto.preco,
-      true,
       produto.quantidade,
       produto.medida
     ])

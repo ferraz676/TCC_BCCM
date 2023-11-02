@@ -42,27 +42,6 @@ export async  function consultar(nome) {
   return dados;
 }
 
-export async  function Login(email,senha) {
-  let comando = `
-      select id_cliente       as id,
-             nm_cliente       as nome,
-             ds_telefone      as telefone,
-             ds_cpf           as cpf,
-             ds_email         as email,
-             ds_senha         as senha,
-             ds_genero        as genero,
-             ds_fixo          as fixo,
-             dt_nascimento    as nascimento
-        from tb_cliente
-       where ds_email = ?
-         and ds_senha = ?
-  `
-
-  let [dados] = await con.query(comando, [email,senha])
-  return dados;
-}
-
-
 
 export async function alterar(id, cliente) {
   let comando = `
@@ -102,4 +81,19 @@ export async function deletar(id) {
 
   let [resp] = await con.query(comando, [id]);
   return resp.affectedRows;
+}
+
+
+
+export async  function loginCliente(email,senha) {
+  let comando = `
+      select ds_email         as email,
+             ds_senha         as senha
+        from tb_cliente
+       where ds_email = ?
+         and ds_senha = ?
+  `
+
+  let [dados] = await con.query(comando, [email,senha])
+  return dados;
 }

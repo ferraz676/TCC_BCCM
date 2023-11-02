@@ -9,7 +9,7 @@ export default function Cabecalho() {
           </div>
 
       <div className='mid'>
-            <a href='../../pages/Home'><img className='logo' src='/assets/images/logo.png' height={200} alt=''/></a>
+            <a href='../../'><img className='logo' src='/assets/images/logo.png' height={200} alt=''/></a>
 
             
         <div className='inpt'>
@@ -19,7 +19,7 @@ export default function Cabecalho() {
 
         <div className='profile'>
             <img src='/assets/images/perfil.png' height={50} alt=''/>
-            <p><strong><a href='../../pages/cadastro'>Cadastre-se</a></strong> ou Faça <strong> <a href='../../pages/login'>Login</a></strong></p>
+            <p><strong><a href='../../cadastro'>Cadastre-se</a></strong> ou Faça <strong> <a href='../../login'>Login</a></strong></p>
 
             <a href='../../pages/carrinho'><img className='vrum-vrum' src='/assets/images/carrinho.png' height={50} alt=''/></a>
 

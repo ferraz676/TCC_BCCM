@@ -1,9 +1,4 @@
-import {
-  consultar,
-  inserir,
-  alterar,
-  deletar,
-} from "../repository/produtoRepository.js";
+import {consultar, inserir, alterar, deletar} from "../repository/produtoRepository.js";
 
 import { Router } from "express";
 import multer from 'multer';

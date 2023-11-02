@@ -1,4 +1,4 @@
-import {consultar, inserir,alterar,deletar, Login} from '../repository/clienteRepository.js';
+import {consultar, inserir,alterar,deletar, Login, loginCliente} from '../repository/clienteRepository.js';
 
 import { Router } from 'express';
 const endpoints = Router();
@@ -31,7 +31,7 @@ endpoints.post('/cliente/cadastro', async (req, resp) => {
 endpoints.post('/cliente/login', async (req, resp) => {
   try {
     let tcc = req.body;
-    let r = await Login(tcc.email,tcc.senha);
+    let r = await loginCliente(tcc.email,tcc.senha);
     if(r.length != 1){
       throw new Error('Usuário ou Senha incorretos!')
     }

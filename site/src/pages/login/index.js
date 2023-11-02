@@ -7,26 +7,23 @@ import { API_URL } from '../../constants.js';
 
 export default function Login() {
 
-  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [erro, setErro] = useState('');
 
-  async function entrar(event) {
-      event.preventDefault();
+  const navigate = useNavigate();
 
-          try {
-              const r = await axios.post(API_URL + '/cliente/login', {senha: senha, email: email});
-              console.log(r);
-              alert('Entrou com Sucesso :)');
-              navigate('../Home');
-  
-          } catch (err) {
-            if(err.response)
-            {
-              alert(err.response.data)
-            } 
-          }
+  async function entrarClick(event) {
+      const r = await axios.get(API_URL + '/cliente/login', {
+        email:email,
+        senha:senha
+      });
+      if(r.status === 500){
+        setErro(r.data.erro);
+      }
+      else{
+        navigate('/')
+      }
 
 
   }
@@ -49,6 +46,9 @@ export default function Login() {
       <div className='mid'>
         <div className='blocao'>
 
+        <div>
+          {erro}
+        </div>
         
       <div className='l1'>
       <img src='/assets/images/perfil2.png' height={60} alt='' />
@@ -69,7 +69,7 @@ export default function Login() {
           </div>
           
             <div className='last'>
-              <button onClick={entrar}>LOGIN</button>
+              <button onClick={entrarClick}>LOGIN</button>
               <p>Não tem uma conta?</p>
               <a href='../cadastro'>Cadastre-se</a>
             </div>
