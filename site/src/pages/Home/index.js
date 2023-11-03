@@ -30,25 +30,23 @@ function Home() {
                     <img src='/assets/images/code.png' height={40} alt=''/>
                     <p>ESCANEIE NOSSO QR CODE</p>
                     </div>
-                                   
+
                     </div>
 
-                    <img className='pessoas'src='/assets/images/3pessoas.png'/>
-
+                    <img className='pessoas' src='/assets/images/3pessoas.png' alt=''/>
                 </div>
-
 
                 <h1 className='escolha'>ESCOLHA O QUE VOCÊ DESEJA</h1>
               <div className='roleta'>
                 <div className='produtos'>
                   
-                  <a className='creatina'> <img className='crea'src='/assets/images/crea.png'/></a>
+                  <a href='../creatina' className='creatina'> <img className='crea'src='/assets/images/creatina.png' alt=''/></a>
                  
-                  <a className='whey'><img className='wheyzin'src='/assets/images/wheyzin.png'/></a>
-                  <a className='multivitaminico'><img className='crea'src='/assets/images/multivitaminico.png'/></a>
-                  <a className='barrinhas'><img className='crea'src='/assets/images/barra.png'/></a>
-                  <h2></h2>
-                  <a className='anabolizantes'><img className='crea'src='/assets/images/bomba.png'/></a>
+                  <a href='../creatina' className='whey'><img className='wheyzin'src='/assets/images/wheyzin.png' alt=''/></a>
+                  <a href='../creatina' className='multivitaminico'><img className='crea'src='/assets/images/multivitaminico.png' alt=''/></a>
+                  <a href='../creatina' className='barrinhas'><img className='crea'src='/assets/images/barra.png' alt=''/></a>
+                  
+                  <a href='../creatina' className='anabolizantes'><img className='crea'src='/assets/images/bomba.png' alt=''/></a>
                 </div>
 
                 <div className='nms'>
@@ -74,8 +72,8 @@ function Home() {
                 </div>
 
                 <div className='images'>
-                  <img src='/assets/images/frete.png'/>
-                  <img className='cash' src='/assets/images/cash.png'/>
+                  <img src='/assets/images/frete.png' alt=''/>
+                  <img className='cash' src='/assets/images/cash.png' alt=''/>
                   </div>
                   </div>
 
@@ -89,7 +87,7 @@ function Home() {
 
                     <div className='sub-2'>
                           <div className='sibam'>
-                          <img className='cbum'src='/assets/images/sibam.png'/>
+                          <img className='cbum'src='/assets/images/sibam.png' alt=''/>
                           <p className='sub-t2'>Ícones do fisiculturismo (Ramon Dino e Chris Bumstead)</p>
                           </div>
 
@@ -108,7 +106,7 @@ function Home() {
                       <p className='text3'><span className='p'>E</span> pensando em nossos clientes que sonham em entrar para o mundo do fisiculturismo implementamos uma linha de esteróides anabolizantes, a fim de potencializar seus ganhos e colocarem o “Shape” tão sonhado.</p>
                       </div>
 
-                      <img className='math'src='/assets/images/math.png'/>
+                      <img className='math'src='/assets/images/math.png' alt=''/>
 
                   </div>
 

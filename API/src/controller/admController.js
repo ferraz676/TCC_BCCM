@@ -1,5 +1,4 @@
-import {consultarAdm, inserirAdm} from '../repository/admRepository.js';
-
+import {loginAdm} from '../repository/admRepository.js';
 import { Router } from 'express';
 const endpoints = Router();
 
@@ -7,25 +6,21 @@ const endpoints = Router();
 
 
 
-endpoints.get('/adm/consulta', async (req, resp) => {
+endpoints.post('/adm/login', async (req, resp) => {
     try {
-      let r = await consultarAdm();
-      resp.send(r);
+      const {email, senha} = req.body;
+      const resposta = await loginAdm(email, senha);
+
+      if(!resposta){
+        throw new Error("Credenciais Inválidas!")
+      }
+      resp.send(resposta)
     }
     catch (err) {
-      resp.status(500).send({ erro: err.message });
+      resp.status(401).send({ 
+        erro: err.message 
+      }); 
     }
   })
-
-endpoints.post('/adm/cadastro', async (req, resp) => {
-  try {
-    let tcc = req.body;
-    let r = await inserirAdm(tcc);
-    resp.send(r);
-  }
-  catch (err) {
-    resp.status(500).send({ erro: err.message });
-  }
-})
 
 export default endpoints;

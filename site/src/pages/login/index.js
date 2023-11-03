@@ -2,8 +2,9 @@ import './index.scss';
 import 'react-toastify/dist/ReactToastify.css';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import { API_URL } from '../../constants.js';
+import {loginAdm} from '../../api/admApi.js';
+import storage from 'local-storage';
+
 
 export default function Login() {
 
@@ -13,17 +14,18 @@ export default function Login() {
 
   const navigate = useNavigate();
 
-  async function entrarClick(event) {
-      const r = await axios.get(API_URL + '/cliente/login', {
-        email:email,
-        senha:senha
-      });
-      if(r.status === 500){
-        setErro(r.data.erro);
+
+  async function entrarClick() {
+    try{
+      const r = await loginAdm(email, senha);
+
+      navigate('/teladm');
+
+    } catch (err){
+      if(err.response.status === 404){
+        setErro(err.response.data.erro);
       }
-      else{
-        navigate('/')
-      }
+    }
 
 
   }

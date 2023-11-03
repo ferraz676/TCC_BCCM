@@ -1,31 +1,14 @@
 import con from "./connection.js";
 
+export async function loginAdm(email, senha) {
 
-export async function inserirAdm(adm) {
-  let comando = `
-      insert into tb_adm (ds_email, ds_senha)
-                      values (?, ?)
-      `
-
-  let [resp] = await con.query(comando,
-    [
-      adm.email,
-      adm.senha
-    ])
-  
-  adm.id = resp.insertId;
-  return adm;
-}
-
-export async  function consultarAdm(adm) {
-  let comando = `
-      select ds_email      as email,
-             ds_senha      as senha
+  const comando = `
+      select ds_email      email,
+             ds_senha      senha
         from tb_adm
-        where ds_email like  ?
-          and ds_senha like ?
-  `
+      where ds_email    =   ?
+        and ds_senha    =   ?    `
 
-  let [dados] = await con.query(comando)
-  return dados;
+  const [dados] = await con.query(comando, [email, senha])
+  return dados[0];
 }

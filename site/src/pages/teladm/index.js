@@ -1,38 +1,7 @@
 import './index.scss';
-import Cabecalho from '../../components/cabecalho/cabecalho.js'
-import { API_URL } from '../../constants.js';
-import 'react-toastify/dist/ReactToastify.css';
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import Cabecalho from '../../components/cabecalho/cabecalho.js';
 
 export default function Teladm() {
-
-  const navigate = useNavigate();
-  const [email, setEmail] = useState('');
-  const [senha, setSenha] = useState('');
-  const [erro, setErro] = useState('');
-
-  async function entrar(event) {
-      event.preventDefault();
-
-          try {
-              const r = await axios.post(API_URL + '/cliente/login', {senha: senha, email: email});
-              console.log(r);
-              alert('Entrou com Sucesso :)');
-              navigate('../Home');
-  
-          } catch (err) {
-            if(err.response)
-            {
-              alert(err.response.data)
-            } 
-          }
-
-
-  }
-
-
 
 
     return (
