@@ -39,10 +39,10 @@ root.render(
       <Route path= '/entregaPedido' element={<EntregaPedido/>} />
        <Route path='/Produtos' element={<Produtos/>}/>
        <Route path='/produto' element={<Produto/>}/>
-      <Route path='/' element={<Home/>} />
+      <Route path='/Home' element={<Home/>} />
       <Route path='/InsercaoProduto' element={<InsercaoProduto/>} />
       <Route path='/endereco' element={<Endereco/>} />
-      <Route path='/login' element={<Login/>} />
+      <Route path='/' element={<Login/>} />
       <Route path='/ConsultaProduto' element={<ConsultaProduto/>} />
       <Route path= '/cadastro' element={<Cadastro/>} />
       <Route path= '/Whey' element={<Whey/>} />

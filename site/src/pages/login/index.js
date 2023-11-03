@@ -1,10 +1,9 @@
 import './index.scss';
 import 'react-toastify/dist/ReactToastify.css';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {loginAdm} from '../../api/admApi.js';
 import storage from 'local-storage';
-
+import {loginAdm} from '../../api/admApi.js';
 
 export default function Login() {
 
@@ -14,12 +13,16 @@ export default function Login() {
 
   const navigate = useNavigate();
 
+  useEffect(() => {
+    if(storage('usuario-logado'))
+      navigate('/Home')
+    }, []);
 
   async function entrarClick() {
     try{
       const r = await loginAdm(email, senha);
 
-      navigate('/teladm');
+      navigate('/Home');
 
     } catch (err){
       if(err.response.status === 404){
@@ -29,6 +32,7 @@ export default function Login() {
 
 
   }
+
 
   return (
     <div className='pagina-login'>
@@ -79,5 +83,4 @@ export default function Login() {
       </div>
     </div>
   );
-
 }

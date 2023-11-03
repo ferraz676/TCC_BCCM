@@ -1,13 +1,31 @@
 import './index.scss';
-import Cabecalho from '../../components/cabecalho/cabecalho.js';
+import CabecalhoADM from '../../components/cabADM/cabecalho.js';
+import storage from 'local-storage';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 export default function Teladm() {
 
+    const navigate = useNavigate();
+
+
+  useEffect(() => {
+    if (!storage('adm-logado')) {
+      navigate('/');
+    }
+  }, [])
+
+    function sairClick(){
+        storage.remove('adm-logado');
+        navigate('/login');
+    }
 
     return (
 
+    <div className='pagina-adm'>    
+
         <div classname='a'>
-            <Cabecalho />
+            <CabecalhoADM />
 
             <div className='ti'>
 
@@ -76,16 +94,12 @@ export default function Teladm() {
 
             </div>
 
+            <button onClick={sairClick} className='btn30'>Sair</button>
+
+
+
         </div>
 
-
-
-
-
-
-
-
-
-
+    </div>
     )
 }

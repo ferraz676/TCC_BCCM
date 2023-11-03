@@ -1,6 +1,27 @@
 import './cabecalho.scss'
+import { useState, useEffect } from 'react'
+import storage from 'local-storage';
+import { useNavigate } from 'react-router-dom'
+
 
 export default function Cabecalho() {
+
+    
+    const [usuario, setUsuario] =  useState('');
+    const navigate = useNavigate();
+
+    
+    useEffect(() => {
+      if(!storage('usuario-logado')) {
+        navigate('/')
+      } 
+      else{
+        const usuarioLogado = storage('usuario-logado');
+        setUsuario(usuarioLogado.adm);
+      }
+    }, [])
+
+
 
     return(
         <main className='cab'>
@@ -9,7 +30,7 @@ export default function Cabecalho() {
           </div>
 
       <div className='mid'>
-            <a href='../../'><img className='logo' src='/assets/images/logo.png' height={200} alt=''/></a>
+            <a href='../../pages/Home'><img className='logo' src='/assets/images/logo.png' height={200} alt=''/></a>
 
             
         <div className='inpt'>
@@ -19,7 +40,7 @@ export default function Cabecalho() {
 
         <div className='profile'>
             <img src='/assets/images/perfil.png' height={50} alt=''/>
-            <p><strong><a href='../../cadastro'>Cadastre-se</a></strong> ou Faça <strong> <a href='../../login'>Login</a></strong></p>
+            <p>Seja Bem-Vindo, <strong> {usuario}!</strong></p>
 
             <a href='../../pages/carrinho'><img className='vrum-vrum' src='/assets/images/carrinho.png' height={50} alt=''/></a>
 

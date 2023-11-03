@@ -1,6 +1,25 @@
 import './cabecalho.scss'
+import { useState, useEffect } from 'react'
+import storage from 'local-storage';
+import { useNavigate } from 'react-router-dom'
 
 export default function CabecalhoADM() {
+
+  const [usuario, setUsuario] =  useState('');
+  const navigate = useNavigate();
+
+  
+  useEffect(() => {
+    if(!storage('usuario-logado')) {
+      navigate('/')
+    } 
+    else{
+      const usuarioLogado = storage('usuario-logado');
+      setUsuario(usuarioLogado.adm);
+    }
+  }, [])
+
+
 
     return(
         <main className='cabADM'>
@@ -19,7 +38,7 @@ export default function CabecalhoADM() {
 
         <div className='profile'>
             <img src='/assets/images/perfil.png' height={50} alt=''/>
-            <p><strong><a href=''>Cadastre-se</a></strong> ou Faça <strong> <a href=''>Login</a></strong></p>
+            <p>Seja Bem-vindo, Adm <strong>{usuario}!</strong></p>
 
             <a href=''><img className='vrum-vrum' src='/assets/images/carrinho.png' height={50} alt=''/></a>
 
