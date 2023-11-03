@@ -11,7 +11,7 @@ export default function Cabecalho() {
     const navigate = useNavigate();
 
     
-    useEffect(() => {
+/*     useEffect(() => {
       if(!storage('usuario-logado')) {
         navigate('/')
       } 
@@ -19,7 +19,7 @@ export default function Cabecalho() {
         const usuarioLogado = storage('usuario-logado');
         setUsuario(usuarioLogado.adm);
       }
-    }, [])
+    }, []) */
 
 
 

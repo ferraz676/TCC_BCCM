@@ -10,12 +10,12 @@ export default function CabecalhoADM() {
 
   
   useEffect(() => {
-    if(!storage('usuario-logado')) {
+    if(!storage('adm-logado')) {
       navigate('/')
     } 
     else{
-      const usuarioLogado = storage('usuario-logado');
-      setUsuario(usuarioLogado.adm);
+      const usuarioLogado = storage('adm-logado');
+      setUsuario(usuarioLogado.email);
     }
   }, [])
 

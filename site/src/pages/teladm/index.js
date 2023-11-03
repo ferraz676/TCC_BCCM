@@ -8,13 +8,6 @@ export default function Teladm() {
 
     const navigate = useNavigate();
 
-
-  useEffect(() => {
-    if (!storage('adm-logado')) {
-      navigate('/');
-    }
-  })
-
     function sairClick(){
         storage.remove('adm-logado');
         navigate('/login');
