@@ -1,38 +1,35 @@
 import './index.scss';
 import 'react-toastify/dist/ReactToastify.css';
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import storage from 'local-storage';
+import { Navigate, useNavigate } from 'react-router-dom';
+import storage, { get, set } from 'local-storage';
 import {loginAdm} from '../../api/admApi.js';
 
 export default function Login() {
+
+  const navigate = useNavigate();
 
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [erro, setErro] = useState('');
 
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if(storage('usuario-logado'))
-      navigate('/Home')
-    }, []);
-
   async function entrarClick() {
     try{
       const r = await loginAdm(email, senha);
+      storage('adm-logado', r)
 
-      navigate('/Home');
+      navigate('/teladm');
 
     } catch (err){
       if(err.response.status === 404){
         setErro(err.response.data.erro);
+        
       }
+      console.log(err)
     }
 
 
   }
-
 
   return (
     <div className='pagina-login'>
