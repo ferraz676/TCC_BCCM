@@ -78,4 +78,6 @@ CREATE TABLE tb_pedido_item (
 
 select * from tb_cliente;
 
+insert into tb_adm(ds_email, ds_senha)
+values("Matheus", "1234");
 
