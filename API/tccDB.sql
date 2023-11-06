@@ -22,10 +22,12 @@ create table tb_adm (
 
 create table tb_endereco (
 	id_endereco int primary key auto_increment not null,
+    id_cliente int not null,
 	ds_cep varchar (200) not null,
 	ds_endereco varchar (200) not null,
 	nr_endereco varchar (200) not null,
-	ds_bairro varchar (200) not null
+	ds_bairro varchar (200) not null,
+    FOREIGN KEY (id_cliente) REFERENCES tb_cliente(id_cliente)
 );
 
 CREATE TABLE tb_produto (
@@ -73,5 +75,7 @@ CREATE TABLE tb_pedido_item (
     FOREIGN KEY (id_produto) REFERENCES tb_produto(id_produto)
 );
 
+
+select * from tb_cliente;
 
 

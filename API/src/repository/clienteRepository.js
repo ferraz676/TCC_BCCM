@@ -87,13 +87,14 @@ export async function deletarCliente(id) {
 
 export async  function loginCliente(email,senha) {
   let comando = `
-      select ds_email         as email,
+      select nm_cliente       as cliente,
+             ds_email         as email,
              ds_senha         as senha
         from tb_cliente
-       where ds_email = ?
-         and ds_senha = ?
+       where  ds_email = ?
+          and ds_senha = ?
   `
 
-  let [dados] = await con.query(comando, [email,senha])
-  return dados;
+  const [dados] = await con.query(comando, [email,senha])
+  return dados[0];
 }

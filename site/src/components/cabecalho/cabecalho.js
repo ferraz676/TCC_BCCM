@@ -7,22 +7,19 @@ import { useNavigate, Link } from 'react-router-dom'
 export default function Cabecalho() {
 
     
-    const [usuario, setUsuario] =  useState('');
+    const [cliente, setCliente] =  useState('');
     const navigate = useNavigate();
 
-    
-/*     useEffect(() => {
-      if(!storage('usuario-logado')) {
-        navigate('/')
-      } 
-      else{
-        const usuarioLogado = storage('usuario-logado');
-        setUsuario(usuarioLogado.adm);
+    useEffect(() => {
+        if(storage("cliente-logado")){
+          const clienteLogado = storage('cliente-logado');
+          console.log(clienteLogado);
+          setCliente(clienteLogado.cliente);
+          navigate('/')          
+        }
       }
-    }, []) */
-
-
-
+    , [])
+    
     return(
         <main className='cab'>
           <div className='first'>
@@ -40,7 +37,18 @@ export default function Cabecalho() {
 
         <div className='profile'>
             <img src='/assets/images/perfil.png' height={50} alt=''/>
-            <p>Bem-Vindo!  <strong><Link to='/login'> Login </Link> </strong> ou <strong> <Link to='/cadastro'> Cadastre-se </Link> </strong> </p>
+            <p>Bem-Vindo!</p>
+            {
+              cliente ?
+               <h1>Bem vindo, {cliente}</h1>
+               
+               :
+               
+               <div className='loglog'>
+                <strong><Link to='/login'> Login </Link> </strong> ou 
+                <strong> <Link to='/cadastro'> Cadastre-se </Link> </strong> 
+               </div>
+           } 
 
             <a href='../../pages/carrinho'><img className='vrum-vrum' src='/assets/images/carrinho.png' height={50} alt=''/></a>
 

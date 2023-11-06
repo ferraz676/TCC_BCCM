@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import storage from 'local-storage';
 import {loginAdm} from '../../api/admApi.js';
+import { loginCliente } from '../../api/clienteApi.js';
 
 export default function Login() {
 
@@ -17,18 +18,19 @@ export default function Login() {
     try{
       const r = await loginAdm(email, senha);
       storage('adm-logado', r)
-
       navigate('/teladm');
 
     } catch (err){
-      if(err.response.status === 404){
-        setErro(err.response.data.erro);
-        
+
+      try{
+        const q = await loginCliente(email, senha);
+        storage('cliente-logado', q)
+      navigate('/');
+      } catch(err){
+        alert("Credenciais Inválidas!")
       }
-      console.log(err)
+
     }
-
-
   }
 
   return (

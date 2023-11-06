@@ -30,15 +30,18 @@ endpoints.post('/cliente/postar', async (req, resp) => {
 
 endpoints.post('/cliente/login', async (req, resp) => {
   try {
-    let tcc = req.body;
-    let r = await loginCliente(tcc.email,tcc.senha);
-    if(r.length != 1){
-      throw new Error('Usuário ou Senha incorretos!')
+    const {email, senha} = req.body;
+    const resposta = await loginCliente(email, senha);
+
+    if(!resposta){
+      throw new Error("Credenciais Inválidas!")
     }
-    resp.send(r);
+    resp.send(resposta)
   }
   catch (err) {
-    resp.status(500).send(err.message);
+    resp.status(401).send({ 
+      erro: err.message 
+    }); 
   }
 })
 

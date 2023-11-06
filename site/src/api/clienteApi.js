@@ -16,3 +16,13 @@ export async function inserirCliente(cliente, telefone, cpf, email, senha, gener
 
     return resposta.data;
 }
+
+
+export async function loginCliente(email, senha){
+    const r = await axios.post(API_URL + '/cliente/login', {
+        email:email,
+        senha:senha
+    });
+
+    return r.data;
+}

@@ -1,8 +1,13 @@
 import './index.scss';
 import Cabecalho from '../../components/cabecalho/cabecalho';
 import Rodape from '../../components/rodape/rodape';
+import { useState } from 'react';
 
-export default function produto(){
+export default function Produto(){
+
+    let [preco, setPreco] = useState();
+
+    
 
     return(
 <div className='pri'>
