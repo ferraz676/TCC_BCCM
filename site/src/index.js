@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
@@ -31,6 +32,7 @@ import Histopedido from './pages/histopedido';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <ToastContainer/>
     <BrowserRouter>
       <Routes>
 
@@ -39,10 +41,10 @@ root.render(
       <Route path= '/entregaPedido' element={<EntregaPedido/>} />
        <Route path='/Produtos' element={<Produtos/>}/>
        <Route path='/produto' element={<Produto/>}/>
-      <Route path='/Home' element={<Home/>} />
+      <Route path='/' element={<Home/>} />
       <Route path='/InsercaoProduto' element={<InsercaoProduto/>} />
       <Route path='/endereco' element={<Endereco/>} />
-      <Route path='/' element={<Login/>} />
+      <Route path='/login' element={<Login/>} />
       <Route path='/ConsultaProduto' element={<ConsultaProduto/>} />
       <Route path= '/cadastro' element={<Cadastro/>} />
       <Route path= '/Whey' element={<Whey/>} />

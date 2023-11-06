@@ -9,7 +9,7 @@ export async function inserirCliente(cliente) {
 
   let [resp] = await con.query(comando,
     [
-      cliente.nome,
+      cliente.cliente,
       cliente.telefone,
       cliente.cpf,
       cliente.email,

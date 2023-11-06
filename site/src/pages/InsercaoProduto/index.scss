@@ -6,11 +6,18 @@
 .pagina-insercao{
     display: flex;
     flex-direction: column;
+    background-color: #d9d9d9;
+    height: 127vh;
 
 
-    .mid{
+
+    .td{
         display: flex;
         flex-direction: column;
+    }
+    
+    .mid{
+        display: flex;
         background-color: #d9d9d9;
 
         .title{
@@ -18,9 +25,11 @@
             flex-direction: row;
             align-items: center;
             gap: 4vh;
+            padding-bottom: 5vh;
 
             h1{
                 color: #000 ;
+                
             }
         }
     
@@ -29,11 +38,10 @@
             display: flex;
             flex-direction: column;
             border: 2px solid black;
-            height: 68vh;
+            height: 70vh !important;
             width: 170vh;
-            margin-top: 5vh;
             background-color: #fff;
-
+            margin-left: 10vh;
 
             .pt{
                 margin-top: 2vh;
@@ -120,9 +128,13 @@
 
     }
 
-    .tudo{
+    .tudoo{
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #d9d9d9;
+        height: 90vh;
     }
 
 
@@ -132,8 +144,22 @@
         border: 2px solid black;
         padding: 50px;
         left: 20vh;
-
-
+        border-radius: 20px;
 }
+
+    #imagemCapa{
+        visibility: hidden;
+        position: absolute;
+    }
+
+    .imagem-capa{
+        position: relative;
+        width: 300px;
+        width: 300px;
+        bottom:30vh;
+        left: 28vh;
+        border-radius: 10px;
+        border: 2px solid black;
+    }
 
 }

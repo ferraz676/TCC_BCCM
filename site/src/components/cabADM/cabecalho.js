@@ -1,7 +1,7 @@
 import './cabecalho.scss'
 import { useState, useEffect } from 'react'
 import storage from 'local-storage';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 export default function CabecalhoADM() {
 
@@ -28,7 +28,7 @@ export default function CabecalhoADM() {
           </div>
 
       <div className='mid'>
-            <a href='../../pages/Home'><img className='logo' src='/assets/images/logo.png' height={200} alt=''/></a>
+            <Link to='../../pages/Home'><img className='logo' src='/assets/images/logo.png' height={200} alt=''/></Link>
 
             
         <div className='inpt'>
@@ -40,7 +40,6 @@ export default function CabecalhoADM() {
             <img src='/assets/images/perfil.png' height={50} alt=''/>
             <p>Seja Bem-vindo, Adm <strong>{usuario}!</strong></p>
 
-            <a href=''><img className='vrum-vrum' src='/assets/images/carrinho.png' height={50} alt=''/></a>
 
         </div>
       </div>

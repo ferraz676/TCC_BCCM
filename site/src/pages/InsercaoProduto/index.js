@@ -2,116 +2,64 @@ import './index.scss';
 import 'react-toastify/dist/ReactToastify.css';
 import Cabecalho from '../../components/cabecalho/cabecalho.js'
 import { useState } from 'react';
-import axios from 'axios';
-import { API_URL } from '../../constants.js';
+import { cadastrarProduto, enviarImagem} from '../../api/produtoApi.js';
+import { toast } from 'react-toastify';
+
 
 
 export default function InsercaoProduto() {
 
-  const [nome, setNome] = useState('');
+  const [produto, setProduto] = useState('');
   const [marca, setMarca] = useState('');
-  const [preco, setPreco] = useState('');
   const [categoria, setCategoria] = useState('');
+  const [preco, setPreco] = useState('');
   const [quantidade, setQuantidade] = useState('');
   const [medida, setMedida] = useState('');
-  const [listaProdutos, setListaProdutos] = useState([]);
-  const [id, setId] = useState(0);
-  const [erro, setErro] = useState('');
+  const [imagem, setImagem] = useState();
 
-  async function buscarProdutos() {
-    let r = await axios.get(API_URL + '/produto');
-    setListaProdutos(r.data);
+
+  async function salvarProduto() {
+      try{
+        const novoProduto = await cadastrarProduto(produto,marca,categoria,preco,quantidade,medida);
+        const r = await enviarImagem(novoProduto.id, imagem)
+
+
+        toast.dark('Produto Cadastrado com Sucesso!')
+      } catch(err){
+        toast.error(err.response);
+        console.log(err);
+      }
+
   }
 
-
-  function alterarProdutos(item) {
-    setNome(item.nome);
-    setMarca(item.marca);
-    setPreco(item.preco);
-    setQuantidade(item.quantidade);
-    setMedida(item.medida);
-    setId(item.id);
+  function escolherImagem(){
+     document.getElementById('imagemCapa').click();
   }
 
-
-  async function salvarProdutos() {
-    try{  
-      let produto = {
-        produto: nome,
-        marca: marca,
-        categoria: categoria,
-        preco: preco,
-        quantidade: quantidade,
-        medida: medida
-      }
-
-      if (id == 0) {
-        let r = await axios.post(API_URL + '/produto/postar', produto);
-        alert('Produto cadastrado com sucesso!');
-      }
-      else {
-        let r = await axios.put(API_URL + '/produto/' + id, produto);
-        alert('Produto alterado com sucesso!');
-        buscarProdutos();
-        limpar();
-      }
-      
-      console.log('igao');
-        
-    } catch (err) {
-      console.log(err);
-      setErro(err.response.data.erro);  
-    }
-    }
+  function mostrarImagem(){
+    return URL.createObjectURL(imagem);
+ }
   
-    function limpar() {
-      setNome('');
-      setMarca('');
-      setCategoria('');
-      setPreco('');
-      setQuantidade('');
-      setMedida('');
-      setId(0);
-    }
 
-    async function enviarImagemProduto(imagem){
-      const formData = new formData();
-      formData.append('capa', imagem);
-    
-    
-      const resposta = await axios.put(`/produto/${id}/capa`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data"
-        },
-      }); 
-      
-      return resposta.status;
-    }
-    
 
   return (
     <div className='pagina-insercao'>
-      
+  
+      <div className='cab90'>
       <Cabecalho/>
-    
+      </div>
     <div className='mid'>
+    <div className='tudoo'>
 
-
-      <div className='title'>
+    <div className='title'>
         <img src='/assets/images/caixinha.png' height={70} alt=''/>
         <h1>Inserção de Produto</h1>
       </div>
-      
-
-
-
-    <div className='tudo'>
-
 
       <div className='inserir'>
         <div className='pt'>
           <h1>Nome do Produto</h1>
-          <input type='text' value={nome} onChange={e => setNome(e.target.value)}></input>
+          <input type='text' value={produto} onChange={e => setProduto(e.target.value)}></input>
         </div>
 
 
@@ -124,7 +72,7 @@ export default function InsercaoProduto() {
 
         <div className='pts'>
           <h1>Volume Disp.</h1>
-          <input type='text' value={quantidade} onChange={e => setQuantidade(e.target.value)}></input>
+          <input type='number' value={quantidade} onChange={e => setQuantidade(e.target.value)}></input>
         </div>
 
         </div>
@@ -148,27 +96,25 @@ export default function InsercaoProduto() {
           <input type='text' value={medida} onChange={e => setMedida(e.target.value)}></input>
 
           
-        <button onClick={salvarProdutos}>Inserir Produto</button>
+        <button onClick={salvarProduto}>Inserir Produto</button>
         </div>
 
+        <div className='upload-capa' onClick={escolherImagem}>
 
-        <img className='adicionar' src='./assets/images/mais.png' height={350} alt=''/>
+          {imagem &&  
+              <img className='imagem-capa' src={mostrarImagem()} alt=''/>
+          }
 
+          {!imagem && 
+          <img className='adicionar' src='./assets/images/mais.png' height={350} alt='' />
+          }
 
+        <input type='file' id='imagemCapa' onChange={e => setImagem(e.target.files[0])}></input>
 
+        </div>
         </div>
 
       </div>
-
-
-
-
-
-
-
-
-
-
 
     </div>
 

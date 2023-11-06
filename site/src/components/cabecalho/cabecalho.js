@@ -1,7 +1,7 @@
 import './cabecalho.scss'
 import { useState, useEffect } from 'react'
 import storage from 'local-storage';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 
 export default function Cabecalho() {
@@ -26,7 +26,7 @@ export default function Cabecalho() {
     return(
         <main className='cab'>
           <div className='first'>
-            <span><strong>Qualidade aprovada</strong> juntamente com com <strong>preço Justo</strong></span>
+            <span><strong>Qualidade aprovada</strong> juntamente com <strong>preço Justo</strong></span>
           </div>
 
       <div className='mid'>
@@ -40,7 +40,7 @@ export default function Cabecalho() {
 
         <div className='profile'>
             <img src='/assets/images/perfil.png' height={50} alt=''/>
-            <p>Seja Bem-Vindo, <strong> {usuario}!</strong></p>
+            <p>Bem-Vindo!  <strong><Link to='/login'> Login </Link> </strong> ou <strong> <Link to='/cadastro'> Cadastre-se </Link> </strong> </p>
 
             <a href='../../pages/carrinho'><img className='vrum-vrum' src='/assets/images/carrinho.png' height={50} alt=''/></a>
 
@@ -49,15 +49,15 @@ export default function Cabecalho() {
 
 
       <div className='low'>
-        <a href='../../pages/'><img src='/assets/images/barrinhas.png' alt='' height={30}/></a>
+        <Link to = '/creatina'><img src='/assets/images/barrinhas.png' alt='' height={30}/></Link>
         
-        <a href='../../pages/creatina'> Creatina </a>
+        <Link to = '/creatina'> Creatina </Link>
         
-        <a href='../../pages/anabolizante'> Anabolizantes </a>
+        <Link to = '/anabolizante'> Anabolizantes </Link>
         
-        <a href='../../pages/Whey'> Whey Protein </a>
+        <Link to = '/Whey'> Whey Protein </Link>
 
-        <a href='../../pages/multivitaminico'> Vitaminas </a>
+        <Link to = '/multivitaminico'> Vitaminas </Link>
       </div>
 
 

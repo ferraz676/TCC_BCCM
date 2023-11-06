@@ -5,8 +5,6 @@ const endpoints = Router();
 
 
 
-
-
 endpoints.get('/cliente', async (req, resp) => {
     try {
       let r = await consultarCliente();
@@ -17,11 +15,13 @@ endpoints.get('/cliente', async (req, resp) => {
     }
   })
 
-endpoints.post('/cliente/cadastro', async (req, resp) => {
+
+  
+endpoints.post('/cliente/postar', async (req, resp) => {
   try {
-    let tcc = req.body;
-    let r = await inserirCliente(tcc);
-    resp.send(r);
+    let novoCliente = req.body;
+    let cliente = await inserirCliente(novoCliente);
+    resp.send(cliente);
   }
   catch (err) {
     resp.status(500).send({ erro: err.message });

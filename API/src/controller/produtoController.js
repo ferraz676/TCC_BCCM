@@ -7,6 +7,8 @@ const upload = multer({dest: 'storage/imagens-produtos'})
 
 const endpoints = Router();
 
+
+
 endpoints.get("/produto", async (req, resp) => {
   try {
     let nome = req.query.nome;
@@ -20,35 +22,91 @@ endpoints.get("/produto", async (req, resp) => {
   }
 });
 
+
+
+
 endpoints.post("/produto/postar", async (req, resp) => {
   try {
-    let tcc = req.body;
-    let r = await inserir(tcc);
-    resp.send(r);
+    let novoProduto = req.body;
+
+    if(!novoProduto.produto)
+        throw new Error("Nome do Produto Obrigatório!");
+    
+    if(!novoProduto.marca)
+      throw new Error("Marca do Produto Obrigatório!");
+    
+    if(!novoProduto.categoria)
+    throw new Error("Categoria do Produto Obrigatório!");
+    
+    if(!novoProduto.preco)
+    throw new Error("Preço do Produto Obrigatório!");
+    
+     if(!novoProduto.quantidade)
+    throw new Error("Quantidade do Produto Obrigatório!");
+    
+    if(!novoProduto.medida)
+    throw new Error("Medida do Produto Obrigatório!");
+
+    let produto = await inserir(novoProduto);
+    resp.send(produto);
+
   } catch (err) {
-    resp.status(500).send({ erro: err.message });
+    resp.status(400).send({ 
+      erro: err.message
+    });
   }
 });
 
+
+
+
+
 endpoints.put("/produto/:id", async (req, resp) => {
   try {
-    let id = req.params.id;
-    let tcc = req.body;
-    let r = await alterar(id, tcc);
-
-    resp.send();
-  } catch (err) {
-    resp.status(500).send({ erro: err.message });
+    const {id} = req.params;
+    const produto = req.body;
+    
+    if(!produto.produto)
+        throw new Error("Nome do Produto Obrigatório!");
+    
+    if(!produto.marca)
+      throw new Error("Marca do Produto Obrigatório!");
+    
+    if(!produto.categoria)
+    throw new Error("Categoria do Produto Obrigatório!");
+    
+    if(!produto.preco)
+    throw new Error("Preço do Produto Obrigatório!");
+    
+     if(!produto.quantidade)
+    throw new Error("Quantidade do Produto Obrigatório!");
+    
+    if(!produto.medida)
+    throw new Error("Medida do Produto Obrigatório!");
+    
+    const resposta = await alterarProduto(id, produto);
+    if (resposta != 1)
+      throw new Error("Produto não pode ser alterado");
+    else
+      resp.status(204).send
+  } catch (err){
+    resp.status(400).send({
+      erro: err.message
+    })
   }
 });
 
 endpoints.put("/produto/:id/capa", upload.single("capa"), async (req, resp) => {
   try {
+    if(!req.file)
+      throw new Error("A imagem não pode ser salva!");
+    
     const { id } = req.params;
     const imagem = req.file.path;
 
     const resposta = await alterarImagem(imagem, id);
-    if (resposta != 1) throw new Error("A imagem não pode ser salva.");
+    if (resposta != 1) 
+        throw new Error("A imagem não pode ser salva!");
 
     resp.status(204).send();
   } catch (err) {

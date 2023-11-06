@@ -2,14 +2,13 @@ import con from "./connection.js";
 
 
 export async function inserir(produto) {
-  let comando = `
-      insert into tb_produto (nm_produto, ds_marca, ds_categoria, vl_preco, bt_disponivel, qtd_disponivel, ds_medida)
-                      values (?, ?, ?, ?, ?, ?, ?)
+  const comando = 
+      `
+      insert into tb_produto (nm_produto, ds_marca, ds_categoria, vl_preco, qtd_disponivel, ds_medida)
+                      values (?, ?, ?, ?, ?, ?)
       `
 
-      console.log(produto);
-
-  let [resp] = await con.query(comando,
+  const [resp] = await con.query(comando,
     [
       produto.produto,
       produto.marca,
@@ -18,15 +17,14 @@ export async function inserir(produto) {
       produto.quantidade,
       produto.medida
     ])
-  
-  produto.id = resp.insertId;
-  return produto;
+    produto.id = resp.insertId;
+    return produto; 
 }
 
 
 export async function enviarImagemProduto(id, imagem){
 
-  let sql =
+  const comando =
   `
     
   `
@@ -40,14 +38,13 @@ export async function enviarImagemProduto(id, imagem){
 
 export async  function consultar(nome) {
   let comando = `
-     select nm_produto      as nome,
+     select nm_produto      as produto,
             ds_marca        as marca,
             ds_categoria    as categoria,
-            vl_preco        as preco, 
-            bt_disponivel   as disponivel, 
+            vl_preco        as preco,
             qtd_disponivel  as quantidade, 
             ds_medida       as medida,
-        from tb_produto			as ve
+        from tb_produto			
         where nm_produto like  '%%';
   `
 
@@ -65,7 +62,6 @@ export async function alterar(id, produto) {
              ds_categoria   = ?,
              ds_marca       = ?,
              vl_preco       = ?,
-             bt_disponivel  = ?,
              qtd_disponivel = ?,
              ds_medida      = ?,
        where id_produto     = ?
@@ -77,7 +73,6 @@ export async function alterar(id, produto) {
       produto.marca,
       produto.categoria,
       produto.preco,
-      produto.disponivel,
       produto.quantidade,
       produto.medida,
       id

@@ -1,0 +1,28 @@
+import axios from 'axios';
+import { API_URL } from '../constants.js';
+
+export async function cadastrarProduto(produto,marca,categoria,preco,quantidade,medida){
+    const resposta = await axios.post(API_URL + '/produto/postar', {
+
+    produto: produto,
+    marca: marca,
+    categoria: categoria,
+    preco: preco,
+    quantidade: quantidade,
+    medida: medida
+    });
+
+    return resposta.data;
+}
+
+export async function enviarImagem(id, imagem){
+    const formData = new FormData();
+    formData.append('capa', imagem);
+
+    const resposta = await axios.put(`/produto/${id}/capa`, formData, {
+        headers: {
+            "Content-Type": "multipart/form-data"
+        },
+    })
+    return resposta.status;
+}

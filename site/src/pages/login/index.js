@@ -1,8 +1,8 @@
 import './index.scss';
 import 'react-toastify/dist/ReactToastify.css';
-import React, { useEffect, useState } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
-import storage, { get, set } from 'local-storage';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import storage from 'local-storage';
 import {loginAdm} from '../../api/admApi.js';
 
 export default function Login() {

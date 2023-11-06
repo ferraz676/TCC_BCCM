@@ -1,7 +1,7 @@
 import './index.scss';
 import CabecalhoADM from '../../components/cabADM/cabecalho.js';
 import storage, { get } from 'local-storage';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useEffect } from 'react';
 
 export default function Teladm() {
@@ -10,7 +10,7 @@ export default function Teladm() {
 
     function sairClick(){
         storage.remove('adm-logado');
-        navigate('/login');
+        navigate('/home');
     }
 
     return (
@@ -38,20 +38,19 @@ export default function Teladm() {
 
             <div className='sub2'>
 
-                <div className='ss1'>
+                <Link to='/ConsultaProduto' className='ss1'>
                     <img className='ed' src='/assets/images/editar.png' />
                     <p className='a1' >Edição de inventário
                         (Produtos)</p>
-                </div>
+                </Link>
             </div>
 
             <div className='sub3'>
 
-                <div className='ss2'>
+                <Link to='/InsercaoProduto' className='ss2'>
                     <img className='ed1' src='/assets/images/dese.png' />
-                    <p className='ed2'> Inspeção de
-                        Desempenho</p>
-                </div>
+                    <p className='ed2'> Adicionar Produto</p>
+                </Link>
 
             </div>
 
@@ -59,12 +58,12 @@ export default function Teladm() {
 
                 <div className='ss3'>
 
-                    <div className='ed3'>
+                    <Link to='/desempenhoVendas' className='ed3'>
                         <img className='ed4' src='/assets/images/vendas.png' />
                         <p className='ed5'>Inspeção
                             de vendas e lucro</p>
 
-                    </div>
+                    </Link>
 
                 </div>
 
@@ -74,13 +73,13 @@ export default function Teladm() {
 
             <div className='sub5'>
 
-                <div className='ss4'>
+                <Link to='/histopedido' className='ss4'>
                     <img className='ed6' src='/assets/images/histo.png' />
                     <p className='ed7'> Histórico
                         de pedidos</p>
 
 
-                </div>
+                </Link>
 
 
             </div>

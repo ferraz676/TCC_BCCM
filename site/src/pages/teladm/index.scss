@@ -1,5 +1,5 @@
 .pagina-adm{
-
+    
 
 .ti{
     display: flex;
@@ -48,6 +48,7 @@ font-style: italic;
     height: 93px;
     margin-left: 30px;
     margin-top: 10.5px;
+    text-decoration: none;
 }
 
 
@@ -88,7 +89,7 @@ border-radius: 400px;
     height: 93px;
     margin-left: 30px;
     margin-top: 10.5px;
-
+    text-decoration: none;
 }
 
 .ed1{
@@ -126,7 +127,11 @@ margin-left: 21px;
     height: 93px;
     margin-left: 30px;
     margin-top: 10.5px;
+    
 
+    .ed3{
+        text-decoration: none !important;
+    }
 
 }
 
@@ -145,6 +150,7 @@ margin-left: 21px;
     margin-left: 105px;
     margin-top: -45px;
     width: 15vh;
+    
 }
 
 .sub5{
@@ -168,7 +174,7 @@ margin-left: 21px;
     height: 93px;
     margin-left: 30px;
     margin-top: 10.5px;
-
+    text-decoration: none;
 
 }
 
