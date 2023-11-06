@@ -1,6 +1,6 @@
-create database testesMF;
-drop database testesMF;
-use testesMF;
+create database BCCM_Supplements;
+
+use BCCM_Supplements;
 
 create table tb_cliente (
 	id_cliente int primary key auto_increment not null,
@@ -10,7 +10,7 @@ create table tb_cliente (
 	ds_email varchar (200) not null,
 	ds_senha varchar (200) not null, 
 	ds_genero varchar (200) not null,
-	ds_celular varchar (200) not null,
+	ds_fixo varchar (200),
 	dt_nascimento date not null
 );
 
@@ -28,22 +28,15 @@ create table tb_endereco (
 	ds_bairro varchar (200) not null
 );
 
-CREATE TABLE tb_categoria (
-	id_categoria INT primary key auto_increment NOT NULL,
-	nm_categoria varchar(200) not null,
-    img_capa varchar(200) not null
-);
-
 CREATE TABLE tb_produto (
 	id_produto INT primary key auto_increment NOT NULL,
-    id_categoria int not null,
 	ds_categoria varchar(200) not null,
 	nm_produto varchar(200),
 	ds_marca varchar(200),
 	vl_preco decimal,
 	qtd_disponivel integer,
-	ds_medida varchar (200),
-    FOREIGN KEY (id_categoria) REFERENCES tb_categoria(id_categoria)
+	ds_medida varchar (200)
+    
 );
 
 
@@ -79,5 +72,6 @@ CREATE TABLE tb_pedido_item (
     FOREIGN KEY (id_pedido) REFERENCES tb_pedido(id_pedido),
     FOREIGN KEY (id_produto) REFERENCES tb_produto(id_produto)
 );
+
 
 
