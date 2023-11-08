@@ -20,6 +20,28 @@ endpoints.get('/cliente', async (req, resp) => {
 endpoints.post('/cliente/postar', async (req, resp) => {
   try {
     let novoCliente = req.body;
+    
+    if(!novoCliente.cliente)
+    throw new Error("Nome Obrigatório!");
+
+    if(!novoCliente.telefone)
+  throw new Error("Telefone Obrigatório!");
+
+    if(!novoCliente.cpf)
+throw new Error("Cpf Obrigatório!");
+
+    if(!novoCliente.email)
+throw new Error("Email Obrigatório!");
+
+    if(!novoCliente.senha)
+throw new Error("Senha Obrigatória!");
+
+    if(!novoCliente.genero)
+throw new Error("Gênero Obrigatório!");
+
+    if(!novoCliente.nascimento)
+throw new Error("Data de Nascimento Obrigatória!");
+
     let cliente = await inserirCliente(novoCliente);
     resp.send(cliente);
   }

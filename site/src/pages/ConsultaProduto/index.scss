@@ -1,6 +1,8 @@
 
 
 .pagina-produto{
+    display: flex;
+    flex-direction: column;
     box-sizing: border-box;
     margin: 0px;
     height: 100%;
@@ -20,7 +22,10 @@
     .container2{
         background-color: #d9d9d9;
         margin-top: 5vh;
-
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
 
         .buttons{
@@ -62,10 +67,7 @@
             color: black;
         }
 
-        table{
-            gap: 5vh !important;
-            width: 80vh;
-        }
+       
 
 
     }
@@ -79,16 +81,84 @@
     }
 
 
-    .tabela{
-        
-
-        th{
-            border: 1px solid black;
-        }
-        td{
-            border: 1px solid black;
-        }
+.tabela{
+    margin-left: 0vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+    width: 140vh;
+    
+    thead{
+        border: 1px solid black;
     }
+
+}
+
+.tabela tbody{
+    display: flex;
+    flex-direction: column;
+    width: 140vh !important;
+    align-items: center;
+    justify-content: space-between;
+}
+
+    /* Estilos para as células de cabeçalho da tabela */
+.tabela th {
+    text-align: center;
+    font-weight: bold;
+    padding: 9px;
+    width:140vh;
+    
+}
+
+/* Estilos para as células de dados da tabela */
+.tabela td {
+    padding: 10px;
+    text-align: center !important;
+    width: 110vh;
+}
+
+
+.sac img{
+display: flex;
+height: 25px;
+margin-right: 10px;
+}
+
+.ca{
+    display: flex;
+    align-items: center;
+ 
+}
+
+.ca img{
+display: flex;
+height: 25px;
+margin-right: 10px;
+
+
+
+
+
+}
+
+
+
+.ca1{
+    display: flex;
+    
+    align-items: center;
+ 
+}
+
+.ca1 img{
+display: flex;
+height: 25px;
+margin-right: 10px;
+
+}
 
 }
 

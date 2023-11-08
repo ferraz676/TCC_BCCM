@@ -6,9 +6,13 @@ import produtoController from './controller/produtoController.js'
 import clienteController from './controller/clienteController.js'
 import admController from './controller/admController.js'
 
-let servidor = express();
+const servidor = express();
 servidor.use(cors());
 servidor.use(express.json());
+
+
+servidor.use('/storage/capasProdutos', express.static('storage/capasProdutos'));
+
 
 servidor.use(produtoController);
 servidor.use(clienteController);

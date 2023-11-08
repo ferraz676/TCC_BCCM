@@ -1,6 +1,21 @@
 import axios from 'axios';
 import { API_URL } from '../constants.js';
 
+
+export async function consultarTodosProdutos(){
+
+    const resposta = await axios.get(API_URL + '/produtoTodos/consultar');
+    return resposta.data;
+}
+
+export async function consultarNomeProdutos(produto){
+
+    const resposta = await axios.get(API_URL + `/produto/nome?produto=${produto}`);
+    return resposta.data;
+}
+
+
+
 export async function cadastrarProduto(produto,marca,categoria,preco,quantidade,medida){
     const resposta = await axios.post(API_URL + '/produto/postar', {
 
@@ -15,6 +30,8 @@ export async function cadastrarProduto(produto,marca,categoria,preco,quantidade,
     return resposta.data;
 }
 
+
+
 export async function enviarImagem(id, imagem){
     const formData = new FormData();
     formData.append('capa', imagem);
@@ -26,3 +43,4 @@ export async function enviarImagem(id, imagem){
     })
     return resposta.status;
 }
+

@@ -23,33 +23,51 @@ export async function inserir(produto) {
 
 
 export async function enviarImagemProduto(id, imagem){
-
-  const comando =
+    let comando =
   `
-    
+    UPDATE tb_produto
+        SET img_produto = ?
+    WHERE   id_produto  = ? ;
   `
 
-  return resposta.status;
+  const resposta = await con.query(comando, [imagem, id]);
+  return resposta.affectedRows;
 }
 
 
 
 
 
-export async  function consultar(nome) {
+export async  function consultarNomeProdutos(produto) {
   let comando = `
-     select nm_produto      as produto,
+     select id_produto      as id,
+            nm_produto      as produto,
             ds_marca        as marca,
             ds_categoria    as categoria,
             vl_preco        as preco,
             qtd_disponivel  as quantidade, 
-            ds_medida       as medida,
+            ds_medida       as medida
         from tb_produto			
-        where nm_produto like  '%%';
+        where nm_produto    like    ?    ;
   `
 
-  let [dados] = await con.query(comando, ['%' + nome + '%']);
-  console.log(dados);
+  const [dados] = await con.query(comando, [  `% ${produto} %`  ]);
+  return dados;
+}
+
+export async  function consultarTodosProdutos() {
+  let comando = `
+     select id_produto      as id,
+            nm_produto      as produto,
+            ds_marca        as marca,
+            ds_categoria    as categoria,
+            vl_preco        as preco,
+            qtd_disponivel  as quantidade, 
+            ds_medida       as medida
+        from tb_produto		
+  `
+
+  const [dados] = await con.query(comando);
   return dados;
 }
 
@@ -64,7 +82,7 @@ export async function alterar(id, produto) {
              vl_preco       = ?,
              qtd_disponivel = ?,
              ds_medida      = ?,
-       where id_produto     = ?
+       where id_produto     = ?  ;
   `
 
   let [resp] = await con.query(comando,
@@ -84,7 +102,7 @@ export async function alterar(id, produto) {
 export async function deletar(id) {
   let comando = `
       delete from tb_produto
-            where id_produto = ?
+            where id_produto = ?  ;
   `
 
   let [resp] = await con.query(comando, [id]);

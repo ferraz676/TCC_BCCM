@@ -6,7 +6,7 @@ let con = await mysql2.createConnection({
   database: process.env.MYSQL_DB,
   user: process.env.MYSQL_USER,
   password: process.env.MYSQL_PWD,
-});
+})
 
 
 console.log('Conexão com BD realizada =D');

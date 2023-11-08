@@ -1,71 +1,38 @@
 import './index.scss';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-toastify/dist/ReactToastify.css';
-import Cabecalho from '../../components/cabecalho/cabecalho.js'
+import CabecalhoADM from '../../components/cabADM/cabecalho.js'
 import './index.scss';
-import { useState } from 'react';
-import axios from 'axios';
-import { API_URL } from '../../constants.js';
+import { useState, useEffect } from 'react';
+import { consultarTodosProdutos, consultarNomeProdutos } from '../../api/produtoApi.js';
+
 
 export default function ConsultaProdutos() {
 
-  const [nome, setNome] = useState('');
-  const [marca, setMarca] = useState('');
-  const [preco, setPreco] = useState('');
-  const [disponivel, setDisponivel] = useState('');
-  const [categoria, setCategoria] = useState('');
-  const [quantidade, setQuantidade] = useState('');
-  const [medida, setMedida] = useState('');
-  const [listaProdutos, setListaProdutos] = useState([]);
-  const [id, setId] = useState(0);
-  const [erro, setErro] = useState('');
-  
+  const [produtos, setProdutos] = useState([]);
+  const [filtro, SetFiltro] = useState('')
 
-  function alterarProdutos(item) {
-    setNome(item.nome);
-    setMarca(item.marca);
-    setPreco(item.preco);
-    setDisponivel(item.disponivel);
-    setQuantidade(item.quantidade);
-    setMedida(item.medida);
-    setId(item.id);
+  async function carregarProdutos(){
+    const resposta = await consultarTodosProdutos();
+    setProdutos(resposta);
   }
 
-    async function buscarProdutos() {
-      let r = await axios.get(API_URL + '/produto');
-      setListaProdutos(r.data);
-    }
+  async function filtrar(){
+    const resposta = await consultarNomeProdutos(filtro);
+    setProdutos(resposta);
+  }
 
-    async function removerProdutos(id) {
-      confirmAlert({
-        title: 'Remoção de Cliente',
-        message: 'Tem certeza que deseja remover?',
-        buttons: [
-          {
-            label: 'Sim',
-            onClick: async () => {
-              try {
-                let r = await axios.delete(API_URL + '/produto/' + id);
-                alert('Veículo removido com sucesso!');
-                buscarProdutos();
-              }
-              catch (err) {
-                alert(err.response.data.erro);
-              }
-            }
-          },
-          {
-            label: 'Não'
-          }
-        ]
-      });
-    }
+
+
+  useEffect(() => {
+    carregarProdutos();
+  }, [])
 
     
 
   return (
     <div className='pagina-produto'>
-        <Cabecalho/> 
+        <CabecalhoADM/> 
 
         <div className='pagina-listar'>
           <div className='container2'>
@@ -75,7 +42,7 @@ export default function ConsultaProdutos() {
             <input type='text' placeholder='Pesquisar'></input>
             <div className='filtros'>
             
-              <img className='lupa' onClick={buscarProdutos} src='/assets/images/lupa.svg' width={30} 
+              <img className='lupa' value={filtro} onChange={e => SetFiltro(e.target.value)} src='/assets/images/lupa.svg' width={30} 
               alt=''/>
 
               <button>Inserir Produto</button>
@@ -85,31 +52,43 @@ export default function ConsultaProdutos() {
 
             </div>
     
-            <table className='tabela'>
-              <thead>
-                <tr>
+            
+            <table class="tabela">
+        <thead className='baba'>
+            <tr>
                   <th>Id</th>
-                  <th>Nome</th>
-                  <th>Disponível</th>
+                  <th>Produto</th>
+                  <th>Quantidade</th>
                   <th>Valor Unitário</th>
                   <th>Categoria</th>
                   <th>Marca</th>
-                </tr>
-              </thead>
-              <tbody>
-                {listaProdutos.map(item =>
-                  <tr>
-                    <td>{item.id}</td>
-                    <td>{item.nome}</td>
-                    <td>{item.disponivel}</td>
-                    <td>{item.valor}</td>
-                    <td>{item.categoria}</td>
-                    <td>{item.marca}</td>
-                    <td className='btns' style={{ display: 'flex', height: 20 }}><i onClick={alterarProdutos} class="fa-regular fa-pen-to-square"></i> <i onClick={removerProdutos} class="fa-solid fa-delete-left"></i></td>
-                  </tr>  
-                )}
-              </tbody>
-            </table>
+            </tr>
+        </thead>
+        <tbody className='tbody-table'>
+
+          {produtos.map(item =>
+
+          <tr className='tr2'>
+            <td>{item.id}</td>
+            <td>{item.produto}</td>
+            <td>{item.quantidade}</td>
+            <td>{item.preco}</td>
+            <td>{item.categoria}</td>
+            <td>{item.marca}</td>
+            <td className='btns' style={{ display: 'flex', height: 20 }}><i  class="fa-regular fa-pen-to-square"></i> <i class="fa-solid fa-delete-left"></i></td>
+          </tr>
+
+            )}
+
+
+
+        </tbody>
+    </table>
+
+
+
+
+
     
           </div>
         </div>

@@ -1,26 +1,37 @@
-import {consultar, inserir, alterar, deletar} from "../repository/produtoRepository.js";
+import {consultarNomeProdutos, consultarTodosProdutos, inserir, alterar, deletar, enviarImagemProduto} from "../repository/produtoRepository.js";
 
 import { Router } from "express";
 import multer from 'multer';
 
-const upload = multer({dest: 'storage/imagens-produtos'})
+const upload = multer({dest: 'storage/capasProdutos'})
 
 const endpoints = Router();
 
 
 
-endpoints.get("/produto", async (req, resp) => {
+endpoints.get("/produto/nome", async (req, resp) => {
   try {
-    let nome = req.query.nome;
+    const { produto } = req.query;
 
-    if (!nome) nome = "";
-
-    let r = await consultar(nome);
+    let r = await consultarNomeProdutos(produto);
     resp.send(r);
+
   } catch (err) {
-    resp.status(500).send({ erro: err.message });
+    resp.status(400).send({ erro: err.message });
   }
 });
+
+endpoints.get("/produtoTodos/consultar", async (req, resp) => {
+  try {
+
+    const resposta = await consultarTodosProdutos();
+    resp.send(resposta);
+  } catch (err) {
+    resp.status(500).send({ 
+      erro: err.message
+     })
+  }
+})
 
 
 
@@ -99,22 +110,22 @@ endpoints.put("/produto/:id", async (req, resp) => {
 endpoints.put("/produto/:id/capa", upload.single("capa"), async (req, resp) => {
   try {
     if(!req.file)
-      throw new Error("A imagem não pode ser salva!");
+      throw new Error("Escolha a Imagem!");
     
     const { id } = req.params;
     const imagem = req.file.path;
 
-    const resposta = await alterarImagem(imagem, id);
+    const resposta = await enviarImagemProduto(imagem, id);
     if (resposta != 1) 
         throw new Error("A imagem não pode ser salva!");
 
     resp.status(204).send();
   } catch (err) {
     resp.status(500).send({
-      erro: err.message,
-    });
+      erro: err.message
+    })
   }
-});
+})
 
 endpoints.delete("/produto/:id", async (req, resp) => {
   try {

@@ -1,6 +1,6 @@
 import './index.scss';
 import 'react-toastify/dist/ReactToastify.css';
-import Cabecalho from '../../components/cabecalho/cabecalho.js'
+import CabecalhoADM from '../../components/cabADM/cabecalho.js';
 import { useState } from 'react';
 import { cadastrarProduto, enviarImagem} from '../../api/produtoApi.js';
 import { toast } from 'react-toastify';
@@ -21,13 +21,12 @@ export default function InsercaoProduto() {
   async function salvarProduto() {
       try{
         const novoProduto = await cadastrarProduto(produto,marca,categoria,preco,quantidade,medida);
-        const r = await enviarImagem(novoProduto.id, imagem)
+        const r = await enviarImagem(novoProduto.id, imagem);
 
+        toast.dark('Produto Cadastrado com Sucesso!');
 
-        toast.dark('Produto Cadastrado com Sucesso!')
       } catch(err){
         toast.error(err.response);
-        console.log(err);
       }
 
   }
@@ -46,7 +45,7 @@ export default function InsercaoProduto() {
     <div className='pagina-insercao'>
   
       <div className='cab90'>
-      <Cabecalho/>
+      <CabecalhoADM/>
       </div>
     <div className='mid'>
     <div className='tudoo'>
