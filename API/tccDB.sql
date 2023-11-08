@@ -22,12 +22,10 @@ create table tb_adm (
 
 create table tb_endereco (
 	id_endereco int primary key auto_increment not null,
-    id_cliente int not null,
 	ds_cep varchar (200) not null,
 	ds_endereco varchar (200) not null,
 	nr_endereco varchar (200) not null,
-	ds_bairro varchar (200) not null,
-    FOREIGN KEY (id_cliente) REFERENCES tb_cliente(id_cliente)
+	ds_bairro varchar (200) not null
 );
 
 CREATE TABLE tb_produto (
@@ -37,16 +35,8 @@ CREATE TABLE tb_produto (
 	ds_marca varchar(200),
 	vl_preco decimal,
 	qtd_disponivel integer,
-	ds_medida varchar (200)
-    
-);
-
-
-create table tb_produto_imagem (
-	id_produto_imagem int primary key auto_increment,
-	id_produto int,
-	img_produto int,
-    FOREIGN KEY (id_produto) REFERENCES tb_produto(id_produto)
+	ds_medida varchar (200),
+    img_produto double
 );
 
 CREATE TABLE tb_pedido (
@@ -76,8 +66,24 @@ CREATE TABLE tb_pedido_item (
 );
 
 
-select * from tb_cliente;
+select * from tb_produto;
+
+select nm_produto      as produto,
+            ds_marca        as marca,
+            ds_categoria    as categoria,
+            vl_preco        as preco,
+            qtd_disponivel  as quantidade, 
+            ds_medida       as medida
+        from tb_produto;
+
+insert into tb_cliente(nm_cliente, ds_telefone, ds_cpf, ds_email, ds_senha, ds_genero, ds_fixo, dt_nascimento)
+values('João', '11 962978-2321', '123.123.121-45', 'joao123', 'joao123', 'Masculino', '', '2005-04-12');
+
+insert into tb_produto(nm_produto, ds_marca, ds_categoria, vl_preco, qtd_disponivel, ds_medida)
+values('Anabolizante', 'StarLab', 'BombaBomba', 99, 79, '10ml');
 
 insert into tb_adm(ds_email, ds_senha)
-values("Matheus", "1234");
+values('matheus@adm.com', 'mamaco123');
 
+delete from tb_produto
+where id_produto = 3;
