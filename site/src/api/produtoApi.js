@@ -34,7 +34,6 @@ export async function cadastrarProduto(produto,marca,categoria,preco,quantidade,
 export async function enviarImagem(id, imagem){
     const formData = new FormData();
     formData.append('capa', imagem);
-    console.log(imagem);
     const resposta = await axios.put(API_URL + `/produto/${id}/capa`, formData, {
         headers: {
             "Content-Type": "multipart/form-data"

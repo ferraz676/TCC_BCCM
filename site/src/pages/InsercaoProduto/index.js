@@ -24,7 +24,6 @@ export default function InsercaoProduto() {
             throw new Error('Escolha a capa do Produto!')
 
           const novoProduto = await cadastrarProduto(produto,marca,categoria,preco,quantidade,medida);
-          console.log(novoProduto);
         await enviarImagem( novoProduto.id, imagem);
 
 
