@@ -18,7 +18,7 @@ export async function calcularFrete(preco, quantidade, cep) {
     
     axios.post('https://corsproxy.io/?https://portal.kangu.com.br/tms/transporte/simular', info, {
         headers: {
-            token: 'ajsdkjahjksd'
+            token: 'fd78e9ed624b1d58f5c0b2c1b6baf8b3da64b41cdafaf9ed1b4e478c0a0085c6'
         }
     })
 }

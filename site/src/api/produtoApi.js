@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { API_URL } from '../constants.js';
 
-
 export async function consultarTodosProdutos(){
 
     const resposta = await axios.get(API_URL + '/produtoTodos/consultar');
@@ -35,8 +34,8 @@ export async function cadastrarProduto(produto,marca,categoria,preco,quantidade,
 export async function enviarImagem(id, imagem){
     const formData = new FormData();
     formData.append('capa', imagem);
-
-    const resposta = await axios.put(`/produto/${id}/capa`, formData, {
+    console.log(imagem);
+    const resposta = await axios.put(API_URL + `/produto/${id}/capa`, formData, {
         headers: {
             "Content-Type": "multipart/form-data"
         },

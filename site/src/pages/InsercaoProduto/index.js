@@ -20,13 +20,21 @@ export default function InsercaoProduto() {
 
   async function salvarProduto() {
       try{
-        const novoProduto = await cadastrarProduto(produto,marca,categoria,preco,quantidade,medida);
-        const r = await enviarImagem(novoProduto.id, imagem);
+          if(!imagem)
+            throw new Error('Escolha a capa do Produto!')
+
+          const novoProduto = await cadastrarProduto(produto,marca,categoria,preco,quantidade,medida);
+          console.log(novoProduto);
+        await enviarImagem( novoProduto.id, imagem);
+
 
         toast.dark('Produto Cadastrado com Sucesso!');
 
       } catch(err){
-        toast.error(err.response);
+      if(err.response)
+        toast.error(err.response.data.erro);
+      else
+        toast.error(err.message);
       }
 
   }

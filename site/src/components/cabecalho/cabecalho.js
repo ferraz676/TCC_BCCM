@@ -15,7 +15,6 @@ export default function Cabecalho() {
           const clienteLogado = storage('cliente-logado');
           console.log(clienteLogado);
           setCliente(clienteLogado.cliente);
-          navigate('/')          
         }
       }
     , [])
@@ -36,11 +35,14 @@ export default function Cabecalho() {
         </div>
 
         <div className='profile'>
-            <img src='/assets/images/perfil.png' height={50} alt=''/>
-            <p>Bem-Vindo!</p>
+          <a href='/dadosPessoais'>
+            <Link to ='/dadosPessoais'></Link>
+            <img  src='/assets/images/perfil.png' height={50} alt=''/>
+          </a>
+            <p>Bem-Vindo,</p>
             {
               cliente ?
-               <h1>Bem vindo, {cliente}</h1>
+               <h1 className='usuarioInter'>{cliente}!</h1>
                
                :
                
@@ -50,9 +52,9 @@ export default function Cabecalho() {
                </div>
            } 
 
-            <a href='../../pages/carrinho'><img className='vrum-vrum' src='/assets/images/carrinho.png' height={50} alt=''/></a>
-
         </div>
+
+        <a href='../../pages/carrinho'><img className='vrum-vrum' src='/assets/images/carrinho.png' height={50} alt=''/></a>
       </div>
 
 

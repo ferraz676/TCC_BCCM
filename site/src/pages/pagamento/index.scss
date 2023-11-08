@@ -8,10 +8,10 @@
         flex-direction: column;
         
        border: solid black 1px;
-        height: 830px;
+        height: 870px;
         margin-left: 450px;
         margin-top: 50px;
-        width: 450px;
+        width: 455px;
     }
     
     .cds h1 {
@@ -30,6 +30,8 @@
         display: flex;
         margin-left: 20px;
          font-size: 17px;
+         margin-top: 10px;
+         margin-bottom: 5px;
     }
     
     .bt1{
@@ -124,6 +126,7 @@
     .cep{
         margin-bottom: 10px;
         margin-left: 20px;
+
     }
 
     .bt2{
@@ -140,6 +143,7 @@
 
     .opcao{
         margin-left: 20px;
+        margin-top: 10px;
     }
 
     .bloco2{
@@ -177,9 +181,9 @@
     background-color: #02FF1B;
     color: #ffff;
     width: 300px;
-    height: 28px;
+    height: 40px;
     font-size: 15px;
-    border: none;
+    border: 1px solid black;
 
     }
 

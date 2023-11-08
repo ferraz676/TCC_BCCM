@@ -114,7 +114,8 @@ endpoints.put("/produto/:id/capa", upload.single("capa"), async (req, resp) => {
     
     const { id } = req.params;
     const imagem = req.file.path;
-
+    console.log(id);
+    console.log(imagem);
     const resposta = await enviarImagemProduto(imagem, id);
     if (resposta != 1) 
         throw new Error("A imagem não pode ser salva!");

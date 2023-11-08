@@ -22,15 +22,16 @@ export async function inserir(produto) {
 }
 
 
-export async function enviarImagemProduto(id, imagem){
+export async function enviarImagemProduto(imagem, id){
     let comando =
   `
     UPDATE tb_produto
         SET img_produto = ?
-    WHERE   id_produto  = ? ;
+    WHERE   id_produto  = ?
+    
   `
 
-  const resposta = await con.query(comando, [imagem, id]);
+  const [resposta] = await con.query(comando, [imagem, id]);
   return resposta.affectedRows;
 }
 

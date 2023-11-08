@@ -1,5 +1,4 @@
 create database BCCM_Supplements;
-
 use BCCM_Supplements;
 
 create table tb_cliente (
@@ -36,7 +35,7 @@ CREATE TABLE tb_produto (
 	vl_preco decimal,
 	qtd_disponivel integer,
 	ds_medida varchar (200),
-    img_produto double
+    img_produto varchar(200)
 );
 
 CREATE TABLE tb_pedido (

@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
 import Cadastro from './pages/cadastro';
+import EnderecoEditar from './pages/enderecoEditar';
 import Produtos from './pages/Whey';
 import Home from './pages/Home';
 import Login from './pages/login';
@@ -37,6 +38,7 @@ root.render(
       <Routes>
 
       <Route path= '/cadastro' element={<Cadastro/>} />
+      <Route path= '/enderecoEditar' element={<EnderecoEditar/>} />
       <Route path= '/desempenhoVendas' element={<DesempenhoVendas/>} />
       <Route path= '/entregaPedido' element={<EntregaPedido/>} />
        <Route path='/Produtos' element={<Produtos/>}/>
