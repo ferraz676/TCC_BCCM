@@ -11,7 +11,7 @@ endpoints.get('/cliente', async (req, resp) => {
       resp.send(r);
     }
     catch (err) {
-      resp.status(500).send({ erro: err.message });
+      resp.status(400).send({ erro: err.message });
     }
   })
 
@@ -46,7 +46,7 @@ throw new Error("Data de Nascimento Obrigatória!");
     resp.send(cliente);
   }
   catch (err) {
-    resp.status(500).send({ erro: err.message });
+    resp.status(400).send({ erro: err.message });
   }
 })
 
@@ -73,10 +73,10 @@ endpoints.put('/cliente/:id', async (req, resp) => {
     let tcc = req.body;
     let r = await alterarCliente(id, tcc);
 
-    resp.send();
+    resp.send(r);
   }
   catch (err) {
-    resp.status(500).send({ erro: err.message });
+    resp.status(400).send({ erro: err.message });
   }
 })
 
@@ -84,11 +84,13 @@ endpoints.put('/cliente/:id', async (req, resp) => {
 endpoints.delete('/cliente/:id', async (req, resp) => {
   try {
     let id = req.params.id;
-    let r = await deletarCliente(id);
-    resp.send();
+    let resp = await deletarCliente(id);
+    if(resp != 1)
+      throw new Error ('Cliente não pode ser removido!')
+      resp.status(204).send();
   }
   catch (err) {
-    resp.status(500).send({ erro: err.message });
+    resp.status(400).send({ erro: err.message });
   }
 })
 

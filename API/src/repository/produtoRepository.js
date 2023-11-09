@@ -49,7 +49,7 @@ export async  function consultarNomeProdutos(produto) {
             qtd_disponivel  as quantidade, 
             ds_medida       as medida
         from tb_produto			
-        where nm_produto    like    ?    ;
+        where nm_produto    like    ?    
   `
 
   const [dados] = await con.query(comando, [  `% ${produto} %`  ]);
@@ -83,7 +83,7 @@ export async function alterar(id, produto) {
              vl_preco       = ?,
              qtd_disponivel = ?,
              ds_medida      = ?,
-       where id_produto     = ?  ;
+       where id_produto     = ?  
   `
 
   let [resp] = await con.query(comando,
@@ -103,8 +103,8 @@ export async function alterar(id, produto) {
 export async function deletar(id) {
   let comando = `
       delete from tb_produto
-            where id_produto = ?  ;
-  `
+            where id_produto = ?  
+  ` 
 
   let [resp] = await con.query(comando, [id]);
   return resp.affectedRows;

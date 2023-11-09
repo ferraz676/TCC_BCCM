@@ -4,7 +4,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import CabecalhoADM from '../../components/cabADM/cabecalho.js'
 import './index.scss';
 import { useState, useEffect } from 'react';
-import { consultarTodosProdutos, consultarNomeProdutos } from '../../api/produtoApi.js';
+import { consultarTodosProdutos, consultarNomeProdutos, removerProduto } from '../../api/produtoApi.js';
+import { toast } from 'react-toastify';
 
 
 export default function ConsultaProdutos() {
@@ -12,10 +13,46 @@ export default function ConsultaProdutos() {
   const [produtos, setProdutos] = useState([]);
   const [filtro, SetFiltro] = useState('')
 
+
+
   async function carregarProdutos(){
     const resposta = await consultarTodosProdutos();
     setProdutos(resposta);
   }
+
+
+
+  async function removerProdutoClick(id, produto){
+
+    confirmAlert({
+      title: "Remover Produto",
+      message: `Deseja remover o produto ${produto}?`,
+      buttons: [
+        {
+          label: 'Sim',
+          onClick: async () => {
+
+
+            const resposta = await removerProduto(id, produto);
+            if (filtro === '')
+                consultarTodosProdutos();
+            else
+                filtrar();
+
+            toast.dark('Produto Removido com Sucesso!'); 
+            
+            carregarProdutos();
+          }
+        },
+        {
+          label: 'Não'
+        }
+      ]
+    })
+  }
+  
+
+
 
   async function filtrar(){
     const resposta = await consultarNomeProdutos(filtro);
@@ -28,6 +65,8 @@ export default function ConsultaProdutos() {
     carregarProdutos();
   }, [])
 
+
+  
     
 
   return (
@@ -68,14 +107,17 @@ export default function ConsultaProdutos() {
 
           {produtos.map(item =>
 
-          <tr className='tr2'>
+          <tr key={item.id} className='tr2'>
             <td>{item.id}</td>
             <td>{item.produto}</td>
             <td>{item.quantidade}</td>
             <td>{item.preco}</td>
             <td>{item.categoria}</td>
             <td>{item.marca}</td>
-            <td className='btns' style={{ display: 'flex', height: 20 }}><i  class="fa-regular fa-pen-to-square"></i> <i class="fa-solid fa-delete-left"></i></td>
+            <td className='btns'>
+              <img  src='/assets/images/lixeira.png' alt='' height={30} onClick={() => removerProdutoClick(item.id, item.produto)}/>
+              <img src='/assets/images/lapis.png' alt='' height={30}/>
+            </td>
           </tr>
 
             )}

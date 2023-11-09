@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
+import 'react-confirm-alert/src/react-confirm-alert.css'; 
 
 import Cadastro from './pages/cadastro';
 import EnderecoEditar from './pages/enderecoEditar';

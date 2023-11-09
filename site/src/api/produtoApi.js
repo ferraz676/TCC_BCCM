@@ -29,6 +29,12 @@ export async function cadastrarProduto(produto,marca,categoria,preco,quantidade,
     return resposta.data;
 }
 
+export async function removerProduto(id){
+
+    const resposta = await axios.delete(API_URL + `/produto/${id}`);
+    return resposta.status;
+}
+
 
 
 export async function enviarImagem(id, imagem){

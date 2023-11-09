@@ -128,11 +128,18 @@ endpoints.put("/produto/:id/capa", upload.single("capa"), async (req, resp) => {
 
 endpoints.delete("/produto/:id", async (req, resp) => {
   try {
-    let id = req.params.id;
-    let r = await deletar(id);
-    resp.send();
+    const { id } = req.params;
+
+    const resposta = await deletar(id);
+    if(resposta != 1)
+      throw new Error ('Produto não pode ser removido!');
+
+      resp.status(204).send();
+
   } catch (err) {
-    resp.status(500).send({ erro: err.message });
+    resp.status(400).send({
+      erro: err.message 
+    })
   }
 });
 
