@@ -1,4 +1,5 @@
 create database BCCM_Supplements;
+
 use BCCM_Supplements;
 
 create table tb_cliente (
