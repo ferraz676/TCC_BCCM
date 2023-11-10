@@ -48,3 +48,9 @@ export async function enviarImagem(id, imagem){
     return resposta.status;
 }
 
+
+export async function buscarPorId(id){
+
+    const resposta = await axios.get(API_URL + `/produto/${id}`);
+    return resposta.data;
+}

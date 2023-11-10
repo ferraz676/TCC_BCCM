@@ -1,10 +1,10 @@
 import './index.scss';
 import 'react-toastify/dist/ReactToastify.css';
 import CabecalhoADM from '../../components/cabADM/cabecalho.js';
-import { useState } from 'react';
-import { cadastrarProduto, enviarImagem} from '../../api/produtoApi.js';
+import { useEffect, useState } from 'react';
+import { cadastrarProduto, enviarImagem, buscarPorId} from '../../api/produtoApi.js';
 import { toast } from 'react-toastify';
-
+import { useParams } from 'react-router-dom';
 
 
 export default function InsercaoProduto() {
@@ -16,18 +16,40 @@ export default function InsercaoProduto() {
   const [quantidade, setQuantidade] = useState('');
   const [medida, setMedida] = useState('');
   const [imagem, setImagem] = useState();
+  const [id, setId] = useState(0);
 
+
+  const { idParam } = useParams();
+
+  useEffect(() => {
+    if(idParam){
+      carregarProduto();
+    }
+  }, [])
+
+  async function carregarProduto(){
+      const resposta = await buscarPorId(idParam);
+      setProduto(resposta.produto);
+      setMarca(resposta.marca);
+      setCategoria(resposta.categoria);
+      setPreco(resposta.preco);
+      setQuantidade(resposta.quantidade);
+      setMedida(resposta.medida);
+      setImagem(resposta.imagem);
+  }
 
   async function salvarProduto() {
       try{
           if(!imagem)
             throw new Error('Escolha a capa do Produto!')
 
+        if (id === 0){
           const novoProduto = await cadastrarProduto(produto,marca,categoria,preco,quantidade,medida);
-        await enviarImagem( novoProduto.id, imagem);
-
+          await enviarImagem( novoProduto.id, imagem);
+          setId(novoProduto.id);
 
         toast.dark('Produto Cadastrado com Sucesso!');
+      }
 
       } catch(err){
       if(err.response)
