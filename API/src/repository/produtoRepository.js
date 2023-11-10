@@ -47,12 +47,13 @@ export async  function consultarNomeProdutos(produto) {
             ds_categoria    as categoria,
             vl_preco        as preco,
             qtd_disponivel  as quantidade, 
-            ds_medida       as medida
+            ds_medida       as medida,
+            img_produto     as imagem
         from tb_produto			
         where nm_produto    like    ?    
   `
 
-  const [dados] = await con.query(comando, [  `% ${produto} %`  ]);
+  const [dados] = await con.query(comando, [  `%${produto}%`  ]);
   return dados;
 }
 
@@ -64,7 +65,8 @@ export async  function consultarTodosProdutos() {
             ds_categoria    as categoria,
             vl_preco        as preco,
             qtd_disponivel  as quantidade, 
-            ds_medida       as medida
+            ds_medida       as medida,
+            img_produto     as imagem
         from tb_produto		
   `
 
@@ -72,9 +74,27 @@ export async  function consultarTodosProdutos() {
   return dados;
 }
 
+export async  function consultarIdProdutos(id) {
+  let comando = `
+     select id_produto      as id,
+            nm_produto      as produto,
+            ds_marca        as marca,
+            ds_categoria    as categoria,
+            vl_preco        as preco,
+            qtd_disponivel  as quantidade, 
+            ds_medida       as medida,
+            img_produto     as imagem
+        from tb_produto	    
+        where id_produto    = ?	
+  `
+
+  const [dados] = await con.query(comando, [id]);
+  return dados[0];
+}
 
 
-export async function alterar(id, produto) {
+
+export async function alterarProduto(id, produtos) {
   let comando = `
       update tb_produto
          set nm_produto     = ?,
@@ -83,19 +103,19 @@ export async function alterar(id, produto) {
              vl_preco       = ?,
              qtd_disponivel = ?,
              ds_medida      = ?,
-       where id_produto     = ?  
+       where id_produto     =  ?  
   `
 
   let [resp] = await con.query(comando,
     [
-      produto.nome,
-      produto.marca,
-      produto.categoria,
-      produto.preco,
-      produto.quantidade,
-      produto.medida,
+      produtos.produto,
+      produtos.marca,
+      produtos.categoria,
+      produtos.preco,
+      produtos.quantidade,
+      produtos.medida,
       id
-    ])
+    ]);
   
   return resp.affectedRows;
 }

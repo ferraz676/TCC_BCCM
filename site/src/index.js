@@ -45,6 +45,7 @@ root.render(
        <Route path='/produto' element={<Produto/>}/>
       <Route path='/' element={<Home/>} />
       <Route path='/InsercaoProduto' element={<InsercaoProduto/>} />
+      <Route path='/AlterarProduto/:idParam' element={<InsercaoProduto/>} />
       <Route path='/endereco' element={<Endereco/>} />
       <Route path='/login' element={<Login/>} />
       <Route path='/ConsultaProduto' element={<ConsultaProduto/>} />

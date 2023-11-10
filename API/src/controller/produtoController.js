@@ -1,4 +1,4 @@
-import {consultarNomeProdutos, consultarTodosProdutos, inserir, alterar, deletar, enviarImagemProduto} from "../repository/produtoRepository.js";
+import {consultarNomeProdutos, consultarTodosProdutos, consultarIdProdutos, inserir, alterarProduto, deletar, enviarImagemProduto} from "../repository/produtoRepository.js";
 
 import { Router } from "express";
 import multer from 'multer';
@@ -14,12 +14,17 @@ endpoints.get("/produto/nome", async (req, resp) => {
     const { produto } = req.query;
 
     let r = await consultarNomeProdutos(produto);
-    resp.send(r);
+    if(!r)
+      resp.status(400).send([]);
 
   } catch (err) {
     resp.status(400).send({ erro: err.message });
   }
 });
+
+
+
+
 
 endpoints.get("/produtoTodos/consultar", async (req, resp) => {
   try {
@@ -31,7 +36,21 @@ endpoints.get("/produtoTodos/consultar", async (req, resp) => {
       erro: err.message
      })
   }
-})
+});
+
+
+
+endpoints.get("/produto/:id", async (req, resp) => {
+  try {
+    const id = Number(req.params.id);
+
+    let r = await consultarIdProdutos(id);
+    resp.send(r);
+
+  } catch (err) {
+    resp.status(400).send({ erro: err.message });
+  }
+});
 
 
 
@@ -74,32 +93,33 @@ endpoints.post("/produto/postar", async (req, resp) => {
 
 endpoints.put("/produto/:id", async (req, resp) => {
   try {
-    const {id} = req.params;
-    const produto = req.body;
+    const { id } = req.params;
+    const produtos = req.body;
     
-    if(!produto.produto)
+    if(!produtos.produto)
         throw new Error("Nome do Produto Obrigatório!");
     
-    if(!produto.marca)
+    if(!produtos.marca)
       throw new Error("Marca do Produto Obrigatório!");
     
-    if(!produto.categoria)
+    if(!produtos.categoria)
     throw new Error("Categoria do Produto Obrigatório!");
     
-    if(!produto.preco)
+    if(!produtos.preco)
     throw new Error("Preço do Produto Obrigatório!");
     
-     if(!produto.quantidade)
+     if(!produtos.quantidade)
     throw new Error("Quantidade do Produto Obrigatório!");
     
-    if(!produto.medida)
+    if(!produtos.medida)
     throw new Error("Medida do Produto Obrigatório!");
     
-    const resposta = await alterarProduto(id, produto);
+    const resposta = await alterarProduto(id, produtos);
     if (resposta != 1)
       throw new Error("Produto não pode ser alterado");
     else
-      resp.status(204).send
+      resp.status(204).send();
+
   } catch (err){
     resp.status(400).send({
       erro: err.message
