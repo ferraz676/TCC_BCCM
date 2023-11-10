@@ -80,7 +80,7 @@ function Home() {
 
                     
 
-                  <div className='section-2'>
+                  <div className='section-22'>
 
                     
                     <h1 className='historia'>NOSSA HISTÓRIA</h1>

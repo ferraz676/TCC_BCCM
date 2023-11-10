@@ -290,7 +290,7 @@
     height: 70px;
     }
     
-    .section-2{
+    .section-22{
       height: 450px;
     background-color: #2D5A68;
     
@@ -390,6 +390,43 @@
       margin-top: 5px;
       margin-left: 3px;
     }
+
+
+    @media (max-width: 1920px) {
+      .textos{
+        
+        
+      }
+
+      .sibam{
+       
+        
+        margin-left: 30vh;
+      }
+      
+
+      .texto{
+        margin-left: 15vh;
+        font-size: 23px;
+        margin-top: -20px;
+      }
+
+      .section-3{
+        .texto{
+          margin-left: 40vh;
+          font-size: 23px;
+        }
+
+    
+        
+
+      }
+
+      
+
+  }
+
+
   
 
 }
