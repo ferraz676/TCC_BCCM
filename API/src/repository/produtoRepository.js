@@ -57,6 +57,9 @@ export async  function consultarNomeProdutos(produto) {
   return dados;
 }
 
+
+
+
 export async  function consultarTodosProdutos() {
   let comando = `
      select id_produto      as id,
@@ -68,6 +71,78 @@ export async  function consultarTodosProdutos() {
             ds_medida       as medida,
             img_produto     as imagem
         from tb_produto		
+  `
+
+  const [dados] = await con.query(comando);
+  return dados;
+}
+
+export async  function consultarCreatina() {
+  let comando = `
+     select id_produto      as id,
+            nm_produto      as produto,
+            ds_marca        as marca,
+            ds_categoria    as categoria,
+            vl_preco        as preco,
+            qtd_disponivel  as quantidade, 
+            ds_medida       as medida,
+            img_produto     as imagem
+        from tb_produto		
+        where ds_categoria = 'Creatina'
+  `
+
+  const [dados] = await con.query(comando);
+  return dados;
+}
+
+export async  function consultarWhey() {
+  let comando = `
+     select id_produto      as id,
+            nm_produto      as produto,
+            ds_marca        as marca,
+            ds_categoria    as categoria,
+            vl_preco        as preco,
+            qtd_disponivel  as quantidade, 
+            ds_medida       as medida,
+            img_produto     as imagem
+        from tb_produto		
+        where ds_categoria = 'Whey'
+  `
+
+  const [dados] = await con.query(comando);
+  return dados;
+}
+
+export async  function consultarAnabolizante() {
+  let comando = `
+     select id_produto      as id,
+            nm_produto      as produto,
+            ds_marca        as marca,
+            ds_categoria    as categoria,
+            vl_preco        as preco,
+            qtd_disponivel  as quantidade, 
+            ds_medida       as medida,
+            img_produto     as imagem
+        from tb_produto		
+        where ds_categoria = 'Anabolizante'
+  `
+
+  const [dados] = await con.query(comando);
+  return dados;
+}
+
+export async  function consultarVitamina() {
+  let comando = `
+     select id_produto      as id,
+            nm_produto      as produto,
+            ds_marca        as marca,
+            ds_categoria    as categoria,
+            vl_preco        as preco,
+            qtd_disponivel  as quantidade, 
+            ds_medida       as medida,
+            img_produto     as imagem
+        from tb_produto		
+        where ds_categoria = 'Vitamina'
   `
 
   const [dados] = await con.query(comando);
@@ -102,7 +177,7 @@ export async function alterarProduto(id, produtos) {
              ds_marca       = ?,
              vl_preco       = ?,
              qtd_disponivel = ?,
-             ds_medida      = ?,
+             ds_medida      = ?
        where id_produto     =  ?  
   `
 

@@ -1,31 +1,24 @@
 import './index.scss';
-import Cabecalho from '../../components/cabecalho/cabecalho';
-import Rodape from '../../components/rodape/rodape';
-import { useState } from 'react';
+import { buscarImagem } from '../../api/produtoApi.js'
 
-export default function Produto(){
 
-    let [preco, setPreco] = useState();
-
-    
+export default function Detalhe(props){
 
     return(
 <div className='pri'>
-<Cabecalho/>
-
 
 <div className='lado'>
 <div className='conteu'>
 
     <div className='zoon'>
-    <img src='/assets/images/qdr.png' alt=''/> 
-    <img src='/assets/images/qdr.png' alt=''/> 
-    <img src='/assets/images/qdr.png' alt=''/> 
-    <img src='/assets/images/qdr.png' alt=''/> 
+    <img src={buscarImagem(props.produto.imagem)} alt=''/> 
+    <img src={buscarImagem(props.produto.imagem)} alt=''/> 
+    <img src={buscarImagem(props.produto.imagem)} alt=''/> 
+    <img src={buscarImagem(props.produto.imagem)} alt=''/> 
     </div>
 
     <div className='anabo'>
-    <img src='/assets/images/anaboli.png' alt=''/> 
+    <img src={buscarImagem(props.produto.imagem)}  alt='' /> 
     </div>
 
     <div className='avaliação'>
@@ -57,16 +50,12 @@ export default function Produto(){
 </div>
 
 </div>
-
-
 </div>
-
-
-
 
 <div className='segundapa'>
         <div className='plvrs'>
-            <h1>Durateston 200mg/10ml</h1>
+            <h1>{props.produto.produto}</h1>
+            <h1>{props.produto.medida}</h1>
         </div>
 
         <div className='plvrs2'>
@@ -74,11 +63,11 @@ export default function Produto(){
         </div>
 
         <div className='plvrs3'>
-            <h1>R$259,99</h1>
+            <h1>R${props.produto.preco}</h1>
         </div>
 
         <div className='plvrs4'>
-            <h1>NO BOLETO OU PIX ou R$259,99 no cartão de crédito em até 1x de R$259,99 sem juros</h1>
+            <h1>NO BOLETO OU PIX ou R${props.produto.preco} no cartão de crédito em até 1x de R${props.produto.preco} sem juros</h1>
         </div>
 
 
@@ -104,8 +93,6 @@ export default function Produto(){
 
 </div>
 </div>
-
-<Rodape/>
 </div>
 
 

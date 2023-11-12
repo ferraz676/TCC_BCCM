@@ -1,12 +1,40 @@
 import './index.scss';
+import 'react-toastify/dist/ReactToastify.css';
 import Cabecalho from '../../components/cabecalho/cabecalho';
+import Rodape from '../../components/rodape/rodape';
+import './index.scss';
+import { useState, useEffect } from 'react';
+import { consultarCreatina} from '../../api/produtoApi.js';
+import { useNavigate } from 'react-router-dom';
+import { buscarImagem } from '../../api/produtoApi.js'
 
-export default function Weytcc(){
 
-return(
-    <div className='tudo'>
+
+export default function Cards() {
+
+  const [produtos, setProdutos] = useState([]);
+  const navigate = useNavigate();
+
+ 
+  async function carregarProdutos(){
+    const resposta = await consultarCreatina();
+    setProdutos(resposta);
+  }
+
+  function abrirDetalhes(id){
+    navigate(`/produtoDetalhe/${id}`)
+  }
+
+  useEffect(() => {
+    carregarProdutos();
+  }, [])
+
+
+  
+  return(
+    <div className='pagina-cards'>
     <Cabecalho/>
-        <div className='pagina-produtos'>
+        <div className='titulo'>
 
             <div className='plvs'>
             <h1>Whey Protein </h1>
@@ -40,21 +68,37 @@ return(
 
         </div>
 
-            <div className='produtos'>
+<div className='pr'>
 
-                <div className='1°'>
-                    
-                </div>
+      {produtos.map(item => 
+
+          <div className='l1'>
+
+            <div className='produto1' onClick={() => abrirDetalhes(item.id)}>
+
+              <img  src={buscarImagem(item.imagem)} alt=''/>
+              <p>{item.produto}</p>
+              <h1>R${item.preco}</h1>
 
             </div>
-</div>
+
+          </div>
+        )}
         
+        
+       
+ 
+</div>
+
+<div>
+</div>
+
+  </div>
 
 
+        <Rodape/>
 
-
-
-    </div>
+</div>
 )
-}
 
+}

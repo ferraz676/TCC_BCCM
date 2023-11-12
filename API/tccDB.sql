@@ -36,7 +36,7 @@ CREATE TABLE tb_produto (
 	vl_preco decimal,
 	qtd_disponivel integer,
 	ds_medida varchar (200),
-    img_produto varchar(200)
+    img_produto varchar(500)
 );
 
 CREATE TABLE tb_pedido (
@@ -84,6 +84,3 @@ values('Anabolizante', 'StarLab', 'BombaBomba', 99, 79, '10ml');
 
 insert into tb_adm(ds_email, ds_senha)
 values('matheus@adm.com', 'mamaco123');
-
-delete from tb_produto
-where id_produto = 3;

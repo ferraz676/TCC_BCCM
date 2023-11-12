@@ -2,10 +2,10 @@ import './index.scss';
 import 'react-toastify/dist/ReactToastify.css';
 import CabecalhoADM from '../../components/cabADM/cabecalho.js';
 import { useEffect, useState } from 'react';
-import { cadastrarProduto, enviarImagem, buscarPorId} from '../../api/produtoApi.js';
+import { cadastrarProduto, enviarImagem, buscarPorId, alterarProduto, buscarImagem} from '../../api/produtoApi.js';
 import { toast } from 'react-toastify';
 import { useParams } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
 
 export default function InsercaoProduto() {
 
@@ -17,6 +17,8 @@ export default function InsercaoProduto() {
   const [medida, setMedida] = useState('');
   const [imagem, setImagem] = useState();
   const [id, setId] = useState(0);
+
+  const navigate = useNavigate();
 
 
   const { idParam } = useParams();
@@ -35,6 +37,8 @@ export default function InsercaoProduto() {
       setPreco(resposta.preco);
       setQuantidade(resposta.quantidade);
       setMedida(resposta.medida);
+
+      setId(resposta.id);
       setImagem(resposta.imagem);
   }
 
@@ -47,8 +51,17 @@ export default function InsercaoProduto() {
           const novoProduto = await cadastrarProduto(produto,marca,categoria,preco,quantidade,medida);
           await enviarImagem( novoProduto.id, imagem);
           setId(novoProduto.id);
+          toast.dark('Produto Cadastrado com Sucesso!');
+      }
 
-        toast.dark('Produto Cadastrado com Sucesso!');
+      else {
+        await alterarProduto(id, produto, marca, categoria, preco, quantidade, medida);
+
+        if(typeof (imagem) == 'object')
+            await enviarImagem(id, imagem);
+
+        toast.dark('Produto Alterado com Sucesso!');
+        navigate('/ConsultaProduto');
       }
 
       } catch(err){
@@ -65,7 +78,12 @@ export default function InsercaoProduto() {
   }
 
   function mostrarImagem(){
+    if(typeof (imagem) == 'object') {
     return URL.createObjectURL(imagem);
+  }
+  else{
+    return buscarImagem(imagem);
+  }
  }
   
 

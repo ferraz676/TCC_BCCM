@@ -1,4 +1,4 @@
-import {consultarNomeProdutos, consultarTodosProdutos, consultarIdProdutos, inserir, alterarProduto, deletar, enviarImagemProduto} from "../repository/produtoRepository.js";
+import {consultarNomeProdutos, consultarTodosProdutos, consultarIdProdutos, inserir, alterarProduto, deletar, enviarImagemProduto, consultarCreatina, consultarWhey, consultarAnabolizante, consultarVitamina} from "../repository/produtoRepository.js";
 
 import { Router } from "express";
 import multer from 'multer';
@@ -30,6 +30,54 @@ endpoints.get("/produtoTodos/consultar", async (req, resp) => {
   try {
 
     const resposta = await consultarTodosProdutos();
+    resp.send(resposta);
+  } catch (err) {
+    resp.status(500).send({ 
+      erro: err.message
+     })
+  }
+});
+
+endpoints.get("/produto/creatina", async (req, resp) => {
+  try {
+
+    const resposta = await consultarCreatina();
+    resp.send(resposta);
+  } catch (err) {
+    resp.status(500).send({ 
+      erro: err.message
+     })
+  }
+});
+
+endpoints.get("/produto/whey", async (req, resp) => {
+  try {
+
+    const resposta = await consultarWhey();
+    resp.send(resposta);
+  } catch (err) {
+    resp.status(500).send({ 
+      erro: err.message
+     })
+  }
+});
+
+endpoints.get("/produto/anabolizante", async (req, resp) => {
+  try {
+
+    const resposta = await consultarAnabolizante();
+    resp.send(resposta);
+  } catch (err) {
+    resp.status(500).send({ 
+      erro: err.message
+     })
+  }
+});
+
+endpoints.get("/produto/vitamina", async (req, resp) => {
+  try {
+
+    const resposta = await consultarVitamina();
     resp.send(resposta);
   } catch (err) {
     resp.status(500).send({ 
@@ -134,7 +182,7 @@ endpoints.put("/produto/:id/capa", upload.single("capa"), async (req, resp) => {
     
     const { id } = req.params;
     const imagem = req.file.path;
-    const resposta = await enviarImagemProduto(imagem, id);
+    const resposta = await enviarImagemProduto(imagem, id); 
     if (resposta != 1) 
         throw new Error("A imagem não pode ser salva!");
 

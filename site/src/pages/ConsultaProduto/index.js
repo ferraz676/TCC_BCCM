@@ -6,13 +6,21 @@ import './index.scss';
 import { useState, useEffect } from 'react';
 import { consultarTodosProdutos, consultarNomeProdutos, removerProduto } from '../../api/produtoApi.js';
 import { toast } from 'react-toastify';
-
+import { useNavigate } from 'react-router-dom';
 
 export default function ConsultaProdutos() {
 
   const [produtos, setProdutos] = useState([]);
   const [filtro, SetFiltro] = useState('')
+  const navigate = useNavigate();
 
+  function editarProduto(id){
+    navigate(`/AlterarProduto/${id}`);
+  }
+
+  function inserirProduto(){
+    navigate('/InsercaoProduto')
+  }
 
 
   async function carregarProdutos(){
@@ -20,7 +28,9 @@ export default function ConsultaProdutos() {
     setProdutos(resposta);
   }
 
-
+  function abrirDetalhes(id){
+    navigate(`/produtoDetalhe/${id}`)
+  }
 
   async function removerProdutoClick(id, produto){
 
@@ -84,9 +94,7 @@ export default function ConsultaProdutos() {
               <img className='lupa' value={filtro} onChange={e => SetFiltro(e.target.value)} src='/assets/images/lupa.svg' width={30} 
               alt=''/>
 
-              <button>Inserir Produto</button>
-
-              <button>Editar</button>
+              <button onClick={inserirProduto}>Inserir Produto</button>
             </div>
 
             </div>
@@ -101,23 +109,31 @@ export default function ConsultaProdutos() {
                   <th>Valor Unitário</th>
                   <th>Categoria</th>
                   <th>Marca</th>
+                  <th></th>
             </tr>
         </thead>
         <tbody className='tbody-table'>
 
           {produtos.map(item =>
 
-          <tr key={item.id} className='tr2'>
+          <tr key={item.id} className='tr2' onClick={() => abrirDetalhes(item.id)}>
             <td>{item.id}</td>
             <td>{item.produto}</td>
             <td>{item.quantidade}</td>
             <td>{item.preco}</td>
             <td>{item.categoria}</td>
-            <td>{item.marca}</td>
-            <td className='btns'>
-              <img  src='/assets/images/lixeira.png' alt='' height={30} onClick={() => removerProdutoClick(item.id, item.produto)}/>
-              <img src='/assets/images/lapis.png' alt='' height={30}/>
-            </td>
+            <td >{item.marca} 
+
+            <img className='marcaTD'  src='/assets/images/lixeira.png' alt='' height={20} 
+            onClick={e => {
+              e.stopPropagation(); 
+              removerProdutoClick(item.id, item.produto)}} />
+
+            <img className='marcaTD' src='/assets/images/lapis.png' alt='' height={20} 
+            onClick={e => {
+              e.stopPropagation();
+              editarProduto(item.id)}} /></td>
+            
           </tr>
 
             )}

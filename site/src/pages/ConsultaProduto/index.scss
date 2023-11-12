@@ -88,7 +88,7 @@
     justify-content: space-between;
     align-items: center;
     border: 1px solid black;
-    width: 140vh;
+    width: 180vh;
     
     thead{
         border: 1px solid black;
@@ -99,7 +99,7 @@
 .tabela tbody{
     display: flex;
     flex-direction: column;
-    width: 140vh !important;
+    width: 180vh !important;
     align-items: center;
     justify-content: space-between;
 }
@@ -109,16 +109,30 @@
     text-align: center;
     font-weight: bold;
     padding: 9px;
-    width:140vh;
+    width:30vh;
+    
+}
+.tabela tr {
+    width:160vh !important;
     
 }
 
 /* Estilos para as células de dados da tabela */
-.tabela td {
+.tabela td{
+    width: 100vh;
     padding: 10px;
-    text-align: center !important;
-    width: 110vh;
+    
 }
+
+.tabela tr{
+    width: 180vh;
+}
+
+.marcaTD{
+    margin-left: 40px;
+    align-items: center;
+}
+
 
 
 .sac img{
@@ -164,8 +178,10 @@ margin-right: 10px;
 
     .btns{
         display: flex;
-        gap: 10px;
+        gap: 20px;
     }
+
+    
 
 
 }

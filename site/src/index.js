@@ -7,7 +7,6 @@ import 'react-confirm-alert/src/react-confirm-alert.css';
 
 import Cadastro from './pages/cadastro';
 import EnderecoEditar from './pages/enderecoEditar';
-import Produtos from './pages/Whey';
 import Home from './pages/Home';
 import Login from './pages/login';
 import InsercaoProduto from './pages/InsercaoProduto';
@@ -22,13 +21,14 @@ import Pagamento2 from './pages/pagamento2';
 import EntregaPedido from './pages/entregaPedido';
 import Meupedido from './pages/meupedido';
 import Endereco from './pages/endereco';
-import Produto from './pages/produto'
+import ProdutoDetalhe from './pages/produtoDetalhe'
 import Teladm from './pages/teladm';
 import DesempenhoVendas from './pages/desempenhoVendas';
 import Creatina from './pages/creatina'
 import Anabolizante from './pages/anabolizante';
 import Multivitaminico from './pages/multivitaminico';
 import Histopedido from './pages/histopedido';
+import Cards from './pages/cards';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -38,11 +38,11 @@ root.render(
       <Routes>
 
       <Route path= '/cadastro' element={<Cadastro/>} />
+      <Route path= '/cards' element={<Cards/>} />
       <Route path= '/enderecoEditar' element={<EnderecoEditar/>} />
       <Route path= '/desempenhoVendas' element={<DesempenhoVendas/>} />
       <Route path= '/entregaPedido' element={<EntregaPedido/>} />
-       <Route path='/Produtos' element={<Produtos/>}/>
-       <Route path='/produto' element={<Produto/>}/>
+      <Route path='/produtoDetalhe/:idParam' element={<ProdutoDetalhe/>}/>
       <Route path='/' element={<Home/>} />
       <Route path='/InsercaoProduto' element={<InsercaoProduto/>} />
       <Route path='/AlterarProduto/:idParam' element={<InsercaoProduto/>} />

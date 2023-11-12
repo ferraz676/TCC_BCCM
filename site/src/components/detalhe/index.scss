@@ -1,0 +1,252 @@
+.pri{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+
+
+.conteu{
+    display: flex;
+    flex-direction: column;
+
+ height: 100%;
+}
+
+.zoon{
+    display: flex;
+    flex-direction: column;
+    height: 300px !important;
+    width: 60px !important;
+    margin-left: 70px;
+    margin-top: 120px;
+    justify-content: space-between;
+
+    img{
+      border: 1px solid black !important;
+      width: 60px;
+      height: 60px;
+    }
+}
+
+.anabo{
+    img{
+       margin-left: 180px !important;
+       margin-top: -50vh !important;
+       margin-bottom: 5vh;
+       width: 300px;
+       height: 350px !important;
+    }
+
+
+}
+
+.avaliação{
+       
+     display: flex;
+     height: 40px;
+     margin-left: 200px;
+     margin-top: -15px;
+    }
+      
+
+.gor{
+display: flex;
+flex-direction: row;
+margin-top: 100px;
+margin-left: 65px;
+}
+
+.gor img{
+    display: flex;
+    height: 55px;
+}
+
+.gor h1{
+    display: flex;
+    font-size: 20px;
+    margin-left: 20px;
+    margin-top: 5px;
+    width:450px;
+    text-align: center;
+}
+
+.for{
+    display: flex;
+    flex-direction: row;
+    margin-top: 100px;
+    margin-left: 70px;
+}
+
+.for img{
+    display: flex;
+    height: 55px;
+}
+
+.for h1{
+    display: flex;
+    font-size: 20px;
+    margin-left: 20px;
+    margin-top: 5px;
+    width:430px;
+    text-align: center;
+}
+
+.ps{
+    display: flex;
+    flex-direction: row;
+    margin-top: 100px;
+    margin-left: 60px;
+    margin-bottom: 50px;
+}
+
+.ps img{
+    display: flex;
+    height: 90px;
+    margin-top: -15px;
+}
+
+.ps h1{
+    display: flex;
+    font-size: 20px;
+    margin-left: 20px;
+    margin-top: 5px;
+    width:430px;
+    text-align: center;
+}
+
+.lado{
+    display:flex ;
+    flex-direction: row;
+    background-image: url('../../../public/assets/images/logo-cortada.png');
+    background-size:57%;
+    background-repeat: no-repeat;
+    background-position: 620px;
+    position: relative ;
+    background-position-y: -220px;
+    background-size: 650px;
+}
+
+.segundapa{
+    display: flex;
+flex-direction: column;
+
+}
+
+.plvrs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   font-size: 20px;
+    width: 30px;
+    margin-top: 120px;
+   margin-left: 280px !important;
+   
+}
+
+.plvrs2{
+    display:flex ;
+    margin-top: 50px;
+font-size: 11px;
+width: 330px;
+text-align: center;
+margin-left: 140px;
+}
+
+.plvrs3{
+    display: flex;
+    margin-top: 100px;
+    font-size: 18px;
+    color: #6EB539;
+    margin-left: 230px;
+}
+
+.plvrs4{
+    display: flex;
+    text-align: center;
+    width: 450px;
+    font-size: 10px;
+    margin-top: 50px;
+    margin-left: 100px;
+}
+
+.cpm{
+    button{
+        display: flex;
+       background-color: #2D5A68;
+    color: #ffffff;
+    margin-top: 90px;
+    margin-left: 230px;
+    height: 52px; 
+    width: 130px;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  border-radius: 5px;
+    }
+  }
+
+  .cari{
+    display: flex;
+     margin-left: 365px;
+    background-color: #2D5A68;
+    height: 52px;
+    width: 100px;
+    margin-top: -51px;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cari img{
+    display: flex;
+    height: 45px;
+    margin-left: -7px;
+  
+  }
+ 
+  .estoque{
+    display: flex;
+    margin-left: 200px;
+    margin-top: 50px;
+  }
+
+  .estoque img{
+    display: flex;
+    height: 30px;
+  }
+
+  .estoque h1{
+    display: flex;
+    font-size: 15px;
+    margin-top: 4px;
+  }
+
+  .frete{
+    display: flex;
+    margin-left: 220px; 
+    margin-top: 30px;
+  }
+
+.frete img{
+    display: flex;
+    height: 30px;
+}
+
+
+  .frete h1{
+display: flex;
+margin-left: 10px;
+font-size:20px ;
+font-weight: 700;
+  }
+
+  .frete h2{
+display: flex;
+margin-top: 30px;
+margin-left: -120px;
+font-size: 17px;
+color: #6EB539;
+  }
+
+
+}
