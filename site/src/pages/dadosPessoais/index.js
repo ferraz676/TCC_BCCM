@@ -6,6 +6,14 @@ import { useNavigate, Link } from 'react-router-dom'
 
 function Home() {
 
+  const navigate = useNavigate();
+
+  function sairClick(){
+    storage.remove('cliente-logado');
+    navigate('/');
+}
+
+
   return (
     <div className='dados-pessoais'>
       <Cabecalho/>
@@ -33,7 +41,7 @@ function Home() {
                         <h1 className='tpgs'>Endereço Entrega</h1>
                     </div>
 
-                    <div className='pgs'>
+                    <div className='pgs' onClick={sairClick}>
                         <img className='imgs' src='/assets/images/voltar.png' alt=''/>
                         <h1 className='tpgs'>Sair</h1>
                     </div>

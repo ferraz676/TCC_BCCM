@@ -18,6 +18,10 @@ export default function Cabecalho() {
         }
       }
     , [])
+
+    function voltarFuncao(){
+      navigate('/')
+    }
     
     return(
         <main className='cab'>
@@ -26,7 +30,7 @@ export default function Cabecalho() {
           </div>
 
       <div className='mid'>
-            <a href='../../pages/Home'><img className='logo' src='/assets/images/logo.png' height={200} alt=''/></a>
+            <a onClick={voltarFuncao}><img className='logo' src='/assets/images/logo.png' height={200} alt=''/></a>
 
             
         <div className='inpt'>

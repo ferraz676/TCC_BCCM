@@ -1,6 +1,6 @@
 import './index.scss';
 import CabecalhoADM from '../../components/cabADM/cabecalho.js';
-import storage, { get } from 'local-storage';
+import storage from 'local-storage';
 import { useNavigate, Link } from 'react-router-dom';
 import { useEffect } from 'react';
 
@@ -10,7 +10,7 @@ export default function Teladm() {
 
     function sairClick(){
         storage.remove('adm-logado');
-        navigate('/home');
+        navigate('/');
     }
 
     return (

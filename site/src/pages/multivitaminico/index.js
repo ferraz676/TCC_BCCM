@@ -1,92 +1,105 @@
 import './index.scss';
+import 'react-toastify/dist/ReactToastify.css';
 import Cabecalho from '../../components/cabecalho/cabecalho';
 import Rodape from '../../components/rodape/rodape';
+import './index.scss';
+import { useState, useEffect } from 'react';
+import { consultarVitamina} from '../../api/produtoApi.js';
+import { useNavigate } from 'react-router-dom';
+import { buscarImagem } from '../../api/produtoApi.js'
 
-export default function vitaminatcc(){
 
-return(
-    <div className='pagina-vitamina'>
+
+export default function Vitamina() {
+
+  const [produtos, setProdutos] = useState([]);
+  const navigate = useNavigate();
+
+ 
+  async function carregarProdutos(){
+    const resposta = await consultarVitamina();
+    setProdutos(resposta);
+  }
+
+  function abrirDetalhes(id){
+    navigate(`/produtoDetalhe/${id}`)
+  }
+
+  useEffect(() => {
+    carregarProdutos();
+  }, [])
+
+
+  
+  return(
+    <div className='pagina-vitaminaOficial'>
     <Cabecalho/>
         <div className='titulo'>
 
             <div className='plvs'>
-            <h1>Creatina </h1>
+            <h1>Multivitamínicos </h1>
              </div>
 
              <div className='imagem'>
-                <img src='/assets/images/crea.png' alt=''/>                
+                <img src='/assets/images/vitaminas.png' height={250} width={450} alt=''/>                
              </div>
 
         </div>
 
 <div className='tm'>
-    
 
-
+    <div className='lateralPreco'>
         <div className='cont'>
 
-            <div className='palavras'>
-                <h1>O MELHOR PREÇO, MÁXIMA QUALIDADE.</h1>
-                <p>Compre direto de nossa fábrica e economize. Sem intermediadores entre nós e nosso cliente, repassamos o custo de distribuidores em forma de desconto para nossos clientes.</p>
+            <div className='sabores'>
+                <h1>
+                O MELHOR PREÇO, MÁXIMA QUALIDADE.<br></br>
+                <span>Compre direto de nossa fábrica e economize. Sem intermediadores entre nós e nosso cliente, repassamos o custo de distribuidores em forma de desconto para nossos clientes.</span>
+                </h1>
             </div>
-        
-        <div className='palavras2'>
-            <h1>PRODUTOS 100% AUTÊNTICOS.</h1>
-            <p>Pode pesquisar na Internet: a BCCM Supplements foi uma das poucas marcas aprovadas no famoso teste que avaliou a qualidade dos suplementos brasileiros.</p>
 
         </div>
 
+        <div className='cont2'>
+
+            <div className='sabores'>
+                <h1>
+                PRODUTOS 100% AUTÊNTICOS.<br></br>
+                <span>Pode pesquisar na Internet: a BCCM Supplements foi uma das poucas marcas aprovadas no famoso teste que avaliou a qualidade dos suplementos brasileiros.</span>
+                </h1>
+            </div>
+
         </div>
+    </div>
 
 <div className='pr'>
 
-        <div className='l1'>
+      {produtos.map(item => 
 
-            <div className='produto1'>
-               <img  src='/assets/images/vit1.png'  />
-                <p>Creatina Monohidratada 100g </p>
-                <h1>R$ 315,00</h1>
-            </div>
+          <div className='l1'>
 
-            <div className='produto2'>
-                <img src='/assets/images/vit2.png' />
-                <p>Creatina Monohidratada 100g </p>
-                <h1>R$ 150,00</h1>
+            <div className='produto1' onClick={() => abrirDetalhes(item.id)}>
+
+              <img  src={buscarImagem(item.imagem)} alt=''/>
+              <p>{item.produto}</p>
+              <h1>R${item.preco}</h1>
+              <span>{item.medida}</span>
 
             </div>
-            
-        </div>
 
-        <div className='l2'>
-
-            <div className='produto3'>
-                <img src='/assets/images/vit3.png'/>
-                <p>Creatina(Creapure) 100g </p>
-                <h1>R$ 110,00</h1>
-            </div>
-
-            <div className='produto4'>
-                <img src='/assets/images/vit4.png'/>
-                <p>Creatina(Creapure)   250g </p>
-                <h1>R$ 220,00</h1>
-            </div>
-
-        </div>
-
-            <div className='l3'>
-                <img src='/assets/images/vit5.png'/>
-                <p>Creatina (Creapure)120 comprimidos</p>
-                <h1>R$ 580,00</h1>
-
-            </div>
-  </div>
-       
- 
+          </div>
+        )}
 </div>
 
-<Rodape/>
+<div>
+</div>
 
-    </div>
+  </div>
+
+
+        <Rodape/>
+
+</div>
 )
-}
 
+}

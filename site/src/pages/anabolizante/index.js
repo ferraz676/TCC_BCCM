@@ -1,92 +1,105 @@
 import './index.scss';
+import 'react-toastify/dist/ReactToastify.css';
 import Cabecalho from '../../components/cabecalho/cabecalho';
 import Rodape from '../../components/rodape/rodape';
+import './index.scss';
+import { useState, useEffect } from 'react';
+import { consultarAnabolizante} from '../../api/produtoApi.js';
+import { useNavigate } from 'react-router-dom';
+import { buscarImagem } from '../../api/produtoApi.js'
 
-export default function Anabolizantetcc(){
 
-return(
-    <div className='anabolizante'>
+
+export default function Anabolizantes() {
+
+  const [produtos, setProdutos] = useState([]);
+  const navigate = useNavigate();
+
+ 
+  async function carregarProdutos(){
+    const resposta = await consultarAnabolizante();
+    setProdutos(resposta);
+  }
+
+  function abrirDetalhes(id){
+    navigate(`/produtoDetalhe/${id}`)
+  }
+
+  useEffect(() => {
+    carregarProdutos();
+  }, [])
+
+
+  
+  return(
+    <div className='pagina-anabolizanteOficial'>
     <Cabecalho/>
         <div className='titulo'>
 
             <div className='plvs'>
-            <h1>Creatina </h1>
+            <h1>Anabolizantes </h1> 
              </div>
 
              <div className='imagem'>
-                <img src='/assets/images/ana.png' alt=''/>                
+                <img src='/assets/images/ana.png' height={250} width={450} alt=''/>                
              </div>
 
         </div>
 
 <div className='tm'>
-    
 
-
+    <div className='lateralPreco'>
         <div className='cont'>
 
-            <div className='palavras'>
-                <h1>O MELHOR PREÇO, MÁXIMA QUALIDADE.</h1>
-                <p>Compre direto de nossa fábrica e economize. Sem intermediadores entre nós e nosso cliente, repassamos o custo de distribuidores em forma de desconto para nossos clientes.</p>
+            <div className='sabores'>
+                <h1>
+                O MELHOR PREÇO, MÁXIMA QUALIDADE.<br></br>
+                <span>Compre direto de nossa fábrica e economize. Sem intermediadores entre nós e nosso cliente, repassamos o custo de distribuidores em forma de desconto para nossos clientes.</span>
+                </h1>
             </div>
-        
-        <div className='palavras2'>
-            <h1>PRODUTOS 100% AUTÊNTICOS.</h1>
-            <p>Pode pesquisar na Internet: a BCCM Supplements foi uma das poucas marcas aprovadas no famoso teste que avaliou a qualidade dos suplementos brasileiros.</p>
 
         </div>
 
+        <div className='cont2'>
+
+            <div className='sabores'>
+                <h1>
+                PRODUTOS 100% AUTÊNTICOS.<br></br>
+                <span>Pode pesquisar na Internet: a BCCM Supplements foi uma das poucas marcas aprovadas no famoso teste que avaliou a qualidade dos suplementos brasileiros.</span>
+                </h1>
+            </div>
+
         </div>
+    </div>
 
 <div className='pr'>
 
-        <div className='l1'>
+      {produtos.map(item => 
 
-            <div className='produto1'>
-               <img  src='/assets/images/ana1.png'  />
-                <p>Enantato Testosterona20mg/200cps </p>
-                <h1>R$ 315,99</h1>
-            </div>
+          <div className='l1'>
 
-            <div className='produto2'>
-                <img src='/assets/images/ana2.png' />
-                <p>Oxandrolona 10mg/100cps</p>
-                <h1>R$ 159,00</h1>
+            <div className='produto1' onClick={() => abrirDetalhes(item.id)}>
+
+              <img  src={buscarImagem(item.imagem)} alt=''/>
+              <p>{item.produto}</p>
+              <h1>R${item.preco}</h1>
+              <span>{item.medida}</span>
 
             </div>
-            
-        </div>
 
-        <div className='l2'>
-
-            <div className='produto3'>
-                <img src='/assets/images/ana3.png'/>
-                <p>Enantato Testosterona 20mg/200cps </p>
-                <h1>R$ 190,00</h1>
-            </div>
-
-            <div className='produto4'>
-                <img src='/assets/images/ana4.png'/>
-                <p>Durateston 200mg/10ml </p>
-                <h1>R$ 220,00</h1>
-            </div>
-
-        </div>
-
-            <div className='l3'>
-                <img src='/assets/images/ana5.png'/>
-                <p>Primobolan 10ml</p>
-                <h1>R$ 580,00</h1>
-
-            </div>
-  </div>
-       
- 
+          </div>
+        )}
 </div>
 
-<Rodape/>
+<div>
+</div>
 
-    </div>
+  </div>
+
+
+        <Rodape/>
+
+</div>
 )
-}
 
+}

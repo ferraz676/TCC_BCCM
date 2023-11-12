@@ -26,7 +26,7 @@ export async function inserirCliente(cliente) {
 export async  function consultarCliente(nome) {
   let comando = `
       select id_cliente       as id,
-             nm_cliente       as nome,
+             nm_cliente       as cliente,
              ds_telefone      as telefone,
              ds_cpf           as cpf,
              ds_email         as email,
@@ -52,14 +52,14 @@ export async function alterarCliente(id, cliente) {
              ds_email      = ?,
              ds_senha      = ?,
              ds_genero     = ?,
-             ds_fixo       = ?
+             ds_fixo       = ?,
              dt_nascimento = ?
        where id_cliente    = ?
   `
 
   let [resp] = await con.query(comando,
     [
-      cliente.nome,
+      cliente.cliente,
       cliente.telefone,
       cliente.cpf,
       cliente.email,

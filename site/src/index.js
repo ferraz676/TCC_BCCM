@@ -28,7 +28,6 @@ import Creatina from './pages/creatina'
 import Anabolizante from './pages/anabolizante';
 import Multivitaminico from './pages/multivitaminico';
 import Histopedido from './pages/histopedido';
-import Cards from './pages/cards';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -38,7 +37,6 @@ root.render(
       <Routes>
 
       <Route path= '/cadastro' element={<Cadastro/>} />
-      <Route path= '/cards' element={<Cards/>} />
       <Route path= '/enderecoEditar' element={<EnderecoEditar/>} />
       <Route path= '/desempenhoVendas' element={<DesempenhoVendas/>} />
       <Route path= '/entregaPedido' element={<EntregaPedido/>} />
