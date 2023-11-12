@@ -33,7 +33,7 @@ CREATE TABLE tb_produto (
 	ds_categoria varchar(200) not null,
 	nm_produto varchar(200),
 	ds_marca varchar(200),
-	vl_preco decimal,
+	vl_preco decimal(10,2),
 	qtd_disponivel integer,
 	ds_medida varchar (200),
     img_produto varchar(500)
@@ -68,19 +68,18 @@ CREATE TABLE tb_pedido_item (
 
 select * from tb_produto;
 
-select nm_produto      as produto,
-            ds_marca        as marca,
-            ds_categoria    as categoria,
-            vl_preco        as preco,
-            qtd_disponivel  as quantidade, 
-            ds_medida       as medida
-        from tb_produto;
-
 insert into tb_cliente(nm_cliente, ds_telefone, ds_cpf, ds_email, ds_senha, ds_genero, ds_fixo, dt_nascimento)
 values('João', '11 962978-2321', '123.123.121-45', 'joao123', 'joao123', 'Masculino', '', '2005-04-12');
 
 insert into tb_produto(nm_produto, ds_marca, ds_categoria, vl_preco, qtd_disponivel, ds_medida)
-values('Anabolizante', 'StarLab', 'BombaBomba', 99, 79, '10ml');
+values('Anabolizante', 'StarLab', 'Creatina', 99, 79, '10ml');
 
 insert into tb_adm(ds_email, ds_senha)
 values('matheus@adm.com', 'mamaco123');
+
+delete from tb_produto
+where id_produto = 2;
+
+SELECT *
+FROM tb_produto
+WHERE ds_categoria = 'Suplemento';
