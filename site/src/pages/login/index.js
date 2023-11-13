@@ -33,6 +33,7 @@ export default function Login() {
       try{
         const q = await loginCliente(email, senha);
         storage('cliente-logado', q)
+        storage('carrinho', []);
       
         setTimeout(() => {
           navigate('/');

@@ -1,8 +1,28 @@
 import './index.scss';
 import { buscarImagem } from '../../api/produtoApi.js'
-
+import { get, set } from 'local-storage';
+import { useEffect, useState } from 'react';
+import storage from 'local-storage';
 
 export default function Detalhe(props){
+
+    let produto = props.produto;
+
+    function adicionarCarrinho() {
+       let carrinho = get('carrinho');
+       
+       carrinho.push(produto);
+
+       set('carrinho', carrinho);
+    }
+
+    const [produtosCarrinho, setProdutosCarrinho] = useState([]);
+
+    useEffect(() => {
+        let carrinho = get('carrinho');
+        if(storage('carrinho'))
+             setProdutosCarrinho(carrinho);
+    }, [])
 
     return(
 <div className='pri'>
@@ -74,7 +94,7 @@ export default function Detalhe(props){
          <div className='cpm'>
             <button>COMPRAR</button>     
       <div className='cari'>
-      <img src='/assets/images/carrinho.png' alt=''/>
+        <img src='/assets/images/carrinho.png' onClick={adicionarCarrinho} alt=''/>
       </div>
          </div>
 

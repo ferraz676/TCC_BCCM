@@ -1,4 +1,4 @@
-import {consultarCliente, inserirCliente,alterarCliente,deletarCliente, loginCliente} from '../repository/clienteRepository.js';
+import {consultarCliente, inserirCliente,alterarCliente, alterarSenhaCliente, deletarCliente, loginCliente} from '../repository/clienteRepository.js';
 
 import { Router } from 'express';
 const endpoints = Router();
@@ -79,6 +79,28 @@ endpoints.put('/cliente/:id', async (req, resp) => {
     resp.status(400).send({ erro: err.message });
   }
 })
+
+
+endpoints.put("/clienteSenha/:id", async (req, resp) => {
+  try {
+    const { id } = req.params;
+    const cliente = req.body;
+  
+    if(!cliente.senha)
+    throw new Error("Senha Obrigatória!");
+    
+    const resposta = await alterarSenhaCliente(id, cliente);
+    if (resposta != 1)
+      throw new Error("Senha não pôde ser alterada");
+    else
+      resp.status(204).send();
+
+  } catch (err){
+    resp.status(400).send({
+      erro: err.message
+    })
+  }
+});
 
 
 endpoints.delete('/cliente/:id', async (req, resp) => {

@@ -38,3 +38,11 @@ export async function loginCliente(email, senha){
 
     return r.data;
 }
+
+
+export async function alterarSenhaCliente(id, senha){
+    const resposta = await api.put(API_URL + `/clienteSenha/${id}`, {
+        senha:senha
+    })
+    return resposta.data;
+}

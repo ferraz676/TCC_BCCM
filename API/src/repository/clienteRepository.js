@@ -72,6 +72,26 @@ export async function alterarCliente(id, cliente) {
   return resp.affectedRows;
 }
 
+
+
+export async function alterarSenhaCliente(id, cliente) {
+  let comando = `
+      update tb_cliente
+         set ds_senha      = ?
+      where id_cliente     = ?
+  `
+
+  let [resp] = await con.query(comando,
+    [
+      cliente.senha,
+      id
+    ])
+  
+  return resp.affectedRows;
+}
+
+
+
 export async function deletarCliente(id) {
   let comando = `
       delete from tb_cliente

@@ -61,9 +61,6 @@ export default function ConsultaProdutos() {
     })
   }
   
-
-
-
   async function filtrar(){
     const resposta = await consultarNomeProdutos(filtro);
     setProdutos(resposta);

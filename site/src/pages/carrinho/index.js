@@ -1,7 +1,21 @@
 import './index.scss';
-import Cabecalho from '../../components/cabecalho/cabecalho';
+import { get } from 'local-storage';
+import { useEffect, useState } from 'react';
+import storage from 'local-storage';
+import { buscarImagem } from '../../api/produtoApi.js'
 
 export default function Carrinho(){
+
+    const [produtosCarrinho, setProdutosCarrinho] = useState([]);
+
+    useEffect(() => {
+        let carrinho = get('carrinho');
+        if(storage('carrinho'))
+             setProdutosCarrinho(carrinho);
+    }, [])
+
+
+
 
     return(
 <div className='td'>
@@ -10,20 +24,27 @@ export default function Carrinho(){
 <h1>Itens do meu carrinho (2) </h1>
 </div>
 
-<div className='cu'>
+            {produtosCarrinho.map(item => 
 
-             <div className='ct'>
-             <img className='vita' src='/assets/images/vita.png' />
-            <p className='nome'>MULTIVITAMÍNICO (120 CÁPS) (NOVA FÓRMULA) - BCCM SUPPLEMENTS</p>
-            </div>
 
-            <div className='fat'>
-            <img className='me' src='/assets/images/menos.png' />
-            <p>1</p>
-            <img className='ma' src='/assets/images/mais.png' />
-            <h1 className='preço'>R$ 42,99 </h1>
-            </div>
-</div>
+                <div key={item.id} className='cu'>
+                    <div className='ct'>
+                        <img className='vita' src={buscarImagem(item.imagem)} />
+                        <p className='nome'>{item.produto}</p>
+                    </div>
+
+                    <div className='fat'>
+                        <img className='me' src='/assets/images/menos.png' />
+                        <p>1</p>
+                        <img className='ma' src='/assets/images/mais.png' />
+                        <h1 className='preço'>R${item.preco}</h1>
+                    </div>
+                </div>
+
+            )}
+
+
+            
 
 <div className='meio'>
             <div className='rp'>
