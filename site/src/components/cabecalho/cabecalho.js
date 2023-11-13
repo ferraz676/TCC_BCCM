@@ -34,7 +34,7 @@ export default function Cabecalho() {
 
             
         <div className='inpt'>
-            <input placeholder="Digite o que procura"></input>
+            <input placeholder="Digite o que procura" className='se'></input>
             <button><img src='/assets/images/lupa.png' height={20} alt=''/></button>
         </div>
 
