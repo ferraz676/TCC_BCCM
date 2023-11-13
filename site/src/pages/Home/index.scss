@@ -7,6 +7,7 @@
     box-sizing: border-box;
     margin: 0px;
     font-family: 'Inter';
+    width: 100%;
 
     .home {
       text-align: center;
@@ -392,36 +393,15 @@
     }
 
 
-    @media (max-width: 1920px) {
-      .textos{
-        
-        
+    @media (max-width: 320px) {
+      .pagina-home{
+        display: flex;
+        flex-direction: column;
+
       }
 
-      .sibam{
-       
-        
-        margin-left: 30vh;
-      }
+
       
-
-      .texto{
-        margin-left: 15vh;
-        font-size: 23px;
-        margin-top: -20px;
-      }
-
-      .section-3{
-        .texto{
-          margin-left: 40vh;
-          font-size: 23px;
-        }
-
-    
-        
-
-      }
-
       
 
   }

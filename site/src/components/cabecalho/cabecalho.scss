@@ -148,4 +148,49 @@
     .usuarioInter{
         font-size: 17px;
     }
+
+    @media (max-width: 320px) {
+        .cab{
+          display: flex;
+          flex-direction: column;
+  
+        }
+        
+        .first{
+            justify-content: center;
+            align-items: center;
+            width: 320px;
+            font-size: px;
+            height: 50px;
+            text-align: center;
+
+        }
+        
+        .mid{
+            justify-content: end;
+            width: 315px;
+
+        
+        }
+
+        .inpt{
+            width: 15px;
+            margin-left: 50vh;
+
+        }
+
+        .se{
+            width: 5px;
+            margin-left: 20px;
+        }
+  
+    }
+  
+  
+
+
+
+
+
+
 }
