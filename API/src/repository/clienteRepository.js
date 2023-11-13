@@ -23,22 +23,21 @@ export async function inserirCliente(cliente) {
   return cliente;
 }
 
-export async  function consultarCliente(nome) {
+export async  function consultarCliente() {
   let comando = `
       select id_cliente       as id,
              nm_cliente       as cliente,
              ds_telefone      as telefone,
              ds_cpf           as cpf,
              ds_email         as email,
-             ds_senha         as senha
+             ds_senha         as senha,
              ds_genero        as genero,
              ds_fixo          as fixo,
              dt_nascimento    as nascimento
         from tb_cliente
-       where nm_cliente like  ?
   `
 
-  let [dados] = await con.query(comando, ['%' + nome + '%'])
+  let [dados] = await con.query(comando)
   return dados;
 }
 

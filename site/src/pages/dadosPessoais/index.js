@@ -1,109 +1,91 @@
 import './index.scss';
 import 'react-toastify/dist/ReactToastify.css';
 import Cabecalho from '../../components/cabecalho/cabecalho.js'
+import LateralCliente from '../../components/lateralCliente/index.js'
 import storage from 'local-storage';
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react';
+import { consultarCliente } from '../../api/clienteApi'
 
-function Home() {
+
+function DadosPessoais() {
+
+  const [clientes, setClientes] = useState([]);
 
   const navigate = useNavigate();
 
-  function sairClick(){
-    storage.remove('cliente-logado');
-    navigate('/');
-}
-
+  async function carregarClientes(){
+    const resposta = await consultarCliente();
+    setClientes(resposta);
+  }
+ 
+  useEffect(() => {
+    carregarClientes();
+  }, [])
 
   return (
-    <div className='dados-pessoais'>
-      <Cabecalho/>
-        <div className='mid-1'>
-            <div className='block'>
-                <div className='paginas2'>
+      <div className='dados-pessoais'>
+          <Cabecalho/>
 
-                    <div className='pgs'>
-                        <img className='imgs' src='/assets/images/mala.png' alt=''/>
-                        <h1 className='tpgs'>Meus pedidos</h1>
-                    </div>
-
-                    <div className='pgs'>
-                        <img className='imgs' src='/assets/images/senha.png' alt=''/>
-                        <h1 className='tpgs'>Trocar senha</h1>
-                    </div>
-
-                    <div className='pgs3'>
-                        <img className='imgs' src='/assets/images/boneco.png' alt=''/>
-                        <h1 className='tpgs'>Dados pessoais</h1>
-                    </div>
-
-                    <div className='pgs'>
-                        <img className='imgs' src='/assets/images/entrega.png' alt=''/>
-                        <h1 className='tpgs'>Endereço Entrega</h1>
-                    </div>
-
-                    <div className='pgs' onClick={sairClick}>
-                        <img className='imgs' src='/assets/images/voltar.png' alt=''/>
-                        <h1 className='tpgs'>Sair</h1>
-                    </div>
-                </div>
-            </div>
+     
+          <div className='mid-1'>
+        
+            <LateralCliente selecionado='dadosPessoais'/>
 
 
-            <div className='principal'>
-               <div className='pt1'> 
-                <h1>CPF</h1>
-                <input type='text'></input>
-                <p>Somente números.</p>
-              </div>
+            {clientes.map(item => 
 
-              <div className='pt1'> 
-                <h1>Data de Nascimento</h1>
-                <input type='date'></input>
-              </div>
+            <div className='qlqCoisa' key={item.id}>  
+                  <div className='principal'>
+                  <div className='pt1'> 
+                    <h1>CPF</h1>
+                    <span>{item.cpf.substr(0, 6)}X.XXX-XX</span>
+                    <p>Somente números.</p>
+                  </div>
 
-              <div className='pt1'> 
-                <h1>Nome Completo</h1>
-                <input type='text'></input>
-              </div>
+                  <div className='pt1'> 
+                    <h1>Data de Nascimento</h1>
+                    <span>{item.nascimento.substr(0, 10)}</span>
+                  </div>
+
+                  <div className='pt1'> 
+                    <h1>Nome Completo</h1>
+                    <span>{item.cliente}</span>
+                  </div>
 
               <div className='pt2'>
-                <div className='d1'> 
-                <h1>Telefone Celular</h1>
-                <input type='text'></input>
-                </div>
-                <div className='d1'>
-                <h1>Telefone Fixo(Opcional)</h1>
-                <input type='text'></input>
-                </div>
+                    <div className='d1'> 
+                      <h1>Telefone Celular</h1>
+                      <span>{item.telefone}</span>
+                    </div>
+                    <div className='d2'>
+                      <h1>Telefone Fixo(Opcional)</h1>
+                      <span>{item.fixo}</span>
+                    </div>
               </div>
 
 
-              <div className='pt3'>
-              <h1>Gênero</h1>
-                <div className='d1'> 
-                <input type='checkbox'></input>
-                <h1>Masculino</h1>
-                
-                </div>
-                <div className='d1'>
-                <input type='checkbox'></input>
-                <h1>Feminino</h1>
-                </div>
+              <div className='pt1'>
+                    
+                  <div className='pt5'> 
+                    <h1>Gênero</h1>
+                    <span>{item.genero}</span>
+                  </div>
               </div>
 
               <div className='pt1'> 
                 <h1>Dados de Acesso (Email)</h1>
-                <input type='text'></input>
+                <span>{item.email}</span>
               </div>
 
               <div className='atualizar'>
                 <h1>Atualizar</h1>
-            </div>
+              </div>
 
             </div>
 
 
-            <div className='right'>
+              <div className='right'>
                 <div className='promocoes'>
                     <input type='checkbox'></input>
                     <p>Receber promoções via whatsapp</p>
@@ -120,13 +102,20 @@ function Home() {
 
             </div>
 
+          </div>  
+
+              )}
+
+            </div>
+
+
             
 
-        </div>
         
-    </div>
-  );
+
+      </div>
+  )
 
 }
 
-export default Home;
+export default DadosPessoais;

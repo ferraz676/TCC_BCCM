@@ -1,6 +1,20 @@
+.pagina-pedido{
+    display: flex;
+    flex-direction: column;
+    background-color: #d9d9d9;
+    height: 100vh;
 .ti{
     display: flex;
-    margin-top: 3vh;
+    margin-top: 6vh;
+}
+
+.odio{
+    display: flex;
+    flex-direction: row;
+}
+
+.clienteLateral{
+    margin-top: -3vh;
 }
 
 .pn{
@@ -40,5 +54,13 @@ margin-top: 5vh;
 .tabela p1{
     display: flex;
     border: solid black 1px;
+
+    }
+
+    .odio2{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
 }

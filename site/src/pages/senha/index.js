@@ -2,7 +2,7 @@ import './index.scss';
 import 'react-toastify/dist/ReactToastify.css';
 import Cabecalho from '../../components/cabecalho/cabecalho.js'
 import Rodape from '../../components/rodape/rodape.js'
-import Menu from '../../components/menu/menu.js'
+import LateralCliente from '../../components/lateralCliente/index.js';
 
 
 
@@ -14,7 +14,7 @@ export default function Senha() {
 
 
 <div className="tudo5">
-      <Menu/>
+      <LateralCliente selecionado='senha'/>
 <div className="bloco2">
     <div className="first">
         <h1>Nova Senha (Mínimo 6 caracteres)</h1>

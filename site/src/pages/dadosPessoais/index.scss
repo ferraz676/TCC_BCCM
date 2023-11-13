@@ -6,21 +6,19 @@
     display: flex;
     flex-direction: row;
     margin-top: -3vh;
+    
     background-color: #D9D9D9;
+    border: 1px solid black;
+    height: 77.7vh;
 }
 
-.block{
+.qlqCoisa{
     display: flex;
     flex-direction: row;
-    background-color: #fff;
-    border: 2px solid black;
-    width: 30vh;
-    height: 27vh;
-    margin-top: 5vh;
-    margin-left: 6vh;
-    border-radius: 20px;
-    box-shadow: -6px 5px #888888;
+    margin-left: 10vh;
 }
+
+
 
 .principal{
     display: flex;
@@ -28,7 +26,7 @@
     background-color: #fff;
     border: 2px solid black;
     width: 60vh;
-    height: 71.8vh;
+    height: 70vh;
     margin-top: 5vh;
     margin-left: 6vh;
     border-radius: 10px;
@@ -50,12 +48,13 @@
     }
 
 
-    .pt1 input{
+    .pt1 span{
         border: 1px solid black;
         border-radius: 10px;
         height: 4vh;
         width: 53vh;
         margin-top: 1vh;
+        
     }
 
 
@@ -78,7 +77,7 @@
     }
 
 
-    .pt2 input{
+    .pt2 span{
         border: 1px solid black;
         border-radius: 10px;
         height: 4vh;
@@ -88,46 +87,10 @@
     }
 
     
+    
 
 
-    .pt3{
-        display: flex;
-        flex-direction: row;
-        margin-left: 3vh;
-        margin-top: 2vh;
-        gap: 20px;
-
-        .d1{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            margin-top: 5vh;
-            margin-right: 8vh;
-            margin-left: -7vh;
-            border: 1px solid black;
-            padding: 10px 30px;
-            border-radius: 10px;
-        }
-        
-    }
-
-    .pt3 h1{
-            font-size: 2vh;
-        }
-    .pt3 p{
-            font-size: 1.5vh;
-    }
-
-
-    .pt3 input{
-        border: 1px solid black;
-        border-radius: 10px;
-        height: 4vh;
-        width: 3vh;
-        margin-top: 1vh;
-        margin-right: 3vh;
-    }
+   
 
     .atualizar{
         display: flex;
@@ -146,49 +109,19 @@
     }
 }
 
-.block{
-    display: flex;
-    flex-direction: column;
-    
-
-    .paginas2{
-        display: flex;
-        flex-direction: column;
-        padding-left: 1vh;
-        margin-left: 0vh;
-    
-        
-        .pgs{
-            display: flex;
-            flex-direction: row;
-            cursor: pointer;
-            .imgs{
-                height: 40px;
-                width: 40px;
-                margin-bottom: 1vh;
-            }
-
-            h1{
-                font-size: 20px;
-                margin-left: 1.5vh;
-                margin-top: 1vh;
-            }
-        }
-    }
-}
-
 .right{
     display: flex;
     flex-direction: column;
     gap: 10vh;
     width: 35vh;
     margin-top: 10vh;
+    margin-left: 10vh;
     .promocoes{
         display: flex;
         flex-direction: row;
         text-align: center;
     
-        input{
+        span{
             height: 25px;
         }
     }
@@ -222,5 +155,5 @@
                 margin-left: 1.5vh;
                 margin-top: 1vh;
             }
-        }
     }
+}

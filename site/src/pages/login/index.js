@@ -1,45 +1,69 @@
 import './index.scss';
 import 'react-toastify/dist/ReactToastify.css';
-import React, { useState } from 'react';
+import  { React, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import storage from 'local-storage';
 import {loginAdm} from '../../api/admApi.js';
 import { loginCliente } from '../../api/clienteApi.js';
+import LoadingBar from 'react-top-loading-bar'
 
 export default function Login() {
-
-  const navigate = useNavigate();
 
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [erro, setErro] = useState('');
+  const [carregando, setCarregando] = useState(false);
+  const navigate = useNavigate();
+
+  const ref = useRef();
 
   async function entrarClick() {
+    ref.current.continuousStart()
+    setCarregando(true);
+
     try{
       const r = await loginAdm(email, senha);
       storage('adm-logado', r)
-      navigate('/teladm');
 
-    } catch (err){
+      setTimeout(() => {
+        navigate('/teladm');
+      }, 3000)
 
+    } catch (err) {
       try{
         const q = await loginCliente(email, senha);
         storage('cliente-logado', q)
-      navigate('/');
+      
+        setTimeout(() => {
+          navigate('/');
+        }, 3000)
+
       } catch(err){
-        alert("Credenciais Inválidas!")
+        ref.current.complete();
+        setCarregando(false);
+        setErro("Email ou Senha Incorretos.")
       }
 
     }
   }
 
+  function voltarHome(){
+    navigate('/');
+  }
+
   return (
+
     <div className='pagina-login'>
+
+       <LoadingBar color='#2D5A68' ref={ref} />
+
       <div className='cabec'>
+
         <div className='sla'>
         <img src='/assets/images/casinha.png' height={80} alt=''/>
-        <a href='../Home'>Home</a>
+        <a href='/' onClick={voltarHome}>Home</a>
         </div>
+
         <div className='loguinha'>
         <div className='bolinha'></div>
         <img className='logo' height={250} src='/assets/images/logo.png' alt=''/>
@@ -51,9 +75,9 @@ export default function Login() {
       <div className='mid'>
         <div className='blocao'>
 
-        <div>
+        <h1 className='erroTag'>
           {erro}
-        </div>
+        </h1>
         
       <div className='l1'>
       <img src='/assets/images/perfil2.png' height={60} alt='' />
@@ -74,7 +98,7 @@ export default function Login() {
           </div>
           
             <div className='last'>
-              <button onClick={entrarClick}>LOGIN</button>
+              <button onClick={entrarClick} disabled={carregando}>LOGIN</button>
               <p>Não tem uma conta?</p>
               <a href='../cadastro'>Cadastre-se</a>
             </div>
