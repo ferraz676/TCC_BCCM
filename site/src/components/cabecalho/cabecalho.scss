@@ -160,9 +160,11 @@
             justify-content: center;
             align-items: center;
             width: 320px;
-            font-size: px;
+            font-size: 5vh;    
             height: 50px;
             text-align: center;
+            
+
 
         }
         
@@ -174,14 +176,21 @@
         }
 
         .inpt{
-            width: 15px;
-            margin-left: 50vh;
+          
+          
+            height: 50vh;
 
         }
 
         .se{
-            width: 5px;
-            margin-left: 20px;
+           margin-left: 280px;
+            
+        }
+
+        .si{
+           margin-right: 100px;
+
+            
         }
   
     }

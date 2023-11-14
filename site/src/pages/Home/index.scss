@@ -149,6 +149,35 @@
       }
     }
     
+    .ff{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      background-color: adjust-color($color: #D9D9D9);
+      width: 250px;
+      height: 90px;
+      border-radius: 100px;
+      margin-top: 10px;
+
+
+      img{
+        background-color: #162B32;
+        border-radius: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-left: -30px;
+      }
+
+      p{
+        font-size: 1.5vh;
+        width: 7vh;
+        margin-left: 2vh;
+        text-align: center;
+        margin-left: 5px;
+      }
+    }
+
     .produtos{
       background-color: adjust-color($color: #2D5A68);
       display: flex;
@@ -166,44 +195,102 @@
     padding-top: 20px;
     }
     
-    .creatina{
+    .f1{
       background-color: adjust-color($color: #D9D9D9);
       width: 100px;
       height: 100px;
       border-radius: 100px;
       margin-top: 30px;
       margin: 30px;
-      margin-right: -10px;
+      margin-right: 2px;
+     margin-right: 80px;
+    }
+
+   
+
+    .f1 img{
+      height: 100px;
+      width: 150px;
+    }
+
+    .f1 a{
+  display: flex;
+  margin-left: -20px;
+  margin-top: -15px;
+
     }
     
     
-    .whey{
+    .f2{
       background-color: adjust-color($color: #D9D9D9);
       width: 100px;
       height: 100px;
       border-radius: 100px;
       margin-top: 30px;
+      margin-left: -70px;
+    }
+
+    .f2 img{
+      height: 100px;
+      width: 150px;
+      margin-top: 15px;
+    }
+
+    .f2 a{
+  display: flex;
+  margin-top: -15px;
+
     }
     
-    .multivitaminico{
+    .f3{
       background-color: adjust-color($color: #D9D9D9);
       width: 100px;
       height: 100px;
       border-radius: 100px;
       margin-top: 30px;
-      
+      margin-left: 5px;
     }
+
+    .f3 img{
+      height: 90px;
+      width: 500px;
+      margin-top: 20px;
+      margin-right: 80px;
+    }
+
+    .f3 a{
+  display: flex;
+  margin-top: -15px;
+
+    }
+
     
-    .barrinhas{
+    
+    .f4{
       background-color: adjust-color($color: #D9D9D9);
       width: 100px;
       height: 100px;
       border-radius: 100px;
       margin-top: 30px;
       margin: 30px;
+      margin-right: 150px;
     }
+
+    .f4 img{
+      height: 90px;
+      width: 500px;
+      margin-top: 20px;
+      margin-right: 80px;
+    }
+
+    .f4 a{
+  display: flex;
+  margin-top: -15px;
+
+    }
+
   
-    .anabolizantes{
+    .f5{
       background-color: adjust-color($color: #D9D9D9);
       width: 100px;
       height: 100px;
@@ -211,6 +298,31 @@
       margin-top: 30px;
       margin: 30px;
       margin-left: -150px;
+    }
+
+.nms{
+  display: flex;
+  margin-left: -10px;
+}
+
+    .c1{
+      display: flex;
+      margin-left: 25px;
+    }
+
+    .c2{
+      display: flex;
+   margin-left: 30px;
+    }
+    
+    .c3{
+      display: flex;
+  margin-left: -5PX;
+    }
+
+    .c4{
+      display: flex;
+   margin-left: 35px;
     }
 
     .roleta{
@@ -393,14 +505,32 @@
     }
 
 
-    @media (max-width: 320px) {
+    @media (max-width: 1680px) {
       .pagina-home{
         display: flex;
         flex-direction: column;
 
       }
 
+        .produtos{
+          justify-content: space-around;
 
+
+
+          .creatina{
+
+          }
+
+
+        }
+
+        .nms{
+          
+        }
+        .creatina{
+          margin-left: 70px;
+        }
+      
       
       
 

@@ -22,9 +22,9 @@ function Home() {
                     <img src='/assets/images/barras.png' height={40} alt=''/>
                     <p>PAGMENTO VIA BOLETO</p>
                     </div>
-                    <div className='frete'>
+                    <div className='ff'>
                     <img src='/assets/images/msg.png' height={40} alt=''/>
-                    <p>CONSULTE NOSSA NUTRICIONISTA</p>
+                    <p className='pp1'>CONSULTE NOSSA NUTRICIONISTA</p>
                     </div>
                     <div className='frete'>
                     <img src='/assets/images/code.png' height={40} alt=''/>
@@ -39,22 +39,34 @@ function Home() {
                 <h1 className='escolha'>ESCOLHA O QUE VOCÊ DESEJA</h1>
               <div className='roleta'>
                 <div className='produtos'>
-                  
+                  <div className='f1'>
                   <a href='../creatina' className='creatina'> <img className='crea'src='/assets/images/creatina.png' alt=''/></a>
-                 
+                  </div>
+
+                    <div className='f2'>
                   <a href='../creatina' className='whey'><img className='wheyzin'src='/assets/images/wheyzin.png' alt=''/></a>
+                  </div>
+
+                  <div className='f3'>
                   <a href='../creatina' className='multivitaminico'><img className='crea'src='/assets/images/multivitaminico.png' alt=''/></a>
+                  </div>
+
+                  <div className='f4'>
                   <a href='../creatina' className='barrinhas'><img className='crea'src='/assets/images/barra.png' alt=''/></a>
-                  
+                  </div>
+
+                  <div className='f5'>
                   <a href='../creatina' className='anabolizantes'><img className='crea'src='/assets/images/bomba.png' alt=''/></a>
+                  </div>
                 </div>
+                
 
                 <div className='nms'>
-                    <p>Creatina</p>
-                    <p>Whey Protein</p>
-                    <p>Multivitamínico</p>
-                    <p>Barrinhas</p>
-                    <p>Anabolizantes</p>
+                    <p className='c1'>Creatina</p>
+                    <p className='c2'>Whey Protein</p>
+                    <p className='c3'>Multivitamínico</p>
+                    <p className='c4'>Barrinhas</p>
+                    <p className='c5'>Anabolizantes</p>
                 </div>
 
               </div>
