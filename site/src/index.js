@@ -13,11 +13,11 @@ import InsercaoProduto from './pages/InsercaoProduto';
 import ConsultaProduto from './pages/ConsultaProduto';
 import Whey from './pages/Whey';
 import DadosPessoais from './pages/dadosPessoais';
-import Carrinho from './pages/carrinho';
 import Senha from './pages/senha';
 import Lucros from './pages/lucros';
 import Pagamento from './pages/pagamento';
 import Pagamento2 from './pages/pagamento2';
+import Pagamento3 from './pages/pagamento3';
 import EntregaPedido from './pages/entregaPedido';
 import Meupedido from './pages/meupedido';
 import Endereco from './pages/endereco';
@@ -50,12 +50,11 @@ root.render(
       <Route path= '/cadastro' element={<Cadastro/>} />
       <Route path= '/Whey' element={<Whey/>} />
       <Route path= '/DadosPessoais' element={<DadosPessoais/>} />
-      <Route path= '/carrinho' element={<Carrinho/>} />
       <Route path= '/senha' element={<Senha/>} />
       <Route path= '/lucros' element={<Lucros/>} />
       <Route path= '/pagamento' element={<Pagamento/>} />
       <Route path= '/pagamento2' element={<Pagamento2/>} />
-
+      <Route path= '/pagamento3' element={<Pagamento3/>} />
       <Route path= '/meupedido' element={<Meupedido/>} />
       <Route path= '/teladm' element={<Teladm/>} />
       <Route path= '/creatina' element={<Creatina/>} />

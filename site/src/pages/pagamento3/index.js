@@ -5,10 +5,10 @@ import Rodape from '../../components/rodape/rodape.js'
 
 
 
-export default function Pagamento2() {
+export default function Pagamento3() {
 
   return (
-    <div className='pagina-pagamento2'>
+    <div className='pagina-pagamento3'>
       <Cabecalho/>
 
     
@@ -73,28 +73,66 @@ São Paulo, SP </p>
               <hr/> 
             </div>
 
-        
-            <div className='formas'>
-            <img className='card' src='/assets/images/cartao.png' alt=''/> 
-            <p className='pagm'>Cartão de crédito</p>
+
+            <h1 className='title'> Escolha a forma de pagamento </h1>
+
+            <div className='midCartao'>
+
+              <div className='imgCartao'>
+                  <img src='' alt=''/>
+                  <h1>Cartão de Crédito</h1>
+              </div>
+
+              <div className='protecao'>
+                  <img src='' alt=''/>
+                  <p>Este é um pagamento seguro, realizado em ambiente criptografado.</p>
+              </div>
+
+              <div className='campoCartao'>
+                <h1>Número do cartão</h1>
+                <input></input>
+                  <div className='nomeComBandeiras'>
+                      <p>Somente Números.</p>
+                      <img src='' alt=''/>
+                      <img src='' alt=''/>
+                      <img src='' alt=''/>
+                      <img src='' alt=''/>
+                      <img src='' alt=''/>
+                      <img src='' alt=''/>
+                  </div>
+              </div>
+
+              <div className='nomeCartao'>
+                <h1>Nome Impresso do Cartão</h1>
+                <input></input>
+              </div>
+
+              <div className='nomeCartao'>
+                <h1>CPF do Titular</h1>
+                <input></input>
+              </div>
+
+              <div className='validade'>
+                  <h1>Validade</h1>
+                  <input></input>
+              </div>
+
+              <div className='cvv'>
+                  <h1>Código de Segurança:</h1>
+                  <input></input>
+                  <p>O código "CVV" ou "CVC" impresso atrás do cartão.</p>
+              </div>
+
+              <button>Finalizar Pedido</button>
+
             </div>
 
-        
-            <div className='formas'>
-            <img className='card-d' src='/assets/images/debito.png' alt=''/> 
-            <p className='pagm'>Cartão de débito</p>
-            </div>
-            
-            <div className='formas'>
-            <img className='pix' src='/assets/images/pix.png' alt=''/> 
-            <p className='pagm'>Pix</p>
-            </div>
 
-            <div className='formas'>
-            <img className='bole' src='/assets/images/boleto.png' alt=''/> 
-            <p className='pagm'>Boleto bancário</p>
-            </div>
-      </div>
+
+
+
+
+          </div>
 
       <div className='pag-3'>
 
