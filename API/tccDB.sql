@@ -98,3 +98,4 @@ where id_produto = 6;
 SELECT *
 FROM tb_produto
 WHERE ds_categoria = 'Suplemento';
+
