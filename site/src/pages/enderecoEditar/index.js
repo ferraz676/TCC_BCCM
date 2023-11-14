@@ -29,6 +29,10 @@ export default function EnderecoEditar() {
     const resposta = await consultarEndereco();
     setEnderecos(resposta);
   }
+
+  function voltarEndereco(){
+    navigate(-1);
+  }
  
   const { idParam } = useParams() 
 
@@ -144,7 +148,7 @@ export default function EnderecoEditar() {
         </div>
 
         <div className='btns'>
-          <button className='btn1'>Cancelar</button>
+          <button className='btn1' onClick={voltarEndereco}>Cancelar</button>
           <button className='btn2' onClick={editarClick}>Atualizar</button>
         </div>
 

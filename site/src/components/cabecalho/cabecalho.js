@@ -2,11 +2,11 @@ import './cabecalho.scss'
 import { useState, useEffect } from 'react'
 import storage from 'local-storage';
 import { useNavigate, Link } from 'react-router-dom'
-
+import Carrinho from '../../components/carrinho/index.js'
 
 export default function Cabecalho() {
 
-    
+    const [carrinho, setCarrinho] = useState(false);
     const [cliente, setCliente] =  useState('');
     const navigate = useNavigate();
 
@@ -19,12 +19,20 @@ export default function Cabecalho() {
       }
     , [])
 
+
+
+    function mostrarCarrinho(){
+      setCarrinho(true);
+    }
+    
+
     function voltarFuncao(){
       navigate('/')
     }
     
     return(
         <main className='cab'>
+          <Carrinho className='carrinhoLateral' mostrar={carrinho}/>
           <div className='first'>
             <span><strong>Qualidade aprovada</strong> juntamente com <strong>preço Justo</strong></span>
           </div>
@@ -58,7 +66,7 @@ export default function Cabecalho() {
 
         </div>
 
-        <a href='../../pages/carrinho'><img className='vrum-vrum' src='/assets/images/carrinho.png' height={50} alt=''/></a>
+        <a  ><img className='vrum-vrum' src='/assets/images/carrinho.png' height={50} alt='' onClick={mostrarCarrinho} /></a>
       </div>
 
 

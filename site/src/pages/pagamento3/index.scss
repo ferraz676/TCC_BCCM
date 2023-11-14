@@ -1,5 +1,5 @@
 
-.pagina-pagamento2 {
+.pagina-pagamento3 {
   
 
     background-image: url('../../../public/assets/images/fundo.png');
@@ -217,38 +217,10 @@
         flex-direction: column;
         
        border: solid black 1px;
-        height: 400px;
+        height: 600px;
         margin-left: 35px;
         margin-top: 50px;
         width: 450px;
-  
-
-}
-
-
-
-.card{
-width: 40px;
-margin-right: 10px;
-}
-
-.card-d{
-    width: 40px;
-    margin-right: 10px;
-}
-
-.pix{
-    width: 40px;
-    margin-right: 10px;
-}
-
-.bole{
-    width: 40px;
-    margin-right: 10px;
-}
-
-.pagm{
-    margin-top: 8px;
 }
 
 
@@ -271,6 +243,56 @@ margin-right: 10px;
     align-items: center;
     justify-content: center;
 }
+
+
+
+
+
+
+
+.midCartao{
+    display: flex;
+    flex-direction: column;
+    margin-left: 5vh;
+    h1{
+        font-size: 2vh;
+    }
+
+    p{
+        font-size: 1.2vh;
+    }
+
+    div{
+        margin-bottom: 1vh;
+        height: 6vh;
+    }
+
+    button{
+        margin-top: 3vh;
+        width: 35vh;
+        height: 5vh;
+        color: #fff;
+        background-color: #02FF1B;
+        font-size: 2vh;
+    }
+}
+
+.title{
+    font-size: 2vh;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 .pag-3{

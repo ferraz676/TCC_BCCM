@@ -2,7 +2,6 @@ import './index.scss';
 import 'react-toastify/dist/ReactToastify.css';
 import Cabecalho from '../../components/cabecalho/cabecalho.js'
 import LateralCliente from '../../components/lateralCliente/index.js'
-import storage from 'local-storage';
 import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react';
 import { consultarCliente } from '../../api/clienteApi'
