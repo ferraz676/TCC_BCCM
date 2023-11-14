@@ -8,11 +8,11 @@
         flex-direction: column;
         border: 2px solid black;
         box-shadow: -3px 3px black;
-        background-color: #fff;
-        gap: 10px;
+        background-color: none;
+        gap: 5px;
         margin-left: 5vh;
         margin-top: 5vh;
-        border-radius: 20px;
+        border-radius: 10px 10px 15px 15px;
 
         #pgs{
             padding: 10px 40px ;
@@ -38,7 +38,7 @@
     }
 
     .paginas2 > a:hover {
-        background-color: #ACACAC;
+        background-color: #2D5A68;
     }
 
     .paginas2 > a{
@@ -47,6 +47,6 @@
     }
 
     .selecionado{
-        background-color: #ACACAC;
+        background-color: #2D5A68;
     }
 }

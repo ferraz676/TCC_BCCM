@@ -5,7 +5,8 @@ import { useEffect, useState } from 'react';
 import storage from 'local-storage';
 
 export default function Detalhe(props){
-
+       
+    const [produtosCarrinho, setProdutosCarrinho] = useState([]);
     let produto = props.produto;
 
     function adicionarCarrinho() {
@@ -16,7 +17,7 @@ export default function Detalhe(props){
        set('carrinho', carrinho);
     }
 
-    const [produtosCarrinho, setProdutosCarrinho] = useState([]);
+    
 
     useEffect(() => {
         let carrinho = get('carrinho');

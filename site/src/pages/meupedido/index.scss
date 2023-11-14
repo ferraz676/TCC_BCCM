@@ -1,66 +1,142 @@
 .pagina-pedido{
+
+    background-image: url('../../../public/assets/images/fundo.png');
+    background-repeat: no-repeat;
+    background-size: 30%;
+    background-position-x: 137vh;
+    background-position-y: 30px;
+
+
     display: flex;
     flex-direction: column;
     background-color: #d9d9d9;
     height: 100vh;
-.ti{
-    display: flex;
-    margin-top: 6vh;
-}
+    .ti{
+        display: flex;
+        margin-top: 4vh;
 
-.odio{
-    display: flex;
-    flex-direction: row;
-}
-
-.clienteLateral{
-    margin-top: -3vh;
-}
-
-.pn{
-   display: flex;
-   margin-left: 47vh; 
-   margin-top:  3vh;
-    height: 30px;
-   
-}
-
-.pn button{
-display: flex;
-background-color:#162B32 ;
-color: white;
-border-radius: 5px;
-justify-content: center;
-align-items: center;
-
-}
-
-.pn input{
-    display: flex;
-    border-radius: 5px;
-    
-}
-
-
-.tabela{
-display: flex;
-justify-content: space-between;
-width: 88vh;
-margin-left: 50vh;
-margin-top: 5vh;
-
-}
-
-.tabela p1{
-    display: flex;
-    border: solid black 1px;
-
+        h1{
+            font-size: 3vh;
+            margin-left: 5vh;
+        }
     }
 
     .odio2{
         display: flex;
         flex-direction: column;
-        align-items: center;
+        height: 70vh;
     }
 
+    .odio{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .clienteLateral{
+        margin-top: -3vh;
+    }
+
+    .pn{
+    display: flex;
+    margin-top:  3vh;
+    height: 30px;
+    margin-left: 5vh;
+
+
+    input::placeholder{
+        font-size: 2vh;
+        color: #000;
+        padding-left: 3vh;
+    }
+    }
+
+    .pn button{
+    display: flex;
+    background-color:#162B32 ;
+    color: white;
+    height: 5vh;
+    width: 13vh;
+    border-radius: 0px 15px 15px 0px;
+    justify-content: center;
+    align-items: center;
+    font-size: 2vh;
+
+    }
+
+    .pn input{
+        display: flex;
+        border-radius: 15px 0px 0px 15px;
+        height: 5vh;
+        width: 30vh;
+    }
+
+
+
+    .BordaSimples {
+        border-collapse: separate;
+        border-spacing: 0;
+        border-radius: 5px;
+        background: none;
+        margin-left: 5vh;
+        margin-top: 7vh;
+
+        .td1{
+            border-radius: 0px 0px 0px 10px;
+
+            h1{
+                font-size: 2.5vh;
+                padding-bottom: 1vh;
+            }
+
+            p{
+            font-size: 1.5vh;
+            }
+        }
+    }
+     
+    .BordaSimples td {
+        border: 1px solid black;
+        padding: 20px;
+        font-size: 2.5vh;
+
+        a{
+            font-size: 1.5vh;
+            color: #0287BC;
+        }
+    }
+     
+    .BordaSimples th {
+        border: 1px solid black;
+        background: none;
+        padding: 10px;
+        font-size: 3vh;
+    }
+    
+    .caminhao123{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        p{
+            font-size: 2vh;
+            padding-left: 1vh;
+        }
+    }
+
+    .b1{
+        border-radius: 10px 0px 0px 0px;
+    }
+
+    .b2{
+        border-radius: 0px 10px 0px 0px;
+    }
+
+    .b3{
+        border-radius: 0px 0px 10px 0px;
+    }
+
+    .fim{
+        font-size: 2.5vh;
+        margin-top: 20vh;
+        margin-right: vh;
+    }
 }

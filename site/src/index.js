@@ -37,7 +37,7 @@ root.render(
       <Routes>
 
       <Route path= '/cadastro' element={<Cadastro/>} />
-      <Route path= '/enderecoEditar' element={<EnderecoEditar/>} />
+      <Route path= '/enderecoEditar/:idParam' element={<EnderecoEditar/>} />
       <Route path= '/desempenhoVendas' element={<DesempenhoVendas/>} />
       <Route path= '/entregaPedido' element={<EntregaPedido/>} />
       <Route path='/produtoDetalhe/:idParam' element={<ProdutoDetalhe/>}/>

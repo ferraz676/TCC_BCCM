@@ -4,7 +4,7 @@ import Cabecalho from '../../components/cabecalho/cabecalho.js'
 import Rodape from '../../components/rodape/rodape.js'
 import LateralCliente from '../../components/lateralCliente/index.js';
 import { alterarSenhaCliente } from '../../api/clienteApi.js';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useParams } from 'react';
 import { toast } from 'react-toastify';
 import storage from 'local-storage';
 
@@ -16,6 +16,8 @@ export default function Senha() {
     if(storage('cliente-logado'))
          setId(cliente.id);
 }, [])
+
+    
 
 
     const [senha, setSenha] = useState('');
@@ -30,14 +32,16 @@ export default function Senha() {
 
         if(!senha)
             throw new Error('Digite uma Senha!')
+
         if(senha =! confirmarSenha)
             throw new Error('Digite uma Senha!')
-             
+        
         else{
           const novaSenha = await alterarSenhaCliente(id,senha);
           setId(novaSenha.id);
             toast.dark('Senha alterada com Sucesso!');
-        }
+        }    
+
       } catch (err){
         setErro("Senhas não Coincidiram.")
       }

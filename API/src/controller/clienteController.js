@@ -1,5 +1,4 @@
 import {consultarCliente, inserirCliente,alterarCliente, alterarSenhaCliente, deletarCliente, loginCliente} from '../repository/clienteRepository.js';
-
 import { Router } from 'express';
 const endpoints = Router();
 
@@ -11,7 +10,9 @@ endpoints.get('/cliente', async (req, resp) => {
       resp.send(r);
     }
     catch (err) {
-      resp.status(400).send({ erro: err.message });
+      resp.status(400).send({ 
+        erro: err.message 
+      });
     }
   })
 

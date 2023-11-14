@@ -2,9 +2,64 @@ import './index.scss';
 import 'react-toastify/dist/ReactToastify.css';
 import Cabecalho from '../../components/cabecalho/cabecalho.js'
 import Rodape from '../../components/rodape/rodape.js'
+import LateralCliente from '../../components/lateralCliente/index.js'
+import { useNavigate, useParams } from 'react-router-dom';
+import { consultarEndereco, alterarEndereco, buscarPorId  } from '../../api/enderecoApi.js'
+import { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
 
 
-export default function Endereco() {
+export default function EnderecoEditar() {
+
+  const [enderecos, setEnderecos] = useState([]);
+  const [cep, setCep] = useState('');
+  const [endereco, setEndereco] = useState('');
+  const [numero, setNumero] = useState(0);
+  const [bairro, setBairro] = useState('');
+  const [id, setId] = useState(0);
+
+  const navigate = useNavigate();
+
+  
+  useEffect(() => {
+    carregarTodosEndereco();
+  }, [])
+
+  async function carregarTodosEndereco(){
+    const resposta = await consultarEndereco();
+    setEnderecos(resposta);
+  }
+ 
+  const { idParam } = useParams() 
+
+  useEffect(() => {
+    if(idParam){
+    carregarEndereco();
+  }
+  }, [])
+
+  async function carregarEndereco(){
+    const resposta = await buscarPorId(idParam);
+    setCep(resposta.cep);
+    setEndereco(resposta.endereco);
+    setNumero(resposta.numero);
+    setBairro(resposta.bairro);
+    setId(resposta.id);
+  }
+
+  async function editarClick(){
+    try{
+      const novoEndereco = await alterarEndereco(cep, endereco, numero, bairro, id);
+      setId(novoEndereco.id);
+      toast.dark('Endereço Alterado com Sucesso!');
+      navigate('/endereco')
+    } catch(err){
+      if(err.response)
+        toast.error(err.response.data.erro);
+      else
+        toast.error(err.message);
+    }
+  }
 
   return (
     <div className='pagina-endereco'>
@@ -12,35 +67,8 @@ export default function Endereco() {
       <Cabecalho/>
         
       <div className='divisao'>
-      <div className='block'>
-                <div className='paginas2'>
-
-                    <div className='pgs'>
-                        <img className='imgs' src='/assets/images/mala.png' height={40} width={40} alt=''/>
-                        <h1 className='tpgs'>Meus pedidos</h1>
-                    </div>
-
-                    <div className='pgs'>
-                        <img className='imgs' src='/assets/images/senha.png' height={40} width={40} alt=''/>
-                        <h1 className='tpgs'>Trocar senha</h1>
-                    </div>
-
-                    <div className='pgs'>
-                        <img className='imgs' src='/assets/images/boneco.png' height={40} width={40} alt=''/>
-                        <h1 className='tpgs'>Dados pessoais</h1>
-                    </div>
-
-                    <div className='pgs3'>
-                        <img className='imgs' src='/assets/images/entrega.png' height={40} width={40} alt=''/>
-                        <h1 className='tpgs'>Endereço Entrega</h1>
-                    </div>
-
-                    <div className='pgs'>
-                        <img className='imgs' src='/assets/images/voltar.png' height={30} width={30} alt=''/>
-                        <h1 className='tpgs'>Sair</h1>
-                    </div>
-                </div>
-            </div>
+      
+      <LateralCliente/>
 
 
 
@@ -81,13 +109,13 @@ export default function Endereco() {
 
         <div className=''> 
                 <h1>CEP</h1>
-                <input type=''></input>
+                <input type='number' value={cep} onChange={e => setCep(e.target.value)}></input>
                 
               </div>
 
               <div className=''> 
                 <h1>Endereço</h1>
-                <input type=''></input>
+                <input type='text' value={endereco} onChange={e => setEndereco(e.target.value)}></input>
               </div>
 
        </div>
@@ -98,7 +126,7 @@ export default function Endereco() {
 
               <div className=''> 
                 <h1>Numero</h1>
-                <input type=''></input>
+                <input type='number' value={numero} onChange={e => setNumero(e.target.value)}></input>
               </div>
 
               <div className=''>
@@ -112,12 +140,12 @@ export default function Endereco() {
 
         <div className='bairro'>
                 <h1>Bairro</h1>
-                <input type=''></input>
+                <input type='text' value={bairro} onChange={e => setBairro(e.target.value)}></input>
         </div>
 
         <div className='btns'>
           <button className='btn1'>Cancelar</button>
-          <button className='btn2'>Atualizar</button>
+          <button className='btn2' onClick={editarClick}>Atualizar</button>
         </div>
 
 
