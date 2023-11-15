@@ -2,7 +2,7 @@ import './cabecalho.scss'
 import { useState, useEffect } from 'react'
 import storage from 'local-storage';
 import { useNavigate, Link } from 'react-router-dom'
-import Carrinho from '../../components/carrinho/index.js'
+import Carrinho from '../../pages/carrinho/index.js'
 
 export default function Cabecalho() {
 

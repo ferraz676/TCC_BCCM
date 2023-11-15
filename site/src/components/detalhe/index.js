@@ -3,10 +3,13 @@ import { buscarImagem } from '../../api/produtoApi.js'
 import { get, set } from 'local-storage';
 import { useEffect, useState } from 'react';
 import storage from 'local-storage';
+import { toast } from 'react-toastify';
 
 export default function Detalhe(props){
        
     const [produtosCarrinho, setProdutosCarrinho] = useState([]);
+
+    
     let produto = props.produto;
 
     function adicionarCarrinho() {
@@ -15,13 +18,15 @@ export default function Detalhe(props){
        carrinho.push(produto);
 
        set('carrinho', carrinho);
+
+       toast.dark('Produto Adicionado ao Carrinho com Sucesso!');
     }
 
     
 
     useEffect(() => {
         let carrinho = get('carrinho');
-        if(storage('carrinho'))
+        if(storage('carrinho') && storage('cliente-logado'))
              setProdutosCarrinho(carrinho);
     }, [])
 

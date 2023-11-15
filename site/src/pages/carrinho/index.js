@@ -1,16 +1,62 @@
 import "./index.scss";
-import { get } from "local-storage";
 import { useEffect, useState } from "react";
 import storage from "local-storage";
-import { buscarImagem } from "../../api/produtoApi.js";
+import { buscarPorId } from '../../api/produtoApi.js'
+import CarrinhoProduto from "../../components/carrinhoProduto";
+
 
 export default function Carrinho(props) {
 
   let mostrar = props.mostrar;
-
   
+ 
   const [mostrarCarrinho, setMostrarCarrinho] = useState(mostrar);
-  const [produtosCarrinho, setProdutosCarrinho] = useState([]);
+  const [itens, setItens] = useState([]);
+  const [qtd, setQtd] = useState(1);
+  
+  function calcularValorTotal(){
+    let total = 0;
+    for(let item of itens){
+        total = total + item.produto.preco * qtd
+    }
+    return total;
+  }
+
+
+  function removerItem(id){
+    let carrinho = storage('carrinho');
+    carrinho = carrinho.filter(item => item.id != id);
+
+    storage('carrinho', carrinho);
+
+    carregarCarrinho();
+  }
+
+
+  async function carregarCarrinho(){
+    let carrinho = storage('carrinho')
+    if(carrinho){
+
+      let temp = [];
+
+      for(let produto of carrinho){
+        let p = await buscarPorId(produto.id);
+
+        temp.push({
+          produto:p,
+          qtd: qtd
+        })
+      }
+      setItens(temp)
+    }  
+  }
+
+
+  useEffect(() => {
+    carregarCarrinho();
+    }, []);
+
+
 
   function esconderCarrinho() {
     setMostrarCarrinho(false);
@@ -21,10 +67,7 @@ export default function Carrinho(props) {
   }, [mostrar])
 
 
-  useEffect(() => {
-    let carrinho = get("carrinho");
-    if (storage("carrinho") && storage('cliente-logado')) setProdutosCarrinho(carrinho);  
-  }, []);
+  
 
 
   return (
@@ -33,23 +76,12 @@ export default function Carrinho(props) {
         <h1>Itens do meu carrinho (2) </h1>
       </div>
 
-      {produtosCarrinho.map ((item) => (
-        
-        <div key={item.id} className="cu">
-          <div className="ct">
-            <img className="vita" src={buscarImagem(item.imagem)} />
-            <p className="nome">{item.produto}</p>
-          </div>
+      {itens.map(item => 
 
-          <div className="fat">
-            <img className="me" src="/assets/images/menos.png" />
-            <p>1</p>
-            <img className="ma" src="/assets/images/mais.png" />
-            <h1 className="preço">R${item.preco}</h1>
-          </div>
-        </div>
-      ))
-      }
+          <CarrinhoProduto item={item} removerItem={removerItem}  carregarCarrinho={carregarCarrinho}/>
+        )}
+
+     
 
       <div className="meio">
         <div className="rp">
@@ -59,9 +91,9 @@ export default function Carrinho(props) {
 
       <div className="m2">
         <div className="sub">
-          <h1>subtotal</h1>
+          <h1>Subtotal</h1>
 
-          <h2>R$ 42,99</h2>
+          <h2>R${calcularValorTotal()}</h2>
 
           <h3>Valor com 10% de desconto no boleto ou PIX.</h3>
         </div>
@@ -69,7 +101,7 @@ export default function Carrinho(props) {
 
       <div className="quase">
         <div className="mage">
-          <img className="vit" src="/assets/images/caminhaozinho.png" height={30} />
+          <img className="vit" src="/assets/images/caminhaozinho.png" height={30} alt=''/>
         </div>
 
         <div className="text">

@@ -1,0 +1,80 @@
+.carrinhoProdutos{
+
+.cu{
+    display:flex;
+    border: solid black 1px;
+   flex-direction: column;
+   margin-left: 37px;
+   margin-top: 30px;
+   margin-right: 37px;   
+   height: 140px;
+}
+.ct{
+   display: flex;
+    margin-left: 37px;
+    margin-top: 20px;
+    margin-right: 37px;   
+}
+
+.ct p {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    margin-left: 15px;
+}
+
+.vita{
+    display: flex;
+    height: 100px;
+        margin-left: -20px;
+}
+
+.fat{
+    display: flex;
+    margin-left: 100px;
+    margin-top: -15px;
+    font-weight: bold;
+}
+
+.ma{
+    display: flex;
+   margin-left: 20px;
+   height: 20px;
+   margin-top: -15px;
+}
+
+.me{
+    display: flex;
+    margin-right:20px; 
+    height: 20px;
+    margin-top: -15px;
+}
+
+.fat p{
+    display: flex; 
+    border: solid black 1px;
+    font-size: 15;
+    width: 30px;
+    margin-top: -15px;
+    justify-content: center;
+}
+
+.preço{
+    display: flex;
+    justify-content: end;
+    font-size: 20px;
+    margin-left: 185px;
+    margin-top: -15px;      
+
+    }
+
+
+    .btnExcluir{
+        font-size: 2vh;
+        padding-left: 4vh;
+        margin-top: -1.5vh;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+}
