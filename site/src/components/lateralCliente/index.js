@@ -7,7 +7,6 @@ export default function LateralCliente(props) {
 
     function sairClick(){
       storage.remove('cliente-logado');
-      storage.remove('carrinho');
   }
 
   function verificarMenuSelecionado(menu){

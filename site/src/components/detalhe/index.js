@@ -13,13 +13,15 @@ export default function Detalhe(props){
     let produto = props.produto;
 
     function adicionarCarrinho() {
-       let carrinho = get('carrinho');
+
+        let carrinho = get('carrinho');
        
        carrinho.push(produto);
 
        set('carrinho', carrinho);
 
        toast.dark('Produto Adicionado ao Carrinho com Sucesso!');
+        
     }
 
     

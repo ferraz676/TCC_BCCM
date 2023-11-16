@@ -24,6 +24,10 @@ export default function Cabecalho() {
     function mostrarCarrinho(){
       setCarrinho(true);
     }
+
+    function esconderCarrinho() {
+      setCarrinho(false);
+    }
     
 
     function voltarFuncao(){
@@ -32,7 +36,7 @@ export default function Cabecalho() {
     
     return(
         <main className='cab'>
-          <Carrinho className='carrinhoLateral' mostrar={carrinho}/>
+          <Carrinho className='carrinhoLateral' mostrar={carrinho} esconder={esconderCarrinho}/>
           <div className='first'>
             <span><strong>Qualidade aprovada</strong> juntamente com <strong>preço Justo</strong></span>
           </div>

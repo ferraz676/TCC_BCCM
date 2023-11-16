@@ -1,25 +1,22 @@
 import "./index.scss";
 import { useEffect, useState } from "react";
 import storage from "local-storage";
-import { buscarPorId } from '../../api/produtoApi.js'
 import CarrinhoProduto from "../../components/carrinhoProduto";
 
 
 export default function Carrinho(props) {
 
   let mostrar = props.mostrar;
-  
  
-  const [mostrarCarrinho, setMostrarCarrinho] = useState(mostrar);
   const [itens, setItens] = useState([]);
-  const [qtd, setQtd] = useState(1);
+  const [total, setTotal] = useState(0);
   
   function calcularValorTotal(){
-    let total = 0;
+    let t = 0;
     for(let item of itens){
-        total = total + item.produto.preco * qtd
+        t = t + item.preco * item.qtd;
     }
-    return total;
+    setTotal(t);
   }
 
 
@@ -33,22 +30,17 @@ export default function Carrinho(props) {
   }
 
 
-  async function carregarCarrinho(){
-    let carrinho = storage('carrinho')
-    if(carrinho){
+  function carregarCarrinho() {
+    let carrinho = storage('carrinho');
 
-      let temp = [];
-
-      for(let produto of carrinho){
-        let p = await buscarPorId(produto.id);
-
-        temp.push({
-          produto:p,
-          qtd: qtd
-        })
+    for(let i = 0; i < carrinho.length; i++) {
+      if(!carrinho[i].qtd) {
+        carrinho[i].qtd = 1;
       }
-      setItens(temp)
-    }  
+    }
+    
+    storage('carrinho', carrinho);
+    setItens(carrinho);
   }
 
 
@@ -56,29 +48,19 @@ export default function Carrinho(props) {
     carregarCarrinho();
     }, []);
 
-
-
-  function esconderCarrinho() {
-    setMostrarCarrinho(false);
-  }
-
   useEffect(() => {
-    setMostrarCarrinho(mostrar);
-  }, [mostrar])
-
-
-  
-
+    calcularValorTotal()
+  }, [itens]);
 
   return (
-    <div className="carrinhoLateral"  style={{visibility: mostrarCarrinho ? 'visible' : 'hidden'}}>
+    <div className="carrinhoLateral"  style={{visibility: mostrar ? 'visible' : 'hidden'}}>
       <div className="ti">
-        <h1>Itens do meu carrinho (2) </h1>
+        <h1>Itens do meu carrinho</h1>
       </div>
 
-      {itens.map(item => 
+      {itens.map((item, index) => 
 
-          <CarrinhoProduto item={item} removerItem={removerItem}  carregarCarrinho={carregarCarrinho}/>
+          <CarrinhoProduto produto={item} removerItem={removerItem}  carregarCarrinho={carregarCarrinho} index={index}/>
         )}
 
      
@@ -93,7 +75,7 @@ export default function Carrinho(props) {
         <div className="sub">
           <h1>Subtotal</h1>
 
-          <h2>R${calcularValorTotal()}</h2>
+          <h2>R${total}</h2>
 
           <h3>Valor com 10% de desconto no boleto ou PIX.</h3>
         </div>
@@ -119,7 +101,7 @@ export default function Carrinho(props) {
         </div>
 
         <div className="b2">
-          <button onClick={esconderCarrinho}>Fechar carrinho</button>
+          <button onClick={props.esconder}>Fechar carrinho</button>
         </div>
       </div>
     </div>
