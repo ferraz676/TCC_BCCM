@@ -3,9 +3,10 @@ import { buscarImagem } from "../../api/produtoApi.js";
 import { useState } from "react";
 import storage from 'local-storage'
 
-export default function CarrinhoProduto({ item: { produto, qtd }, removerItem, carregarCarrinho }) {
+export default function CarrinhoProduto({ produto, removerItem, carregarCarrinho, index }) {
 
-  const [qtdProduto, setQtdProduto] = useState(qtd)
+  let carrinho = storage('carrinho');
+  const [qtdProduto, setQtdProduto] = useState(carrinho[index].qtd);
   
   function excluirProduto(){
     removerItem(produto.id)
@@ -18,32 +19,17 @@ export default function CarrinhoProduto({ item: { produto, qtd }, removerItem, c
   }
 
   function alterarQuantidade(novaQtd){
-    setQtdProduto(novaQtd);
+      let carrinho = storage('carrinho');  
+      carrinho[index].qtd = novaQtd;
 
-      let carrinho = storage('carrinho');
-      let itemStorage = carrinho.find(item => item.id == produto.id)
-      itemStorage.qtd = novaQtd;
-  
+      console.log(carrinho);
+      console.log(index);
+
       storage('carrinho', carrinho);
-
       carregarCarrinho();
-  }
 
-
-
-  function implementar() {
-    if (qtdProduto < 5) {
-      setQtdProduto(qtdProduto + 1);
-    }
-  }
-
-
-  function diminuir() {
-    if (qtdProduto > 1) {
-      setQtdProduto(qtdProduto - 1);
-    }
-  }
-  
+      setQtdProduto(novaQtd);
+  }  
 
   return (
     <div className="carrinhoProdutos">
@@ -55,9 +41,9 @@ export default function CarrinhoProduto({ item: { produto, qtd }, removerItem, c
           </div>
 
           <div className="fat">
-            <img className="me" src="/assets/images/menos.png" alt='' onClick={diminuir}/>
-            <p onChange={e => alterarQuantidade(e.target.value)}>{qtdProduto}</p>
-            <img className="ma" src="/assets/images/mais.png" alt='' onClick={implementar}/>
+            <img className="me" src="/assets/images/menos.png" alt='' onClick={() => alterarQuantidade(qtdProduto - 1)}/>
+            <p>{qtdProduto}</p>
+            <img className="ma" src="/assets/images/mais.png" alt='' onClick={() => alterarQuantidade(qtdProduto + 1)}/>
             <h1 className="btnExcluir" onClick={excluirProduto}> Excluir</h1>
             <h1 className="preço">R${calcularSubtotal()}</h1>
           </div>
