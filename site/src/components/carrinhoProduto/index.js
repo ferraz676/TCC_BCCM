@@ -19,16 +19,19 @@ export default function CarrinhoProduto({ produto, removerItem, carregarCarrinho
   }
 
   function alterarQuantidade(novaQtd){
+    if(qtdProduto > 0 && qtdProduto < 6){
       let carrinho = storage('carrinho');  
       carrinho[index].qtd = novaQtd;
-
-      console.log(carrinho);
-      console.log(index);
 
       storage('carrinho', carrinho);
       carregarCarrinho();
 
       setQtdProduto(novaQtd);
+    }
+    else{
+      return '';
+    }
+      
   }  
 
   return (

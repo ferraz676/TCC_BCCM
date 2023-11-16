@@ -1,7 +1,6 @@
 import "./index.scss";
 import { useEffect, useState } from "react";
 import storage from "local-storage";
-import { buscarPorId } from '../../api/produtoApi.js'
 import CarrinhoProduto from "../../components/carrinhoProduto";
 
 
@@ -31,27 +30,16 @@ export default function Carrinho(props) {
   }
 
 
-/*   function carregarCarrinho(){
-    let carrinho = storage('carrinho')
-    if(carrinho){
-
-      let temp = [];
-
-      for(let i = 0; i < carrinho.length; i++){
-        let produto = carrinho[i];
-
-        produto.qtd = 1;
-
-        temp.push(produto)
-      }
-
-      storage('carrinho', temp);
-      setItens(temp)
-    }  
-  } */
-
   function carregarCarrinho() {
     let carrinho = storage('carrinho');
+
+    for(let i = 0; i < carrinho.length; i++) {
+      if(!carrinho[i].qtd) {
+        carrinho[i].qtd = 1;
+      }
+    }
+    
+    storage('carrinho', carrinho);
     setItens(carrinho);
   }
 
@@ -67,7 +55,7 @@ export default function Carrinho(props) {
   return (
     <div className="carrinhoLateral"  style={{visibility: mostrar ? 'visible' : 'hidden'}}>
       <div className="ti">
-        <h1>Itens do meu carrinho (2) </h1>
+        <h1>Itens do meu carrinho</h1>
       </div>
 
       {itens.map((item, index) => 
