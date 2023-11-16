@@ -514,29 +514,93 @@
 
         .produtos{
           justify-content: space-around;
+          margin-left: -8vh;
+          
 
 
+         
 
-          .creatina{
-
-          }
+          
 
 
         }
 
         .nms{
-          
+          justify-content: space-around;
         }
         .creatina{
-          margin-left: 70px;
+          margin-left: 10000000px;
         }
       
-      
-      
 
+        .c2{
+          margin-left: -8px;
+        }
+      
+        .c3{
+          margin-left: -50px;
+        }
+
+
+        .c4{
+          margin-left: -35px;
+          margin-right: -15px;
+
+        }
+
+        .c5{
+          margin-right: 40px;
+        }
+
+
+        .textos{
+     
+         
+        }
+
+        .cbum{
+          margin-left: 250px;
+        }
+
+        .sub-t2{
+          margin-left: 350px;
+        }
+
+        .math{
+          margin-left: 250px;
+        }
+
+        .texto{
+          margin-left: 250px;
+        }
+
+       
   }
 
+  @media (max-width: 1280px){
 
-  
+
+    .section-22{
+
+    .cbum{
+      margin-left:60px;
+    }
+    
+    .texto{
+      margin-left: 80px;
+    }
+
+    .sub-t2{
+      margin-left: 170px;
+    }
+
+  }
+      
+  .math{
+    margin-right: 250px;
+    margin-left: 0px;
+  }
+
+}
 
 }

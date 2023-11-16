@@ -148,53 +148,10 @@
         font-size: 17px;
     }
 
-    @media (max-width: 320px) {
-        .cab{
-          display: flex;
-          flex-direction: column;
-  
-        }
-        
-        .first{
-            justify-content: center;
-            align-items: center;
-            width: 320px;
-            font-size: 5vh;    
-            height: 50px;
-            text-align: center;
-            
+   
 
 
-        }
-        
-        .mid{
-            justify-content: end;
-            width: 315px;
-
-        
-        }
-
-        .inpt{
-          
-          
-            height: 50vh;
-
-        }
-
-        .se{
-           margin-left: 280px;
-            
-        }
-
-        .si{
-           margin-right: 100px;
-
-            
-        }
-  
-    }
-  
-  
+    
 
 
 
