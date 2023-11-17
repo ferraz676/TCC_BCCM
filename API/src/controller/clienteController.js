@@ -17,6 +17,18 @@ endpoints.get('/cliente', async (req, resp) => {
   })
 
 
+  if(!enderecos.cep || enderecos.cep == String)
+          throw new Error("Corrija o CEP");
+      
+      if(!enderecos.endereco || enderecos.endereco == Number)
+        throw new Error("Corrija o Endereço!");
+      
+      if(!enderecos.numero|| enderecos.numero == String)
+      throw new Error("Corrija o número!");
+      
+      if(!enderecos.bairro || enderecos.bairro == Number)
+      throw new Error("Corrija o Bairro!");
+
   
 endpoints.post('/cliente/postar', async (req, resp) => {
   try {
@@ -24,6 +36,9 @@ endpoints.post('/cliente/postar', async (req, resp) => {
     
     if(!novoCliente.cliente)
     throw new Error("Nome Obrigatório!");
+
+    if(novoCliente.cliente == Number)
+    throw new Error("Apenas Letras são permitidas!");
 
     if(!novoCliente.telefone)
   throw new Error("Telefone Obrigatório!");
@@ -39,9 +54,13 @@ throw new Error("Senha Obrigatória!");
 
     if(!novoCliente.genero)
 throw new Error("Gênero Obrigatório!");
+    if(novoCliente.genero != 'Masculino')
+    throw new Error("Apenas Masculino ou Feminino são permitidos");
+    if(novoCliente.genero != 'Feminino')
+    throw new Error("Apenas Masculino ou Feminino são permitidos");
 
     if(!novoCliente.nascimento)
-throw new Error("Data de Nascimento Obrigatória!");
+throw new Error("Data de Nascimento Obrigatória!"); 
 
     let cliente = await inserirCliente(novoCliente);
     resp.send(cliente);
