@@ -2,9 +2,15 @@ import './index.scss';
 import 'react-toastify/dist/ReactToastify.css';
 import Cabecalho from '../../components/cabecalho/cabecalho.js';
 import Rodape from '../../components/rodape/rodape.js';
-
+import { useEffect } from 'react';
+import storage from 'local-storage';
 
 function Home() {
+
+
+  useEffect(() => {
+    storage('carrinho', []);
+  }, [])
 
   return (
     <div className='pagina-home'>
