@@ -18,6 +18,7 @@ export default function Detalhe(props) {
         carrinho.push(produto);
         set('carrinho', carrinho);
         toast.dark('Produto Adicionado ao Carrinho com Sucesso!');
+        navigate(-1)
     }
 
     function adicionarCarrinhoComprar() {
