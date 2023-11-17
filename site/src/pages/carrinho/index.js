@@ -2,7 +2,7 @@ import "./index.scss";
 import { useEffect, useState } from "react";
 import storage from "local-storage";
 import CarrinhoProduto from "../../components/carrinhoProduto";
-
+import { Link } from 'react-router-dom'
 
 export default function Carrinho(props) {
 
@@ -14,7 +14,7 @@ export default function Carrinho(props) {
   function calcularValorTotal(){
     let t = 0;
     for(let item of itens){
-        t = t + item.preco * item.qtd;
+        t = parseFloat(t + item.preco * item.qtd).toFixed(2);
     }
     setTotal(t);
   }
@@ -75,7 +75,7 @@ export default function Carrinho(props) {
         <div className="sub">
           <h1>Subtotal</h1>
 
-          <h2>R${total}</h2>
+          <h2>R$ {total} </h2>
 
           <h3>Valor com 10% de desconto no boleto ou PIX.</h3>
         </div>
@@ -92,9 +92,9 @@ export default function Carrinho(props) {
       </div>
 
       <div className="final">
-        <div className="b1">
+        <Link to='/pagamento'  className="b1">
           <button>Finalizar compra</button>
-        </div>
+        </Link>
 
         <div className="b2">
           <button>Escolher outros produtos </button>

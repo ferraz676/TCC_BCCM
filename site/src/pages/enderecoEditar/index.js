@@ -4,10 +4,11 @@ import Cabecalho from '../../components/cabecalho/cabecalho.js'
 import Rodape from '../../components/rodape/rodape.js'
 import LateralCliente from '../../components/lateralCliente/index.js'
 import { useNavigate, useParams } from 'react-router-dom';
-import { consultarEndereco, alterarEndereco, buscarPorId  } from '../../api/enderecoApi.js'
+import { alterarEndereco, buscarPorId  } from '../../api/enderecoApi.js'
 import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
-
+import { salvar, listar } from '../../api/enderecoApi.js'
+import storage from 'local-storage';
 
 export default function EnderecoEditar() {
 
@@ -16,19 +17,30 @@ export default function EnderecoEditar() {
   const [endereco, setEndereco] = useState('');
   const [numero, setNumero] = useState(0);
   const [bairro, setBairro] = useState('');
+  const [complemento, setComplemento] = useState('');
   const [id, setId] = useState(0);
 
   const navigate = useNavigate();
 
   
   useEffect(() => {
-    carregarTodosEndereco();
+    carregarEndereco();
   }, [])
 
-  async function carregarTodosEndereco(){
-    const resposta = await consultarEndereco();
-    setEnderecos(resposta);
+  async function carregarEndereco(){
+    const id = storage('cliente-logado').id;
+    const r = await listar(id);
+    setEnderecos(r);
   }
+
+  async function salvarEndereco(){
+    
+    const id = storage('cliente-logado').id;
+    const r = await salvar(id, cep, endereco, numero, bairro, complemento);
+    toast.dark('Endereço Salvo com Sucesso!')
+          
+  }
+
 
   function voltarEndereco(){
     navigate(-1);
@@ -48,15 +60,28 @@ export default function EnderecoEditar() {
     setEndereco(resposta.endereco);
     setNumero(resposta.numero);
     setBairro(resposta.bairro);
+    setComplemento(resposta.complemento);
     setId(resposta.id);
   }
 
   async function editarClick(){
     try{
-      const novoEndereco = await alterarEndereco(cep, endereco, numero, bairro, id);
+
+      if(id === 0){
+        const id = storage('cliente-logado').id;
+        const r = await salvar(id, cep, endereco, numero, bairro, complemento);
+        toast.dark('Endereço Salvo')
+      }
+      else{
+        const novoEndereco = await alterarEndereco(cep, endereco, numero, bairro,complemento, id);
       setId(novoEndereco.id);
-      toast.dark('Endereço Alterado com Sucesso!');
+      toast.dark('Endereço Alterado');
       navigate('/endereco')
+      }
+      
+      
+      
+      
     } catch(err){
       if(err.response)
         toast.error(err.response.data.erro);
@@ -113,7 +138,7 @@ export default function EnderecoEditar() {
 
         <div className=''> 
                 <h1>CEP</h1>
-                <input type='number' value={cep} onChange={e => setCep(e.target.value)}></input>
+                <input type='text' value={cep} onChange={e => setCep(e.target.value)}></input>
                 
               </div>
 
@@ -136,7 +161,7 @@ export default function EnderecoEditar() {
               <div className=''>
                 <div className=''> 
                 <h1>Complemento</h1>
-                <input type='text'></input>
+                <input type='text' value={complemento} onChange={e => setComplemento(e.target.value)}></input>
                 </div>
 
                 </div>

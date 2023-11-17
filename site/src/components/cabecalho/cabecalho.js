@@ -70,7 +70,7 @@ export default function Cabecalho() {
 
         </div>
 
-        <a  ><img className='vrum-vrum' src='/assets/images/carrinho.png' height={50} alt='' onClick={mostrarCarrinho} /></a>
+        <a><img className='vrum-vrum' src='/assets/images/carrinho.png' height={50} alt='' onClick={mostrarCarrinho} /></a>
       </div>
 
 

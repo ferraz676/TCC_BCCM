@@ -4,8 +4,11 @@ import Cabecalho from '../../components/cabecalho/cabecalho.js'
 import Rodape from '../../components/rodape/rodape.js'
 import LateralCliente from '../../components/lateralCliente/index.js'
 import { useNavigate } from 'react-router-dom';
-import { consultarEndereco } from '../../api/enderecoApi.js'
 import { useState, useEffect } from 'react';
+import { listar, removerEndereco} from '../../api/enderecoApi.js'
+import storage from 'local-storage';
+import { confirmAlert } from 'react-confirm-alert';
+import { toast } from 'react-toastify';
 
 export default function Endereco() {
 
@@ -13,18 +16,39 @@ export default function Endereco() {
 
   const navigate = useNavigate();
 
+  async function carregarEndereco(){
+    const id = storage('cliente-logado').id;
+    const r = await listar(id);
+    setEnderecos(r);
+  }
+
   useEffect(() => {
     carregarEndereco();
   }, [])
-  
-
-  async function carregarEndereco(){
-    const resposta = await consultarEndereco();
-    setEnderecos(resposta);
-  }
  
   function editarEndereco(id){
     navigate(`/enderecoEditar/${id}`)
+  }
+
+  async function removerEnderecoClick(id, endereco){
+
+    confirmAlert({
+      title: "Remover endereço",
+      message: `Deseja remover o endereço ${endereco}?`,
+      buttons: [
+        {
+          label: 'Sim',
+          onClick: async () => {
+            const resposta = await removerEndereco(id, endereco );   
+            toast.dark('Endereço Removido com Sucesso!'); 
+            carregarEndereco();
+          }
+        },
+        {
+          label: 'Não'
+        }
+      ]
+    })
   }
 
 
@@ -57,6 +81,13 @@ export default function Endereco() {
                     <div className='bloco3' onClick={() => editarEndereco(item.id)}>
                         <img src='./assets/images/lapis.png' alt=''/>
                         <button>Editar</button>
+                    </div>
+
+                    <div className='bloco3'>
+                        <img src='./assets/images/lixeira.png' height={50} alt=''/>
+                        <button onClick={e => {
+              e.stopPropagation(); 
+              removerEnderecoClick(item.id, item.endereco)}}>Excluir</button>
                     </div>
 
                 </div>

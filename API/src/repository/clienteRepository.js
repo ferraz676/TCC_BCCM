@@ -106,7 +106,8 @@ export async function deletarCliente(id) {
 
 export async  function loginCliente(email,senha) {
   let comando = `
-      select nm_cliente       as cliente,
+      select id_cliente       as id,
+              nm_cliente      as cliente,
              ds_email         as email,
              ds_senha         as senha
         from tb_cliente

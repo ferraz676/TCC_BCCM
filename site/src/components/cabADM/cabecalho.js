@@ -28,7 +28,7 @@ export default function CabecalhoADM() {
           </div>
 
       <div className='mid'>
-            <Link to='../../pages/Home'><img className='logo' src='/assets/images/logo.png' height={200} alt=''/></Link>
+            <Link to='/'><img className='logo' src='/assets/images/logo.png' height={200} alt=''/></Link>
 
             
         <div className='inpt'>

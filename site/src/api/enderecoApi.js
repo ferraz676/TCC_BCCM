@@ -6,6 +6,23 @@ const api = axios.create({
     baseURL: API_URL
 })
 
+export async function salvar(idCliente, cep, endereco, numero, bairro, complemento ){
+    const resposta = await api.post(API_URL + `/cliente/${idCliente}/endereco`, {
+        cep: cep,
+        endereco:endereco,
+        numero:numero,
+        complemento: complemento,
+        bairro:bairro
+    })
+    return resposta.data;
+}
+
+export async function listar(idCliente){
+
+    const resposta = await api.get(API_URL + `/cliente/${idCliente}/endereco`);
+    return resposta.data;
+}
+
 
 export async function consultarEndereco(){
 
@@ -27,12 +44,20 @@ export async function buscarPorId(id){
 }
 
 
-export async function alterarEndereco(cep, endereco, numero, bairro, id ){
+export async function alterarEndereco(cep, endereco, numero, bairro, complemento, id ){
     const resposta = await api.put(API_URL + `/endereco/${id}`, {
         cep: cep,
         endereco:endereco,
         numero:numero,
+        complemento: complemento,
         bairro:bairro
     })
     return resposta.data;
+}
+
+
+export async function removerEndereco(id, idCliente){
+
+    const resposta = await api.delete(API_URL + `/endereco/${id}`);
+    return resposta.status;
 }

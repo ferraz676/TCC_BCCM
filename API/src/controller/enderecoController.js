@@ -1,4 +1,4 @@
-import {alterarEndereco, consultarEndereco, consultarIdEndereco, consultarNomeEndereco} from '../repository/enderecoRepository.js';
+import {alterarEndereco, consultarEndereco, consultarIdEndereco, consultarIdUsuarioEndereco, consultarNomeEndereco, deletarEndereco, inserirEndereco} from '../repository/enderecoRepository.js';
 import { Router } from "express";
 const endpoints = Router();
 
@@ -11,6 +11,23 @@ endpoints.get("/endereco", async (req, resp) => {
     } catch (err) {
       resp.status(400).send({ 
         erro: err.message
+      })
+    }
+  });
+
+  endpoints.delete("/endereco/:id", async (req, resp) => {
+    try {
+      const { id } = req.params;
+  
+      const resposta = await deletarEndereco(id);
+      if(resposta != 1)
+        throw new Error ('Endereço não pode ser removido!');
+  
+        resp.status(204).send();
+  
+    } catch (err) {
+      resp.status(400).send({
+        erro: err.message 
       })
     }
   });
@@ -28,6 +45,35 @@ endpoints.get("/endereco", async (req, resp) => {
       resp.status(400).send({ erro: err.message });
     }
   });
+
+  endpoints.get("/cliente/:id/endereco", async (req, resp) => {
+    try {
+
+      const id = Number(req.params.id);
+      const r = await consultarIdUsuarioEndereco(id);
+      resp.send(r);
+  
+    } catch (err) {
+      resp.status(400).send({ 
+        erro: err.message });
+    }
+  });
+
+  endpoints.post("/cliente/:id/endereco", async (req, resp) => {
+    try {
+
+      const id = Number(req.params.id);
+      const endereco = req.body;
+      const r = await inserirEndereco(id, endereco);
+      resp.status(204).send();
+
+    } catch (err) {
+      resp.status(400).send({ 
+        erro: err.message });
+    }
+  });
+
+
 
 
 
