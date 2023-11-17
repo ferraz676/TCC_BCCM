@@ -2,6 +2,7 @@ import './index.scss';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { inserirCliente } from '../../api/clienteApi.js';
+import { useNavigate } from 'react-router-dom';
 
 export default function Cadastrotcc(){
 
@@ -15,12 +16,14 @@ export default function Cadastrotcc(){
   const [fixo, setFixo] = useState('');
   const [nascimento, setNascimento] = useState('');
 
+  const navigate = useNavigate();
 
   async function salvarCliente() {
     try{
       const novoCliente = await inserirCliente(cliente, telefone, cpf, email, senha, genero, fixo, nascimento);
-
       toast.dark('Cliente Cadastrado com Sucesso!');
+      navigate('/login')    
+      
     } catch(err){
       toast.error(err.message);
     }
