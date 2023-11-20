@@ -1,12 +1,14 @@
-import {consultarCliente, inserirCliente,alterarCliente, alterarSenhaCliente, deletarCliente, loginCliente} from '../repository/clienteRepository.js';
+import {consultarCliente, inserirCliente,alterarCliente, alterarSenhaCliente, deletarCliente, loginCliente, verificarCPF, verificarEmail, deMaior} from '../repository/clienteRepository.js';
 import { Router } from 'express';
 const endpoints = Router();
 
 
 
-endpoints.get('/cliente', async (req, resp) => {
+endpoints.get('/cliente/:id', async (req, resp) => {
     try {
-      let r = await consultarCliente();
+
+      const idCliente = Number(req.params.id);
+      let r = await consultarCliente(idCliente);
       resp.send(r);
     }
     catch (err) {
@@ -22,32 +24,22 @@ endpoints.post('/cliente/postar', async (req, resp) => {
   try {
     let novoCliente = req.body;
     
-    if(!novoCliente.cliente)
+    if(!novoCliente.cliente || !novoCliente.telefone || !novoCliente.cpf || !novoCliente.email || !novoCliente.senha || !novoCliente.genero || !novoCliente.nascimento)
     throw new Error("Nome Obrigatório!");
 
-    if(novoCliente.cliente == Number)
-    throw new Error("Apenas Letras são permitidas!");
+    if(novoCliente.senha.lenght < 6)
+      throw new Error('A senha deve ter pelo menos 6 caracteres.')
 
-    if(!novoCliente.telefone)
-  throw new Error("Telefone Obrigatório!");
+    let emailCadastrado = await verificarEmail(novoCliente.email)
+      if(emailCadastrado.length !== 0)
+        throw new Error('Email já cadastrado.');
+    
+    let cpfCadastrado = await verificarCPF(novoCliente.cpf); 
+      if(cpfCadastrado.length !== 0)
+        throw new Error('CPF já cadastrado.');
 
-    if(!novoCliente.cpf)
-throw new Error("Cpf Obrigatório!");
-
-    if(!novoCliente.email)
-throw new Error("Email Obrigatório!");
-
-    if(!novoCliente.senha)
-throw new Error("Senha Obrigatória!");
-
-    if(!novoCliente.genero)
-throw new Error("Gênero Obrigatório!");
-
-    if(novoCliente.genero !== 'Masculino' &&  novoCliente.genero !== 'Feminino')
-  throw new Error("Apenas Masculino ou Feminino são permitidos");
-
-    if(!novoCliente.nascimento)
-throw new Error("Data de Nascimento Obrigatória!"); 
+    if(deMaior(novoCliente.dataNascimento) < 16)
+        throw new Error('É preciso ter pelo menos 16 anos para se cadastrar.')    
 
     let cliente = await inserirCliente(novoCliente);
     resp.send(cliente);
@@ -61,15 +53,20 @@ throw new Error("Data de Nascimento Obrigatória!");
 endpoints.post('/cliente/login', async (req, resp) => {
   try {
     const {email, senha} = req.body;
-    const resposta = await loginCliente(email, senha);
 
-    if(!resposta){
-      throw new Error("Credenciais Inválidas!")
-    }
-    resp.send(resposta)
+        if(!email || !senha)
+            throw new Error('Preencha todos os campos de login.')
+
+        let resposta = await loginCliente(email, senha);
+        console.log(resposta);
+
+        if(resposta.length == 0)
+            throw new Error('Email ou senha incorretos');
+
+        resp.send(resposta);
   }
   catch (err) {
-    resp.status(401).send({ 
+    resp.status(400).send({ 
       erro: err.message 
     }); 
   }
@@ -79,7 +76,11 @@ endpoints.put('/cliente/:id', async (req, resp) => {
   try {
     let id = req.params.id;
     let tcc = req.body;
+
     let r = await alterarCliente(id, tcc);
+
+    if(r.affectedRows != 1)
+            throw new Error('Não foi possível atualizar os dados. Tente novamente mais tarde.');
 
     resp.send(r);
   }
@@ -91,17 +92,15 @@ endpoints.put('/cliente/:id', async (req, resp) => {
 
 endpoints.put("/clienteSenha/:id", async (req, resp) => {
   try {
-    const { id } = req.params;
-    const cliente = req.body;
+    const id = Number(req.params.id);
+    const { senha } = req.body;
   
-    if(!cliente.senha)
+    if(!senha)
     throw new Error("Senha Obrigatória!");
     
-    const resposta = await alterarSenhaCliente(id, cliente);
-    if (resposta != 1)
-      throw new Error("Senha não pôde ser alterada");
-    else
-      resp.status(204).send();
+    const resposta = await alterarSenhaCliente(id, senha);
+    
+    resp.status(204).send();
 
   } catch (err){
     resp.status(400).send({
@@ -109,21 +108,6 @@ endpoints.put("/clienteSenha/:id", async (req, resp) => {
     })
   }
 });
-
-
-endpoints.delete('/cliente/:id', async (req, resp) => {
-  try {
-    let id = req.params.id;
-    let resp = await deletarCliente(id);
-    if(resp != 1)
-      throw new Error ('Cliente não pode ser removido!')
-      resp.status(204).send();
-  }
-  catch (err) {
-    resp.status(400).send({ erro: err.message });
-  }
-})
-
 
 
 export default endpoints;

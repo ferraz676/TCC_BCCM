@@ -26,7 +26,7 @@ function Home() {
 
                     <div className='frete'>
                     <img src='/assets/images/barras.png' height={40} alt=''/>
-                    <p>PAGMENTO VIA BOLETO</p>
+                    <p>PAGAMENTO VIA BOLETO</p>
                     </div>
                     <div className='ff'>
                     <img src='/assets/images/msg.png' height={40} alt=''/>

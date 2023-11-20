@@ -54,7 +54,7 @@ São Paulo, SP </p>
             </div>
 
             <div className='bloco2'>
-              <p>Expresso | R$9,86</p>
+              <p>Expresso | R$24,89</p>
               <div className='dif'>
                 <div className='verd'></div> 
                 <p>Média: 4 dias úteis</p>

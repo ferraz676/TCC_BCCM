@@ -29,6 +29,92 @@ export default function Cadastrotcc(){
     }
 }
 
+function mudarCpf(alteracao){
+    let novaAlteracao = alteracao.slice(cpf.length)
+    novaAlteracao = Number(novaAlteracao)
+    
+    if(alteracao.length < cpf.length)
+        setCpf(alteracao)
+
+    else if(isNaN(novaAlteracao) === false){
+        if((alteracao.length === 3 && alteracao.length > cpf.length) || (alteracao.length === 7 && alteracao.length > cpf.length)){
+            setCpf(`${alteracao}.`)
+        }
+        else if(alteracao.length === 11 && alteracao.length > cpf.length){
+            setCpf(`${alteracao}-`)
+        }
+        else if(alteracao.length <= 14){
+            setCpf(alteracao)
+        }
+    }
+}   
+
+function alterarTelefone(alteracao) {
+    let novaAlteracao = alteracao.slice(telefone.length)
+    novaAlteracao = Number(novaAlteracao)
+    
+    if(alteracao.length < telefone.length)
+        setTelefone(alteracao)
+
+    else if(isNaN(novaAlteracao) === false || alteracao === '+'){
+        if(telefone.startsWith('+')){
+            if((alteracao.length === 3 && alteracao.length > telefone.length) || (alteracao.length === 6 && alteracao.length > telefone.length)) {
+                setTelefone(`${alteracao} `)
+            }
+            else if(alteracao.length === 12 && alteracao.length > telefone.length){
+                setTelefone(`${alteracao}-`)
+            }
+            else if(alteracao.length <= 17){
+                setTelefone(alteracao)
+            }
+        }
+        else{
+            if(alteracao.length === 2 && alteracao.length > telefone.length) {
+                setTelefone(`${alteracao} `)
+            }
+            else if(alteracao.length === 8 && alteracao.length > telefone.length){
+                setTelefone(`${alteracao}-`)
+            }
+            else if(alteracao.length <= 13){
+                setTelefone(alteracao)
+            }
+        }
+    }
+}
+
+function alterarFixo(alteracao) {
+    let novaAlteracao = alteracao.slice(fixo.length)
+    novaAlteracao = Number(novaAlteracao)
+    
+    if(alteracao.length < fixo.length)
+        setFixo(alteracao)
+
+    else if(isNaN(novaAlteracao) === false || alteracao === '+'){
+        if(fixo.startsWith('+')){
+            if((alteracao.length === 3 && alteracao.length > fixo.length) || (alteracao.length === 6 && alteracao.length > fixo.length)) {
+                setFixo(`${alteracao} `)
+            }
+            else if(alteracao.length === 12 && alteracao.length > fixo.length){
+                setFixo(`${alteracao}-`)
+            }
+            else if(alteracao.length <= 17){
+                setFixo(alteracao)
+            }
+        }
+        else{
+            if(alteracao.length === 2 && alteracao.length > fixo.length) {
+                setFixo(`${alteracao} `)
+            }
+            else if(alteracao.length === 8 && alteracao.length > fixo.length){
+                setFixo(`${alteracao}-`)
+            }
+            else if(alteracao.length <= 13){
+                setFixo(alteracao)
+            }
+        }
+    }
+}
+
 return(
 <div className='pagina-cadastro'>
     <div className='cabeçalho'>
@@ -63,7 +149,7 @@ return(
            </div>
 
            <div className='bt2'>
-           <input type='text' placeholder='CPF' value={cpf} onChange={e => setCpf(e.target.value)}/>
+           <input type='text' placeholder='CPF' value={cpf} onChange={e => mudarCpf(e.target.value)}/>
             </div>
 
             <div className='nm'>
@@ -75,8 +161,8 @@ return(
             </div>
 
             <div className='tl'>
-           <input type='text' placeholder='Celular' value={telefone} onChange={e => setTelefone(e.target.value)}/>
-           <input type='text' placeholder='Telefone fixo' className='fx' value={fixo} onChange={e => setFixo(e.target.value)}/>
+           <input type='text' placeholder='Celular' value={telefone} onChange={e => alterarTelefone(e.target.value)}/>
+           <input type='text' placeholder='Telefone fixo' className='fx' value={fixo} onChange={e => alterarFixo(e.target.value)}/>
 
             </div>
 
@@ -99,7 +185,11 @@ return(
            
             <div className='genero'>
                 <p>Gênero</p>
-                <input type='text' value={genero} placeholder='Masculino / Feminino' onChange={e => setGenero(e.target.value)}></input>
+                <select value={genero} onChange={e => setGenero(e.target.value)}>
+                    <option value="" disabled hidden>Selecione</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Feminino">Feminino</option>
+                </select>
             </div>
 
 

@@ -1,26 +1,29 @@
 import './index.scss';
 import 'react-toastify/dist/ReactToastify.css';
+import Rodape from '../../components/rodape/rodape.js';
 import Cabecalho from '../../components/cabecalho/cabecalho.js'
 import LateralCliente from '../../components/lateralCliente/index.js'
 import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react';
 import { consultarCliente } from '../../api/clienteApi'
+import storage from 'local-storage';
 
-
-function DadosPessoais() {
+export default function DadosPessoais() {
 
   const [clientes, setClientes] = useState([]);
 
   const navigate = useNavigate();
 
   async function carregarClientes(){
-    const resposta = await consultarCliente();
+    const idCliente = storage('cliente-logado').id;
+    const resposta = await consultarCliente(idCliente);
     setClientes(resposta);
   }
  
   useEffect(() => {
     carregarClientes();
   }, [])
+  
 
   return (
       <div className='dados-pessoais'>
@@ -108,7 +111,7 @@ function DadosPessoais() {
             </div>
 
 
-            
+            <Rodape/>
 
         
 
@@ -116,5 +119,3 @@ function DadosPessoais() {
   )
 
 }
-
-export default DadosPessoais;

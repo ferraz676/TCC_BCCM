@@ -33,9 +33,10 @@
 .genero{
     margin-left: 4.5vh;
 
-    input{
-        width: 44.5vh;
-        height: 3.7vh;
+    select{
+        margin-top: 1vh;
+        height: 4vh;
+        width: 11vh;
     }
 }
 
@@ -112,6 +113,7 @@
     display: flex;
   margin-left: 35px;
 margin-top: 15px;
+gap: 6px;
 
 }
 
@@ -201,6 +203,7 @@ margin-left: 35px;
         display: flex;
       margin-left: 40px;
     margin-top: 20px;
+    gap: 6px;
 }
 
 .wt p{ 
@@ -212,6 +215,7 @@ margin-left: 35px;
     display: flex;
       margin-left: 40px;
     margin-top: 20px;
+    gap: 6px;
 }
 
 .pd p{ 
@@ -233,7 +237,7 @@ margin-bottom: 20px;
 .botao{
     display: flex;
    margin-left: 128px;
-   margin-top: 40px;
+   margin-top: 30px;
    background-color: #162b32;
    color: #ffffff;
    height: 50px;

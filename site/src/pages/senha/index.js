@@ -4,46 +4,48 @@ import Cabecalho from '../../components/cabecalho/cabecalho.js'
 import Rodape from '../../components/rodape/rodape.js'
 import LateralCliente from '../../components/lateralCliente/index.js';
 import { alterarSenhaCliente } from '../../api/clienteApi.js';
-import { useState, useEffect, useParams } from 'react';
+import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import storage from 'local-storage';
 
 
 export default function Senha() {
 
-  useEffect(() => {
-    let cliente = storage('cliente-logado');
-    if(storage('cliente-logado'))
-         setId(cliente.id);
-}, [])
-
-    
-
-
     const [senha, setSenha] = useState('');
     const [confirmarSenha, setConfirmarSenha] = useState('');
     const [id, setId] = useState(0);
     const [erro, setErro] = useState('');
 
+    useEffect(() => {
+      const id = storage('cliente-logado').id;
+      if(storage('cliente-logado'))
+           setId(id);
+  }, [])
 
 
     async function alterarSenha(){
       try{
 
-        if(!senha)
-            throw new Error('Digite uma Senha!')
-
-        if(senha =! confirmarSenha)
-            throw new Error('Digite uma Senha!')
+        if(senha.length < 6) 
+          throw new Error('Senha precisa ter 6 ou mais caracteres.')
         
-        else{
-          const novaSenha = await alterarSenhaCliente(id,senha);
-          setId(novaSenha.id);
-            toast.dark('Senha alterada com Sucesso!');
-        }    
+        if(!senha || !confirmarSenha){
+          throw new Error('Digite uma senha.')
+        }
 
+        if(confirmarSenha !== senha){
+          throw new Error('Senhas precisam ser iguais!')
+        }
+
+        else{
+          const novaSenha = await alterarSenhaCliente(id, senha);
+          console.log(novaSenha);
+          setId(novaSenha.id);
+          toast.dark('Senha alterada com Sucesso!');
+        }
+          
       } catch (err){
-        setErro("Senhas não Coincidiram.")
+        toast.error(err.message);
       }
     }
 

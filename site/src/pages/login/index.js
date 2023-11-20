@@ -1,9 +1,9 @@
 import './index.scss';
 import 'react-toastify/dist/ReactToastify.css';
-import  { React, useState, useRef } from 'react';
+import { React, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import storage from 'local-storage';
-import {loginAdm} from '../../api/admApi.js';
+import { loginAdm } from '../../api/admApi.js';
 import { loginCliente } from '../../api/clienteApi.js';
 import LoadingBar from 'react-top-loading-bar'
 
@@ -21,7 +21,7 @@ export default function Login() {
     ref.current.continuousStart()
     setCarregando(true);
 
-    try{
+    try {
       const r = await loginAdm(email, senha);
       storage('adm-logado', r)
 
@@ -30,16 +30,16 @@ export default function Login() {
       }, 3000)
 
     } catch (err) {
-      try{
+      try {
         const q = await loginCliente(email, senha);
         storage('cliente-logado', q)
         storage('carrinho', []);
-      
+
         setTimeout(() => {
           navigate('/');
         }, 3000)
 
-      } catch(err){
+      } catch (err) {
         ref.current.complete();
         setCarregando(false);
         setErro("Email ou Senha Incorretos.")
@@ -48,7 +48,7 @@ export default function Login() {
     }
   }
 
-  function voltarHome(){
+  function voltarHome() {
     navigate('/');
   }
 
@@ -56,18 +56,18 @@ export default function Login() {
 
     <div className='pagina-login'>
 
-       <LoadingBar color='#2D5A68' ref={ref} />
+      <LoadingBar color='#2D5A68' ref={ref} />
 
       <div className='cabec'>
 
         <div className='sla'>
-        <img src='/assets/images/casinha.png' height={80} alt=''/>
-        <a href='/' onClick={voltarHome}>Home</a>
+          <img src='/assets/images/casinha.png' height={80} alt='' />
+          <a href='/' onClick={voltarHome}>Home</a>
         </div>
 
         <div className='loguinha'>
-        <div className='bolinha'></div>
-        <img className='logo' height={250} src='/assets/images/logo.png' alt=''/>
+          <div className='bolinha'></div>
+          <img className='logo' height={250} src='/assets/images/logo.png' alt='' />
         </div>
         <p>Garantimos que você fez a <strong>melhor escolha!</strong></p>
       </div>
@@ -76,33 +76,33 @@ export default function Login() {
       <div className='mid'>
         <div className='blocao'>
 
-        <h1 className='erroTag'>
-          {erro}
-        </h1>
-        
-      <div className='l1'>
-      <img src='/assets/images/perfil2.png' height={60} alt='' />
-      <input type='text' placeholder='E-mail' value={email} onChange={e => setEmail(e.target.value)} />
-      </div>
+          <h1 className='erroTag'>
+            {erro}
+          </h1>
 
-     <div className='l1'>
-     <img src='/assets/images/cadeado.png' height={60} alt='' />
-     <input type='password' placeholder='Senha' value={senha} onChange={e => setSenha(e.target.value)} />
-     </div>
+          <div className='l1'>
+            <img src='/assets/images/perfil2.png' height={60} alt='' />
+            <input type='text' placeholder='E-mail' value={email} onChange={e => setEmail(e.target.value)} />
+          </div>
+
+          <div className='l1'>
+            <img src='/assets/images/cadeado.png' height={60} alt='' />
+            <input type='password' placeholder='Senha' value={senha} onChange={e => setSenha(e.target.value)} />
+          </div>
 
           <div className='check'>
             <div className='lembre'>
-            <input type='checkbox'></input>
-            <p>Lembre de mim</p>
+              <input type='checkbox'></input>
+              <p>Lembre de mim</p>
             </div>
             <button>Esqueci minha senha</button>
           </div>
-          
-            <div className='last'>
-              <button onClick={entrarClick} disabled={carregando}>LOGIN</button>
-              <p>Não tem uma conta?</p>
-              <a href='../cadastro'>Cadastre-se</a>
-            </div>
+
+          <div className='last'>
+            <button onClick={entrarClick} disabled={carregando}>LOGIN</button>
+            <p>Não tem uma conta?</p>
+            <a href='../cadastro'>Cadastre-se</a>
+          </div>
         </div>
       </div>
     </div>

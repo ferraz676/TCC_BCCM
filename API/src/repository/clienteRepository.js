@@ -23,7 +23,45 @@ export async function inserirCliente(cliente) {
   return cliente;
 }
 
-export async  function consultarCliente() {
+export function deMaior(data)
+{
+    let hoje = new Date();
+    let nascimento = new Date(data);
+    let idade = hoje.getFullYear() - nascimento.getFullYear();
+    let mes = hoje.getMonth() - nascimento.getMonth();
+    if (mes < 0 || (mes === 0 && hoje.getDate() < nascimento.getDate())) {
+        idade--;
+    }
+    return idade;
+}
+
+export async function verificarEmail(email) {
+  let sql =
+  `
+      select ds_email 
+        from tb_cliente
+       where ds_email = ? 
+  `
+
+  let [resp] = await con.query(sql, [email]);
+
+  return resp;
+}
+
+export async function verificarCPF(cpf) {
+  let sql =
+  `
+      select ds_cpf 
+        from tb_cliente
+       where ds_cpf = ? 
+  `
+
+  let [resp] = await con.query(sql, [cpf]);
+
+  return resp;
+}
+
+export async  function consultarCliente(idCliente) {
   let comando = `
       select id_cliente       as id,
              nm_cliente       as cliente,
@@ -35,9 +73,10 @@ export async  function consultarCliente() {
              ds_fixo          as fixo,
              dt_nascimento    as nascimento
         from tb_cliente
+        where id_cliente = ?
   `
 
-  let [dados] = await con.query(comando)
+  let [dados] = await con.query(comando,[idCliente])
   return dados;
 }
 
@@ -74,7 +113,7 @@ export async function alterarCliente(id, cliente) {
 
 
 
-export async function alterarSenhaCliente(id, cliente) {
+export async function alterarSenhaCliente(id, senha) {
   let comando = `
       update tb_cliente
          set ds_senha      = ?
@@ -83,7 +122,7 @@ export async function alterarSenhaCliente(id, cliente) {
 
   let [resp] = await con.query(comando,
     [
-      cliente.senha,
+      senha,
       id
     ])
   

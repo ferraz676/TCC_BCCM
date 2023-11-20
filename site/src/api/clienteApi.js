@@ -7,9 +7,9 @@ const api = axios.create({
 })
 
 
-export async function consultarCliente(){
+export async function consultarCliente(idCliente){
 
-    const resposta = await api.get(API_URL + '/cliente');
+    const resposta = await api.get(API_URL + `/cliente/${idCliente}`);
     return resposta.data;
 }
 

@@ -130,14 +130,13 @@ export default function Pagamento() {
             <h2>Escolha a melhor opção de entrega</h2>
           </div>
 
-          <div className='bloco2'>
-            <p>Expresso | R$9,86</p>
-            <div className='dif'>
-              <div className='verd'></div>
-              <p>Média: 4 dias úteis</p>
-            </div>
-            <p>Máximo: 8 dias úteis</p>
-          </div>
+          <select className='bloco2'>
+           
+
+            <option value='Expresso'>Expresso | R$25,00</option>
+            <option value='Padrão'>Padrão | R$10,00</option>
+
+          </select>
 
 
           <div className='inf'>
@@ -165,23 +164,13 @@ export default function Pagamento() {
 
           <div className='formas'>
             <img className='card' src='/assets/images/cartao.png' alt='' />
-            <p className='pagm'>Cartão de crédito</p>
+            <p className='pagm' value='credito'>Cartão de crédito</p>
           </div>
 
 
           <div className='formas'>
             <img className='card-d' src='/assets/images/debito.png' alt='' />
-            <p className='pagm'>Cartão de débito</p>
-          </div>
-
-          <div className='formas'>
-            <img className='pix' src='/assets/images/pix.png' alt='' />
-            <p className='pagm'>Pix</p>
-          </div>
-
-          <div className='formas'>
-            <img className='bole' src='/assets/images/boleto.png' alt='' />
-            <p className='pagm'>Boleto bancário</p>
+            <p className='pagm' value='debito'>Cartão de débito</p>
           </div>
         </div>
 

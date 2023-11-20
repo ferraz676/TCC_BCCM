@@ -46,15 +46,14 @@ CREATE TABLE tb_produto (
 
 CREATE TABLE tb_pedido (
     id_pedido INT PRIMARY KEY auto_increment NOT NULL ,
-    id_endereco int not null,
     id_cliente int not null,
-    id_pagamento VARCHAR(255),
-    ds_nota_fiscal VARCHAR(255),
-    qtd_parcelas INT,
+    id_endereco int not null,
     dt_pedido DATETIME,
-    ds_situacao VARCHAR(255),
-    vl_frete DECIMAL,
-    ds_pagamento VARCHAR(255),
+    cod_nota_fiscal VARCHAR(255),
+    tp_frete varchar(200),
+    vl_frete DECIMAL(15,2),
+    ds_status VARCHAR(255),
+    tp_pagamento VARCHAR(255),
     FOREIGN KEY (id_cliente) REFERENCES tb_cliente(id_cliente),
     FOREIGN KEY (id_endereco) REFERENCES tb_endereco(id_endereco)
 );
@@ -65,13 +64,26 @@ CREATE TABLE tb_pedido_item (
     id_pedido_item INT primary key auto_increment NOT NULL,
     id_pedido INT,
     id_produto INT,
-    qtd_items INT NOT NULL,
+    qtd_itens INT NOT NULL,
+    vl_produto decimal(15,2),
     FOREIGN KEY (id_pedido) REFERENCES tb_pedido(id_pedido),
     FOREIGN KEY (id_produto) REFERENCES tb_produto(id_produto)
 );
 
+create table tb_pagamento_cartao(
+    id_pagamento_cartao INT PRIMARY KEY auto_increment,
+    id_pedido   int,
+    nm_cartao   varchar(200),
+    nr_cartao   varchar(200),
+    dt_vencimento   varchar(200),
+    cod_seguranca   varchar(200),
+    nr_parcelas      int,
+    ds_forma_pagamento  varchar(200),
+    foreign key (id_pedido) REFERENCES tb_pedido(id_pedido)
+);
 
-select * from tb_adm;
+
+select * from tb_pedido;
 
 
 insert into tb_cliente(nm_cliente, ds_telefone, ds_cpf, ds_email, ds_senha, ds_genero, ds_fixo, dt_nascimento)
@@ -81,7 +93,7 @@ insert into tb_produto(nm_produto, ds_marca, ds_categoria, vl_preco, qtd_disponi
 values('Anabolizante', 'StarLab', 'Creatina', 99, 79, '10ml');
 
 insert into tb_endereco(id_cliente, ds_cep, ds_endereco, nr_endereco, ds_bairro, ds_complemento)
-values(2, '04787900', 'Rua João Albrega', 204, 'Herplin', '' );
+values(1, '04787900', 'Rua João Albrega', 204, 'Herplin', '' );
 
 insert into tb_adm(ds_email, ds_senha)
 values('matheus@adm.com', 'mamaco123');
@@ -89,3 +101,16 @@ values('matheus@adm.com', 'mamaco123');
 SELECT *
 FROM tb_endereco
 INNER JOIN tb_cliente ON tb_endereco.id_cliente = tb_cliente.id_cliente;
+
+
+insert into tb_pedido (
+            id_cliente,
+            id_endereco,
+            dt_pedido,
+            cod_nota_fiscal,
+            tp_frete,
+            vl_frete,
+            ds_status,
+            tp_pagamento
+        )
+        values('1', '1', '2023-01-02', 'sdafwfsdf3s', 'Normal', 10.00, 'Confirmando Pagamento', 'Cartão');

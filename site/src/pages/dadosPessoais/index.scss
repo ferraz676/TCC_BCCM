@@ -56,7 +56,9 @@
 
     .pt1 span{
         border: 1px solid black;
-        border-radius: 10px;
+        border-radius: 5px;
+        padding-left: 1vh;
+        padding-top: 6px;
         height: 4vh;
         width: 53vh;
         margin-top: 1vh;
@@ -64,8 +66,20 @@
     }
 
 
+    .d1{
+        display: flex;
+        flex-direction: column;
+    }
 
+    .d2{
+        display: flex;
+        flex-direction: column;
+    }
 
+    .d2 span{
+        height: 4vh;
+        width: 25vh;
+    }
 
 
     .pt2{
@@ -85,14 +99,23 @@
 
     .pt2 span{
         border: 1px solid black;
-        border-radius: 10px;
+        border-radius: 5px;
         height: 4vh;
         width: 25vh;
         margin-top: 1vh;
         margin-right: 3vh;
+        padding-left: 1vh;
+        padding-top: 6px;
     }
 
-    
+    .pt5{
+        display: flex;
+        flex-direction: column;
+
+        span{
+            width: 11vh;
+        }
+    }
     
 
 
