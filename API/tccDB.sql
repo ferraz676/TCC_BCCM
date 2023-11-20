@@ -83,17 +83,16 @@ create table tb_pagamento_cartao(
 );
 
 
-select * from tb_pedido;
-
+select * from tb_cliente;
 
 insert into tb_cliente(nm_cliente, ds_telefone, ds_cpf, ds_email, ds_senha, ds_genero, ds_fixo, dt_nascimento)
 values('pedro', '11 962978-2321', '123.123.121-45', 'joao123', 'joao123', 'Masculino', '', '2005-04-12');
 
 insert into tb_produto(nm_produto, ds_marca, ds_categoria, vl_preco, qtd_disponivel, ds_medida)
-values('Anabolizante', 'StarLab', 'Creatina', 99, 79, '10ml');
+values('creatina', 'StarLab', 'Creatina', 99, 79, '10ml');
 
 insert into tb_endereco(id_cliente, ds_cep, ds_endereco, nr_endereco, ds_bairro, ds_complemento)
-values(1, '04787900', 'Rua João Albrega', 204, 'Herplin', '' );
+values(2, '04787900', 'Rua pssadsad', 204, 'Herplin', '' );
 
 insert into tb_adm(ds_email, ds_senha)
 values('matheus@adm.com', 'mamaco123');
