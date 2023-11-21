@@ -58,9 +58,8 @@ endpoints.post('/cliente/login', async (req, resp) => {
             throw new Error('Preencha todos os campos de login.')
 
         let resposta = await loginCliente(email, senha);
-        console.log(resposta);
 
-        if(resposta.length == 0)
+        if(!resposta)
             throw new Error('Email ou senha incorretos');
 
         resp.send(resposta);

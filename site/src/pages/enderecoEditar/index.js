@@ -66,7 +66,6 @@ export default function EnderecoEditar() {
 
   async function editarClick(){
     try{
-
       if(id === 0){
         const id = storage('cliente-logado').id;
         const r = await salvar(id, cep, endereco, numero, bairro, complemento);
