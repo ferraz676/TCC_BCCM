@@ -1,6 +1,8 @@
 import './index.scss';
 import 'react-toastify/dist/ReactToastify.css';
 import Cabecalho from '../../components/cabecalho/cabecalho.js'
+import Rodape from '../../components/rodape/rodape';
+
 
 
 
@@ -83,13 +85,15 @@ export default function Senha() {
           <p>Contato: (11) 9633-7865</p>
         </div>
 
-
+        
       </div>
 
 
 
 
-
+    
+      <Rodape/>
     </div>
-  );
+ 
+    );
 }
