@@ -81,35 +81,3 @@ create table tb_pagamento_cartao(
     ds_forma_pagamento  varchar(200),
     foreign key (id_pedido) REFERENCES tb_pedido(id_pedido)
 );
-
-
-select * from tb_pedido;
-
-insert into tb_cliente(nm_cliente, ds_telefone, ds_cpf, ds_email, ds_senha, ds_genero, ds_fixo, dt_nascimento)
-values('pedro', '11 962978-2321', '123.123.121-45', 'joao123', 'joao123', 'Masculino', '', '2005-04-12');
-
-insert into tb_produto(nm_produto, ds_marca, ds_categoria, vl_preco, qtd_disponivel, ds_medida)
-values('creatina', 'StarLab', 'Creatina', 99, 79, '10ml');
-
-insert into tb_endereco(id_cliente, ds_cep, ds_endereco, nr_endereco, ds_bairro, ds_complemento)
-values(2, '04787900', 'Rua pssadsad', 204, 'Herplin', '' );
-
-insert into tb_adm(ds_email, ds_senha)
-values('matheus@adm.com', 'mamaco123');
-
-SELECT *
-FROM tb_endereco
-INNER JOIN tb_cliente ON tb_endereco.id_cliente = tb_cliente.id_cliente;
-
-
-insert into tb_pedido (
-            id_cliente,
-            id_endereco,
-            dt_pedido,
-            cod_nota_fiscal,
-            tp_frete,
-            vl_frete,
-            ds_status,
-            tp_pagamento
-        )
-        values('1', '1', '2023-01-02', 'sdafwfsdf3s', 'Normal', 10.00, 'Confirmando Pagamento', 'Cartão');
