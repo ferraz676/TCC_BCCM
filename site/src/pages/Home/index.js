@@ -8,10 +8,6 @@ import storage from 'local-storage';
 function Home() {
 
 
-  useEffect(() => {
-    storage('carrinho', []);
-  }, [])
-
   return (
     <div className='pagina-home'>
       <Cabecalho/>

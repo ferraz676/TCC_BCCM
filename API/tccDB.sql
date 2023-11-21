@@ -83,7 +83,7 @@ create table tb_pagamento_cartao(
 );
 
 
-select * from tb_cliente;
+select * from tb_pedido;
 
 insert into tb_cliente(nm_cliente, ds_telefone, ds_cpf, ds_email, ds_senha, ds_genero, ds_fixo, dt_nascimento)
 values('pedro', '11 962978-2321', '123.123.121-45', 'joao123', 'joao123', 'Masculino', '', '2005-04-12');

@@ -2,21 +2,21 @@ import './index.scss';
 import 'react-toastify/dist/ReactToastify.css';
 import Cabecalho from '../../components/cabecalho/cabecalho.js'
 import Rodape from '../../components/rodape/rodape.js'
-import { salvar, listar } from '../../api/enderecoApi.js'
+import { listar } from '../../api/enderecoApi.js'
 import { useEffect, useState } from 'react';
 import CardEndereco from '../../components/cardEndereco/index.js';
 import storage from 'local-storage';
 import { useNavigate } from 'react-router-dom';
 import { buscarImagem } from '../../api/produtoApi.js'
+import { consultarCliente } from '../../api/clienteApi'
 
 export default function Pagamento() {
 
   const navigate = useNavigate();
   const [enderecos, setEnderecos] = useState([]);
   const [itens, setItens] = useState([]);
-  const [frete, setFrete] = useState(9.18);
-
-
+  const [clientes, setClientes] = useState([]);
+  const [idEndereco, setIdEndereco] = useState();
   async function carregarEndereco() {
     const id = storage('cliente-logado').id;
     const r = await listar(id);
@@ -36,22 +36,9 @@ export default function Pagamento() {
     setItens(carrinho);
   }
 
-  function calcularValorTotal(){
-    let t = 0;
-    for(let item of itens){
-        t = parseFloat(t + frete + item.preco * item.qtd).toFixed(2);
-    }
-    return t;
-  }
-
-  function calcularValorComDesconto(){
-    let t = 0;
-    for(let item of itens){
-        t = parseFloat(t + frete + item.preco * item.qtd).toFixed(2);
-    }
-    let desconto = t * (10/100);
-    let final = t - desconto;
-    return final;
+  function irPagamento(){
+    storage('endereco-selecionado', {id: idEndereco})
+    navigate('/pagamento2')
   }
 
   function calcularSubtotal(){
@@ -62,11 +49,16 @@ export default function Pagamento() {
     return t;
   }
 
-
+  async function carregarClientes(){
+    const idCliente = storage('cliente-logado').id;
+    const resposta = await consultarCliente(idCliente);
+    setClientes(resposta);
+  }
 
   useEffect(() => {
     carregarEndereco();
     carregarItens();
+    carregarClientes();
   }, [])
 
   async function novoEndereco() {
@@ -86,14 +78,14 @@ export default function Pagamento() {
             <hr />
           </div>
 
-
-
+      {clientes.map(item =>
+        <div className='informaçoes_pessoais'>
           <div className='prf'>
             <p>Nome Completo</p>
           </div>
 
           <div className='bt1'>
-            <input type='text' placeholder='' />
+          <span>{item.cliente}</span>
           </div>
 
           <div className='prf'>
@@ -101,8 +93,11 @@ export default function Pagamento() {
           </div>
 
           <div className='bt1'>
-            <input type='text' placeholder='' />
+          <span>{item.email}</span>
           </div>
+        </div>
+      )}
+
 
           <div className='endereco'>
             <h2>Endereço para entrega</h2>
@@ -110,34 +105,15 @@ export default function Pagamento() {
 
 
           {enderecos.map(item =>
-
-            <CardEndereco item={item} />
-
+            <div className='enderecos'>
+            <CardEndereco item={item} selecionar={setIdEndereco} selecionado={item.id === idEndereco} />
+            </div>
           )}
 
-
-
-          <div className='ou'>
-            <h2>ou</h2>
-          </div>
 
           <div className='cep'>
             <button onClick={novoEndereco}>Novo Endereço</button>
           </div>
-
-
-          <div className='opcao'>
-            <h2>Escolha a melhor opção de entrega</h2>
-          </div>
-
-          <select className='bloco2'>
-           
-
-            <option value='Expresso'>Expresso | R$25,00</option>
-            <option value='Padrão'>Padrão | R$10,00</option>
-
-          </select>
-
 
           <div className='inf'>
             <p>Informamos que a sua encomenda poderá ficar aguardando retirada em uma agência mais próxima caso o seu endereço tenha restrição de entrega ou seja de difícil acesso.</p>
@@ -149,7 +125,7 @@ export default function Pagamento() {
           </div>
 
           <div className='pag'>
-            <button className='bt-verd'>Ir para o pagamento</button>
+            <button className='bt-verd' onClick={irPagamento}>Ir para o pagamento</button>
           </div>
 
         </div>
@@ -203,33 +179,19 @@ export default function Pagamento() {
               <p>R${calcularSubtotal()}</p>
             </div>
 
-            <div className='section-req2'>
-              <p>Frete</p>
-              <p>R${frete}</p>
-            </div>
-
-            <div className='tot'>
-              <p>Total</p>
-              <p>R${calcularValorTotal()}</p>
-            </div>
-
           </div>
 
 
           <div className='desconto'>
-            <div className='pc'>
-              <p> <s>R${calcularValorTotal()}</s> </p>
-              <p className='verd-esc2'>{calcularValorComDesconto()}</p>
-            </div>
 
             <div className='valor'>
-              <p className='vl'>Valor com <strong className='verd-esc'>10% de descostono</strong> boleto ou no PIX</p>
+              <p className='vl'>Valor com <strong className='verd-esc'>10% de desconto</strong></p>
             </div>
 
           </div>
 
           <div className='pontos'>
-            <p>Ganhe <strong className='pt'>177.60 pontos</strong> nesta compra</p>
+            <p>Ganhe <strong className='pt'>17.79 pontos</strong> nesta compra</p>
           </div>
 
 
