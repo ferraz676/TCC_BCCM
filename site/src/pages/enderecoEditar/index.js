@@ -22,11 +22,6 @@ export default function EnderecoEditar() {
 
   const navigate = useNavigate();
 
-  
-  useEffect(() => {
-    carregarEndereco();
-  }, [])
-
   async function carregarEndereco(){
     const id = storage('cliente-logado').id;
     const r = await listar(id);
