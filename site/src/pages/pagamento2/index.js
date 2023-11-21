@@ -142,12 +142,53 @@ function pegarIdEndereco(){
           parcelas: parcela
           },
         produtos: produtos
+
         }
 
-        const r = await salvarNovoPedido(idCliente, pedido);
-        toast.dark('Pedido Inserido com Sucesso!')
+        if(!numero){
+          toast.error('Número do Cartão Obrigatório.')
+        }
+        else if(numero.length < 14){
+          toast.error('Número do Cartão Incompleto.')
+        }
+        else if(!nome){
+          toast.error(' Nome Obrigatório.')
+        }
+        else if(!cpf){
+          toast.error('Cpf Obrigatório!')
+        }
+        else if(cpf.length < 14){
+          toast.error('O cpf deve ter pelo menos 14 caracteres.')
+        }
+        else if(!vencimento){
+          toast.error('Vencimento Obrigatório!')
+        }
+        else if(vencimento.length < 5){
+          toast.error('Vencimento Incorreto.')
+        }
+        else if(vencimento.substring(vencimento.length - 2) < 23){
+          toast.error('Vencimento Incorreto.')
+        }
+        else if(!cvv){
+          toast.error('Cvv Obrigatório!')
+        }
+        else if(cvv.length < 3){
+          toast.error('Cvv Incorreto.')
+        }
+        else if(parcela == '' || !parcela){
+          toast.error('Selecione a Parcela Desejada.')
+        }
+        else if(tipoFrete == '' || !tipoFrete){
+          toast.error('Selecione o tipo de Frete Desejado.')
+        }
+        else {
+          const r = await salvarNovoPedido(idCliente, pedido);
+        toast.dark('Compra Feita com Sucesso!')
         storage('carrinho', []);
         navigate('/')
+        }
+
+        
 
     } catch(err){
       toast.error(err.response.data.erro)

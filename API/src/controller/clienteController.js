@@ -23,23 +23,42 @@ endpoints.get('/cliente/:id', async (req, resp) => {
 endpoints.post('/cliente/postar', async (req, resp) => {
   try {
     let novoCliente = req.body;
-    
-    if(!novoCliente.cliente || !novoCliente.telefone || !novoCliente.cpf || !novoCliente.email || !novoCliente.senha || !novoCliente.genero || !novoCliente.nascimento)
-    throw new Error("Nome Obrigatório!");
 
+    if(!novoCliente.email)
+      throw new Error("Email Obrigatório!");
+    let emailCadastrado = await verificarEmail(novoCliente.email)
+    if(emailCadastrado.length !== 0)
+      throw new Error('Email já cadastrado.');
+
+    if(!novoCliente.cpf)
+      throw new Error("Cpf Obrigatório!");
+    if(novoCliente.cpf.length < 14)
+      throw new Error('O cpf deve ter pelo menos 14 caracteres.')
+    let cpfCadastrado = await verificarCPF(novoCliente.cpf); 
+    if(cpfCadastrado.length !== 0)
+      throw new Error('CPF já cadastrado.');
+
+    if(!novoCliente.cliente )
+      throw new Error("Nome Obrigatório!");
+
+    if(!novoCliente.nascimento)
+      throw new Error("Data de Nascimento Obrigatória!");
+    if(deMaior(novoCliente.nascimento) < 16)
+      throw new Error('É preciso ter pelo menos 16 anos para se cadastrar.')    
+
+    if(!novoCliente.telefone )
+      throw new Error("Telefone Obrigatório!");
+    if(novoCliente.telefone.length < 13)
+      throw new Error('O telefone deve ter pelo menos 13 dígitos.')
+
+
+    if(!novoCliente.senha)
+      throw new Error("Senha Obrigatória!");
     if(novoCliente.senha.lenght < 6)
       throw new Error('A senha deve ter pelo menos 6 caracteres.')
 
-    let emailCadastrado = await verificarEmail(novoCliente.email)
-      if(emailCadastrado.length !== 0)
-        throw new Error('Email já cadastrado.');
-    
-    let cpfCadastrado = await verificarCPF(novoCliente.cpf); 
-      if(cpfCadastrado.length !== 0)
-        throw new Error('CPF já cadastrado.');
-
-    if(deMaior(novoCliente.dataNascimento) < 16)
-        throw new Error('É preciso ter pelo menos 16 anos para se cadastrar.')    
+    if(!novoCliente.genero)
+      throw new Error("Gênero Obrigatório!");
 
     let cliente = await inserirCliente(novoCliente);
     resp.send(cliente);

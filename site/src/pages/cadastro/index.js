@@ -25,7 +25,7 @@ export default function Cadastrotcc(){
       navigate('/login')    
       
     } catch(err){
-      toast.error(err.message);
+      toast.error(err.response.data.erro);
     }
 }
 
