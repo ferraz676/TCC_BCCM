@@ -22,7 +22,7 @@
         margin-left: 20vh;
         margin-top: 7vh;
         padding: 20px;
-        height: 30vh;
+        height: 100%;
 
 
         h1{
@@ -68,6 +68,15 @@
         flex-direction: row;
         width: 56.5vh;
         margin-left: 0vh;
+    }
+
+    .btnAdicionar{
+        background-color: #2D5A68;
+        margin-top: 2vh;
+        width: 25vh;
+        padding: 10px;
+        font-size: 2vh;
+        border-radius: 5px;
     }
 
 }

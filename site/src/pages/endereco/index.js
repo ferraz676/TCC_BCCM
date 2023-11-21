@@ -30,27 +30,38 @@ export default function Endereco() {
     navigate(`/enderecoEditar/${id}`)
   }
 
-  async function removerEnderecoClick(id, endereco){
+  async function removerEnderecoClick(idEndereco, idCliente){
+    const id = storage('cliente-logado').id;
+    idCliente = id;
 
-    confirmAlert({
-      title: "Remover endereço",
-      message: `Deseja remover o endereço ${endereco}?`,
-      buttons: [
-        {
-          label: 'Sim',
-          onClick: async () => {
-            const resposta = await removerEndereco(id, endereco );   
-            toast.dark('Endereço Removido com Sucesso!'); 
-            carregarEndereco();
+    try{
+      confirmAlert({
+        title: "Remover endereço",
+        message: `Deseja remover o endereço selecionado?`,
+        buttons: [
+          {
+            label: 'Sim',
+            onClick: async () => {
+              const resposta = await removerEndereco(idEndereco, idCliente);   
+              toast.dark('Endereço Removido com Sucesso!'); 
+              carregarEndereco();
+            }
+          },
+          {
+            label: 'Não'
           }
-        },
-        {
-          label: 'Não'
-        }
-      ]
-    })
+        ]
+      })
+    } catch(err){
+      toast.error('O Endereço não pode ser removido pois está sendo utilizado em uma Encomenda.')
+    }
+    
+    
   }
 
+  async function novoEnderecoAdicionar(){
+    navigate(`/enderecoEditar`);
+  }
 
 
 
@@ -61,9 +72,12 @@ export default function Endereco() {
       <div className='divisao'>
       <LateralCliente selecionado='endereco'/>
 
-
+            
 
             <div className='part2'>
+
+            
+
                 <h1>Endereço de Entrega <span> (Especifique a rua, bairro e endereço)</span> </h1>
                 <div className='bloco2'>
 
@@ -97,6 +111,8 @@ export default function Endereco() {
                 )}
 
                 </div>
+
+                <button className='btnAdicionar' onClick={novoEnderecoAdicionar}>Adicionar Endereço</button>  
             </div>
       </div>
 

@@ -65,6 +65,7 @@ export default function EnderecoEditar() {
         const id = storage('cliente-logado').id;
         const r = await salvar(id, cep, endereco, numero, bairro, complemento);
         toast.dark('Endereço Salvo')
+        navigate(-1)
       }
       else{
         const novoEndereco = await alterarEndereco(cep, endereco, numero, bairro,complemento, id);

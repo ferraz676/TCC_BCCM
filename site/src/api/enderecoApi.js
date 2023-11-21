@@ -56,8 +56,8 @@ export async function alterarEndereco(cep, endereco, numero, bairro, complemento
 }
 
 
-export async function removerEndereco(id, idCliente){
+export async function removerEndereco(idEndereco, idCliente){
 
-    const resposta = await api.delete(API_URL + `/endereco/${id}`);
+    const resposta = await api.delete(API_URL + `/endereco/${idEndereco}`);
     return resposta.status;
 }
