@@ -1,11 +1,11 @@
-.pagina-vitaminaOficial{
-
+.pagina-barrinhaOficial{
   background-image: url('../../../public/assets/images/fundo.png');
   background-repeat: no-repeat;
   background-size: 30%;
   background-position-x: 137vh;
   background-position-y: 30px;
 
+  
   display: flex;
   flex-direction: column;
   height: 300vh;
@@ -14,7 +14,7 @@
   .titulo{
       display: flex;
       background-color:#162b32 ;
-      height: 500px !important;
+      height: 410px !important;
   }
   
   .plvs{
@@ -22,6 +22,10 @@
       color: rgb(255, 255, 255);
       flex-direction: column;
       margin-left: 250px;
+      margin-right: 0vh;
+      p{
+        width: 50vh;
+      }
   }
 
   
@@ -36,7 +40,7 @@
   .imagem{
       display: flex;
       height: 270px;
-      margin-left: 150px;
+      margin-left: 90px !important;
       margin-top: 15px;
   }
   
@@ -98,9 +102,9 @@
       position: relative ;
       background-position-y: -30px !important;
       background-position-x: 380px !important;
-      height: 1300vh !important;
+      height: 100%;
   }
-  
+
   .pr{
     flex-direction: row;
     display: flex;

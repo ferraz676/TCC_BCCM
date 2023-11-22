@@ -52,6 +52,7 @@ export default function InsercaoProduto() {
           await enviarImagem( novoProduto.id, imagem);
           setId(novoProduto.id);
           toast.dark('Produto Cadastrado com Sucesso!');
+          navigate('/ConsultaProduto');
       }
 
       else {

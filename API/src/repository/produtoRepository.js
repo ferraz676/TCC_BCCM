@@ -95,6 +95,24 @@ export async  function consultarCreatina() {
   return dados;
 }
 
+export async  function consultarBarrinha() {
+  let comando = `
+     select id_produto      as id,
+            nm_produto      as produto,
+            ds_marca        as marca,
+            ds_categoria    as categoria,
+            vl_preco        as preco,
+            qtd_disponivel  as quantidade, 
+            ds_medida       as medida,
+            img_produto     as imagem
+        from tb_produto		
+        where ds_categoria = 'barrinha'
+  `
+
+  const [dados] = await con.query(comando);
+  return dados;
+}
+
 export async  function consultarWhey() {
   let comando = `
      select id_produto      as id,

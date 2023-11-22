@@ -84,6 +84,8 @@ export default function Cabecalho() {
         <Link to = '/Whey'> Whey Protein </Link>
 
         <Link to = '/multivitaminico'> Vitaminas </Link>
+
+        <Link to = '/barrinha'> Barrinhas </Link>
       </div>
 
 

@@ -19,6 +19,12 @@ export async function consultarCreatina(){
     return resposta.data;
 }
 
+export async function consultarBarrinha(){
+
+    const resposta = await api.get(API_URL + '/produto/barrinha');
+    return resposta.data;
+}
+
 export async function consultarWhey(){
 
     const resposta = await api.get(API_URL + '/produto/whey');

@@ -1,4 +1,4 @@
-import {consultarNomeProdutos, consultarTodosProdutos, consultarIdProdutos, inserir, alterarProduto, deletar, enviarImagemProduto, consultarCreatina, consultarWhey, consultarAnabolizante, consultarVitamina} from "../repository/produtoRepository.js";
+import {consultarNomeProdutos, consultarTodosProdutos, consultarIdProdutos, inserir, alterarProduto, deletar, enviarImagemProduto, consultarCreatina, consultarWhey, consultarBarrinha, consultarAnabolizante, consultarVitamina} from "../repository/produtoRepository.js";
 
 import { Router } from "express";
 import multer from 'multer';
@@ -42,6 +42,18 @@ endpoints.get("/produto/creatina", async (req, resp) => {
   try {
 
     const resposta = await consultarCreatina();
+    resp.send(resposta);
+  } catch (err) {
+    resp.status(500).send({ 
+      erro: err.message
+     })
+  }
+});
+
+endpoints.get("/produto/barrinha", async (req, resp) => {
+  try {
+
+    const resposta = await consultarBarrinha();
     resp.send(resposta);
   } catch (err) {
     resp.status(500).send({ 

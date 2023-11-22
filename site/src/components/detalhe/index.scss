@@ -1,18 +1,22 @@
-.pri{
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-
-
-
-.conteu{
-    display: flex;
-    flex-direction: column;
-
- height: 100%;
+*{
+  font-style: italic;
 }
 
-.zoon{
+.pri {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  
+
+
+  .conteu {
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+  }
+
+  .zoon {
     display: flex;
     flex-direction: column;
     height: 300px !important;
@@ -21,173 +25,176 @@
     margin-top: 120px;
     justify-content: space-between;
 
-    img{
+    img {
       border: 1px solid black !important;
       width: 60px;
       height: 60px;
     }
-}
+  }
 
-.anabo{
-    img{
-       margin-left: 180px !important;
-       margin-top: -50vh !important;
-       margin-bottom: 5vh;
-       width: 300px;
-       height: 350px !important;
+  .anabo {
+    img {
+      margin-left: 180px !important;
+      margin-top: -39vh !important;
+      margin-bottom: 5vh;
+      width: 300px;
+      height: 350px !important;
     }
 
 
-}
+  }
 
-.avaliação{
-       
-     display: flex;
-     height: 40px;
-     margin-left: 200px;
-     margin-top: -15px;
-    }
-      
+  .avaliação {
 
-.gor{
-display: flex;
-flex-direction: row;
-margin-top: 100px;
-margin-left: 65px;
-}
+    display: flex;
+    height: 40px;
+    margin-left: 200px;
+    margin-top: -15px;
+  }
 
-.gor img{
+
+  .gor {
+    display: flex;
+    flex-direction: row;
+    margin-top: 100px;
+    margin-left: 65px;
+  }
+
+  .gor img {
     display: flex;
     height: 55px;
-}
+  }
 
-.gor h1{
+  .gor h1 {
     display: flex;
     font-size: 20px;
     margin-left: 20px;
     margin-top: 5px;
-    width:450px;
+    width: 450px;
     text-align: center;
-}
+  }
 
-.for{
+  .for {
     display: flex;
     flex-direction: row;
     margin-top: 100px;
     margin-left: 70px;
-}
+  }
 
-.for img{
+  .for img {
     display: flex;
     height: 55px;
-}
+  }
 
-.for h1{
+  .for h1 {
     display: flex;
     font-size: 20px;
     margin-left: 20px;
     margin-top: 5px;
-    width:430px;
+    width: 430px;
     text-align: center;
-}
+  }
 
-.ps{
+  .ps {
     display: flex;
     flex-direction: row;
     margin-top: 100px;
     margin-left: 60px;
     margin-bottom: 50px;
-}
+  }
 
-.ps img{
+  .ps img {
     display: flex;
     height: 90px;
     margin-top: -15px;
-}
+  }
 
-.ps h1{
+  .ps h1 {
     display: flex;
     font-size: 20px;
     margin-left: 20px;
     margin-top: 5px;
-    width:430px;
+    width: 430px;
     text-align: center;
-}
+  }
 
-.lado{
-    display:flex ;
+  .lado {
+    display: flex;
     flex-direction: row;
     background-image: url('../../../public/assets/images/logo-cortada.png');
-    background-size:57%;
+    background-size: 57%;
     background-repeat: no-repeat;
     background-position: 620px;
-    position: relative ;
+    position: relative;
     background-position-y: -220px;
     background-size: 650px;
-}
+  }
 
-.segundapa{
+  .segundapa {
     display: flex;
-flex-direction: column;
+    flex-direction: column;
 
-}
+  }
 
-.plvrs{
+  .plvrs {
     display: flex;
     flex-direction: column;
     align-items: center;
-   font-size: 20px;
+    font-size: 20px;
     width: 30px;
     margin-top: 120px;
-   margin-left: 280px !important;
-   
-}
+    margin-left: 280px !important;
+    font-style: italic;
+  }
 
-.plvrs2{
-    display:flex ;
+  .plvrs2 {
+    display: flex;
     margin-top: 50px;
-font-size: 11px;
-width: 330px;
-text-align: center;
-margin-left: 140px;
-}
+    font-size: 11px;
+    width: 330px;
+    text-align: center;
+    margin-left: 140px;
+    font-style: italic;
+  }
 
-.plvrs3{
+  .plvrs3 {
     display: flex;
     margin-top: 100px;
     font-size: 18px;
     color: #6EB539;
     margin-left: 230px;
-}
+  }
 
-.plvrs4{
+  .plvrs4 {
     display: flex;
     text-align: center;
     width: 450px;
     font-size: 10px;
     margin-top: 50px;
     margin-left: 100px;
-}
+    font-style: italic;
+  }
 
-.cpm{
-    button{
-        display: flex;
-       background-color: #2D5A68;
-    color: #ffffff;
-    margin-top: 90px;
-    margin-left: 230px;
-    height: 52px; 
-    width: 130px;
-  justify-content: center;
-  align-items: center;
-  font-size: 15px;
-  border-radius: 5px;
+  .cpm {
+    button {
+      display: flex;
+      background-color: #2D5A68;
+      color: #ffffff;
+      margin-top: 90px;
+      margin-left: 200px !important;
+      height: 52px;
+      width: 130px;
+      justify-content: center;
+      align-items: center;
+      font-size: 15px;
+      border-radius: 5px;
     }
   }
 
-  .cari{
+  .cari {
     display: flex;
-     margin-left: 365px;
+    border: 2px solid;
+    margin-left: 335px !important;
     background-color: #2D5A68;
     height: 52px;
     width: 100px;
@@ -197,56 +204,100 @@ margin-left: 140px;
     align-items: center;
   }
 
-  .cari img{
+  .cari img {
     display: flex;
     height: 45px;
     margin-left: -7px;
-  
+
   }
- 
-  .estoque{
+
+  .estoque {
     display: flex;
     margin-left: 200px;
     margin-top: 50px;
   }
 
-  .estoque img{
+  .estoque img {
     display: flex;
     height: 30px;
   }
 
-  .estoque h1{
+  .estoque h1 {
     display: flex;
     font-size: 15px;
     margin-top: 4px;
   }
 
-  .frete{
+  .frete {
     display: flex;
-    margin-left: 220px; 
+    margin-left: 220px;
     margin-top: 30px;
   }
 
-.frete img{
+  .frete img {
     display: flex;
     height: 30px;
-}
-
-
-  .frete h1{
-display: flex;
-margin-left: 10px;
-font-size:20px ;
-font-weight: 700;
   }
 
-  .frete h2{
-display: flex;
-margin-top: 30px;
-margin-left: -120px;
-font-size: 17px;
-color: #6EB539;
+
+  .frete h1 {
+    display: flex;
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: 700;
   }
 
+  .frete h2 {
+    display: flex;
+    margin-top: 30px;
+    margin-left: -120px;
+    font-size: 17px;
+    color: #6EB539;
+  }
+
+
+  .rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+    margin-right: 15vh;
+    margin-top: -4vh;
+  }
+
+  .rate:not(:checked)>input {
+    position: absolute;
+    top: -9999px;
+  }
+
+  .rate:not(:checked)>label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 50px;
+    color: #ccc;
+  }
+
+  .rate:not(:checked)>label:before {
+    content: '★ ';
+  }
+
+  .rate>input:checked~label {
+    color: #ffc700;
+  }
+
+  .rate:not(:checked)>label:hover,
+  .rate:not(:checked)>label:hover~label {
+    color: #deb217;
+  }
+
+  .rate>input:checked+label:hover,
+  .rate>input:checked+label:hover~label,
+  .rate>input:checked~label:hover,
+  .rate>input:checked~label:hover~label,
+  .rate>label:hover~input:checked~label {
+    color: #c59b08;
+  }
 
 }

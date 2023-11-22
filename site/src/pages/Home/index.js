@@ -50,7 +50,7 @@ export default function Home() {
           <div className="bordaImagem">
             <img src="/assets/images/msg.png" height={20} alt="" />
             </div>
-            <p className="pp1">CONSULTE NOSSA NUTRICIONISTA</p>
+            <p className="pp1">CONSULTE NOSSA NUTRI</p>
           </div>
           <div className="frete">
             <div className="bordaImagem">
@@ -168,7 +168,6 @@ export default function Home() {
 
           <div className="textos">
             <p className="texto">
-              {" "}
               <span className="pc">Criamos</span> esse web site a fim de um
               projeto escolar e também para apoiar uma grande causa, a qual
               acreditamos ser de grande importância para o mundo, o esporte.

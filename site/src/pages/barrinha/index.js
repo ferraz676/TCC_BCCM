@@ -4,20 +4,20 @@ import Cabecalho from '../../components/cabecalho/cabecalho';
 import Rodape from '../../components/rodape/rodape';
 import './index.scss';
 import { useState, useEffect } from 'react';
-import { consultarWhey} from '../../api/produtoApi.js';
+import { consultarBarrinha} from '../../api/produtoApi.js';
 import { useNavigate } from 'react-router-dom';
 import { buscarImagem } from '../../api/produtoApi.js'
 
 
 
-export default function Whey() {
+export default function Barrinha() {
 
   const [produtos, setProdutos] = useState([]);
   const navigate = useNavigate();
 
  
   async function carregarProdutos(){
-    const resposta = await consultarWhey();
+    const resposta = await consultarBarrinha();
     setProdutos(resposta);
   }
 
@@ -32,17 +32,17 @@ export default function Whey() {
 
   
   return(
-    <div className='pagina-wheyOficial'>
+    <div className='pagina-barrinhaOficial'>
     <Cabecalho/>
         <div className='titulo'>
 
             <div className='plvs'>
-            <h1>Whey Protein </h1>
-             <p>O Suplimento ideal para ganho de Massa Muscular </p>   
-             </div>
+              <h1>Barrinhas</h1>
+              <p>Rápido, prático e fácil para quem quer agilidade. </p>   
+            </div>
 
              <div className='imagem'>
-                <img src='/assets/images/imagemwey.png' height={250} width={450} alt=''/>                
+                <img src='/assets/images/barrinhasIMG.png' height={250} width={450} alt=''/>                
              </div>
 
         </div>
@@ -77,18 +77,18 @@ export default function Whey() {
 
       {produtos.map(item => 
 
-        <div className='l1'>
+          <div className='l1'>
 
-        <div className='produto1' onClick={() => abrirDetalhes(item.id)}>
+            <div className='produto1' onClick={() => abrirDetalhes(item.id)}>
 
-          <img className='imagensProdutos'  src={buscarImagem(item.imagem)} alt=''/>
-          <p className='textoProdutos'>{item.produto}</p>
-          <span className='medidaProdutos'>{item.medida}</span>
-          <h1 className='precoProdutos'>R${item.preco}</h1>
+              <img className='imagensProdutos'  src={buscarImagem(item.imagem)} alt=''/>
+              <p className='textoProdutos'>{item.produto}</p>
+              <span className='medidaProdutos'>{item.medida}</span>
+              <h1 className='precoProdutos'>R${item.preco}</h1>
 
-        </div>
+            </div>
 
-        </div>
+          </div>
         )}
 </div>
 

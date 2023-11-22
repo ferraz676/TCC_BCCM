@@ -37,7 +37,8 @@ export default function Anabolizantes() {
         <div className='titulo'>
 
             <div className='plvs'>
-            <h1>Anabolizantes </h1> 
+            <h1>Anabolizantes </h1>
+            <p>O produto ideal para atingir seus objetivos</p> 
              </div>
 
              <div className='imagem'>
@@ -76,18 +77,18 @@ export default function Anabolizantes() {
 
       {produtos.map(item => 
 
-          <div className='l1'>
+        <div className='l1'>
 
-            <div className='produto1' onClick={() => abrirDetalhes(item.id)}>
+        <div className='produto1' onClick={() => abrirDetalhes(item.id)}>
 
-              <img  src={buscarImagem(item.imagem)} alt=''/>
-              <p>{item.produto}</p>
-              <h1>R${item.preco}</h1>
-              <span>{item.medida}</span>
+          <img className='imagensProdutos'  src={buscarImagem(item.imagem)} alt=''/>
+          <p className='textoProdutos'>{item.produto}</p>
+          <span className='medidaProdutos'>{item.medida}</span>
+          <h1 className='precoProdutos'>R${item.preco}</h1>
 
-            </div>
+        </div>
 
-          </div>
+        </div>
         )}
 </div>
 

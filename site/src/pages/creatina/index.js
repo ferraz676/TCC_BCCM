@@ -38,6 +38,7 @@ export default function Creatina() {
 
             <div className='plvs'>
             <h1>Creatina</h1>
+            <p>Ganhe mais massa e tenha mais energia</p>
              </div>
 
              <div className='imagem'>
@@ -80,10 +81,10 @@ export default function Creatina() {
 
             <div className='produto1' onClick={() => abrirDetalhes(item.id)}>
 
-              <img  src={buscarImagem(item.imagem)} alt=''/>
-              <p>{item.produto}</p>
-              <h1>R${item.preco}</h1>
-              <span>{item.medida}</span>
+              <img className='imagensProdutos'  src={buscarImagem(item.imagem)} alt=''/>
+              <p className='textoProdutos'>{item.produto}</p>
+              <span className='medidaProdutos'>{item.medida}</span>
+              <h1 className='precoProdutos'>R${item.preco}</h1>
 
             </div>
 

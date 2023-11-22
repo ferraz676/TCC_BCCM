@@ -28,14 +28,14 @@ export default function Detalhe(props) {
         navigate('/pagamento')
     }
 
-
-
     useEffect(() => {
         let carrinho = get('carrinho');
         if (storage('carrinho') && storage('cliente-logado'))
             setProdutosCarrinho(carrinho);
     }, [])
 
+
+    
     return (
         <div className='pri'>
 
@@ -53,12 +53,17 @@ export default function Detalhe(props) {
                         <img src={buscarImagem(props.produto.imagem)} alt='' />
                     </div>
 
-                    <div className='avaliação'>
-                        <img src='/assets/images/Star 1.png' alt='' />
-                        <img src='/assets/images/Star 1.png' alt='' />
-                        <img src='/assets/images/Star 1.png' alt='' />
-                        <img src='/assets/images/Star 1.png' alt='' />
-                        <img src='/assets/images/Star 4.png' alt='' />
+                    <div class="rate">
+                        <input type="radio" id="star5" name="rate" value="5" />
+                        <label for="star5" title="text">5 stars</label>
+                        <input type="radio" id="star4" name="rate" value="4" />
+                        <label for="star4" title="text">4 stars</label>
+                        <input type="radio" id="star3" name="rate" value="3" />
+                        <label for="star3" title="text">3 stars</label>
+                        <input type="radio" id="star2" name="rate" value="2" />
+                        <label for="star2" title="text">2 stars</label>
+                        <input type="radio" id="star1" name="rate" value="1" />
+                        <label for="star1" title="text">1 star</label>
                     </div>
 
 
@@ -99,7 +104,7 @@ export default function Detalhe(props) {
                     </div>
 
                     <div className='plvrs4'>
-                        <h1>NO BOLETO OU PIX ou R${props.produto.preco} no cartão de crédito em até 1x de R${props.produto.preco} sem juros</h1>
+                        <h1>NO BOLETO OU PIX<br></br> ou R${props.produto.preco} no cartão de crédito em até 1x de R${props.produto.preco} sem juros</h1>
                     </div>
 
 

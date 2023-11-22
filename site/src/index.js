@@ -27,6 +27,7 @@ import Creatina from './pages/creatina'
 import Anabolizante from './pages/anabolizante';
 import Multivitaminico from './pages/multivitaminico';
 import Histopedido from './pages/histopedido';
+import Barrinha from './pages/barrinha';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -45,6 +46,7 @@ root.render(
       <Route path='/InsercaoProduto' element={<InsercaoProduto/>} />
       <Route path='/AlterarProduto/:idParam' element={<InsercaoProduto/>} />
       <Route path='/endereco' element={<Endereco/>} />
+      <Route path='/barrinha' element={<Barrinha/>} />
       <Route path='/login' element={<Login/>} />
       <Route path='/ConsultaProduto' element={<ConsultaProduto/>} />
       <Route path= '/cadastro' element={<Cadastro/>} />

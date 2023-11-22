@@ -169,7 +169,7 @@
       }
 
       p{
-        font-size: .8vh;
+        font-size: 1vh;
         width: 5vh;
         text-align: center;
         padding-left: .5vh;
@@ -459,7 +459,7 @@
     
     
     .sub-t2{
-      margin-top: -40px;
+      margin-top: -30px;
       margin-left: 38.5px;
       color: #ffff;
     }
@@ -489,6 +489,9 @@
     .pc{
       margin-left: 10px;
     }
+    .p{
+      margin-left: 10px;
+    }
     
     .section-3{
       height: 450px;
@@ -498,15 +501,24 @@
     }
     
     .text2{
-    padding-top: 40px;
+    padding-top: 80px;
+    margin-left: -10vh;
+    width:50vh;
+    }
+
+    .text3{
+      padding-top: 2vh;
+      margin-left: -10vh;
+    width:50vh;
+    text-align: justify;
     }
     
     .math{
       width: 400px;
       height: 400px;
       padding: 10px;
-      margin-left: 90px;
-      margin-top: 40px;
+      margin-right: -10vh !important;
+      margin-top: 25px;
     }
     
     .texto{
@@ -581,11 +593,7 @@
         }
 
 
-        .textos{
-     
-         
-        }
-
+       
         .cbum{
           margin-left: 250px;
         }
