@@ -127,12 +127,13 @@
     flex-direction: column;
     background-color: #D9D9D9;
     border: 2px solid black;
-    width: 68.5vh;
+    width: 70vh;
     height: 58.6vh;
     margin-top: -18vh;
     align-items: center;
     justify-content: center;
     gap: 40px;
+    
 }
 
 
@@ -140,6 +141,15 @@
 
     .entrega-pedidos{
         height: 100%;
+    }
+
+
+    .b4{
+        width: 62vh;
+    }
+
+    .b1 h1{
+        text-align: center;
     }
 
 }
