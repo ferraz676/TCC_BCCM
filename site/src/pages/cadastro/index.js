@@ -119,8 +119,8 @@ return(
 <div className='pagina-cadastro'>
     <div className='cabeçalho'>
 
-        <p>Garantimos que você fez a melhor escolha!</p>
-        <img src='/assets/images/logobccm.png' alt=""/>
+        <p className='gar'>Garantimos que você fez a melhor escolha!</p>
+        <img className='pit' src='/assets/images/logobccm.png' alt=""/>
         <p>Seja parte da nossa Família!</p>
 
     </div>
