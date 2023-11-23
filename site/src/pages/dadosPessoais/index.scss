@@ -1,15 +1,18 @@
 .dados-pessoais{
 
-    background-color: #D9D9D9;
-        background-image: url('../../../public/assets/images/fundo.png');
-        background-repeat: no-repeat;
-        background-size: 25%;
-        background-position-x: 106vh;
-        background-position-y: 130px;
     
+        
         overflow: hidden;
 
 .mid-1{
+    background-color: #D9D9D9;
+        background-image: url('../../../public/assets/images/fundo.png');
+        background-repeat: no-repeat;
+        background-size: 50%;
+        background-position-x: 67vh;
+        background-position-y: -170px;
+
+
     display: flex;
     flex-direction: row;
     margin-top: -3vh;
@@ -30,7 +33,7 @@
 .principal{
     display: flex;
     flex-direction: column;
-    background-color: #fff;
+    background-color: transparent;
     border: 2px solid black;
     width: 60vh;
     height: 86%;
@@ -49,6 +52,7 @@
     .pt1 h1{
             font-size: 2vh;
             margin-top: 1vh;
+            
         }
     .pt1 p{
             font-size: 1.5vh;
@@ -63,7 +67,6 @@
         height: 4vh;
         width: 53vh;
         margin-top: 1vh;
-        
     }
 
 

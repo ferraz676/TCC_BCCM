@@ -185,7 +185,7 @@ function pegarIdEndereco(){
           const r = await salvarNovoPedido(idCliente, pedido);
         toast.dark('Compra Feita com Sucesso!')
         storage('carrinho', []);
-        navigate('/')
+        navigate('/meupedido')
         }
 
         

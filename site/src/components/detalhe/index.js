@@ -14,18 +14,42 @@ export default function Detalhe(props) {
     let produto = props.produto;
 
     function adicionarCarrinho() {
-        let carrinho = get('carrinho');
+        try{
+        if(!storage('cliente-logado')){
+            navigate('/login')
+        }
+        else{
+            let carrinho = get('carrinho');
         carrinho.push(produto);
         set('carrinho', carrinho);
         toast.dark('Produto Adicionado ao Carrinho com Sucesso!');
         navigate(-1)
+        }
+        
+
+        } catch(err){
+            toast.error('Realize o Login primeiro!')
+        }
+        
     }
 
     function adicionarCarrinhoComprar() {
-        let carrinho = get('carrinho');
-        carrinho.push(produto);
-        set('carrinho', carrinho);
-        navigate('/pagamento')
+        try{
+            if(!storage('cliente-logado')){
+                navigate('/login')
+            } else{
+                let carrinho = get('carrinho');
+                carrinho.push(produto);
+                set('carrinho', carrinho);
+                navigate('/pagamento')
+            }
+
+        } catch(err){
+            toast.error('Realize o Login primeiro!')
+        }
+    
+    
+        
     }
 
     useEffect(() => {

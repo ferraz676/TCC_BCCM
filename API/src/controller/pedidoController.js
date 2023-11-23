@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { criarNovoPedido } from '../service/novoProdutoService.js';
-import { inserirPagamento, inserirPedido, inserirPedidoItem } from '../repository/pedidoRepository.js';
+import { consultarTodosPedidos, inserirPagamento, inserirPedido, inserirPedidoItem } from '../repository/pedidoRepository.js';
 import { consultarIdProdutos } from '../repository/produtoRepository.js';
 
 
@@ -27,12 +27,23 @@ endpoints.post('/pedido/:idCliente', async (req, resp) => {
 
     }
     catch (err) {
-        console.log(err);
     resp.status(400).send({
         erro: err.message
     });
 }
   })
+
+  endpoints.get("/cliente/:id/pedido", async (req, resp) => {
+    try {
+      const idCliente = Number(req.params.id);
+  
+      let r = await consultarTodosPedidos(idCliente);
+      resp.send(r);
+  
+    } catch (err) {
+      resp.status(400).send({ erro: err.message });
+    }
+  });
 
 
 

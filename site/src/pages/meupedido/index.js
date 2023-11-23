@@ -2,12 +2,25 @@ import './index.scss';
 import Cabecalho from '../../components/cabecalho/cabecalho.js'
 import LateralCliente from '../../components/lateralCliente/index.js';
 import Rodape from '../../components/rodape/rodape';
+import { useEffect, useState } from 'react';
+import storage from 'local-storage';
+import { listarPedidos } from '../../api/pedidoApi'
 
 
 
+export default function MeuPedido(){
 
-export default function Meupedido(){
+    const [pedidos, setPedidos] = useState([]);
 
+    async function carregarPedidos(){
+        const idCliente = storage('cliente-logado').id;
+        const r = await listarPedidos(idCliente);
+        setPedidos(r);
+    }
+
+    useEffect(() => {
+        carregarPedidos();
+      }, [])
 
 return(
 
@@ -16,6 +29,8 @@ return(
         <Cabecalho/> 
     </div>
     <div className='odio'> 
+
+<div className='divQueArrumaTd'>
     <div className='clienteLateral'>
         <LateralCliente selecionado='meuPedido'/>
     </div>
@@ -28,9 +43,11 @@ return(
 
 
                 <div className='pn'>
-                <input type='text' placeholder='Pedido por N°'/>
+                <input type='text' placeholder='Pedido :'/>
                 <button>Buscar</button>
                 </div>
+
+                {pedidos.map(item =>
 
                 <table className='BordaSimples'>
                     <tr>
@@ -42,18 +59,18 @@ return(
                     <tr>
                         <td className='td1'>
                             <div>
-                                <h1>BCCM-5724929-00001</h1>
-                                <p>15/05/2023 10:36:00</p>
+                                <h1>{item.cod_nota_fiscal}</h1>
+                                <p>{item.dt_pedido}</p>
                             </div>
                         </td>
 
-                        <td>R$ 43,83</td>
+                        <td>R${item.vl_produto}</td>
 
                         <td>
                             <div>
                                 <div className='caminhao123'>
                                     <img src='/assets/images/caminhaozinho.png' alt=''/>
-                                    <p>Pedido Enviado.</p>
+                                    <p>{item.ds_status}</p>
                                 </div>
 
                                 <a href='/entregaPedido'>Acompanhar entrega</a>
@@ -65,10 +82,11 @@ return(
                     </tr>
                 </table>
 
+                )}
 
                 <h1 className='fim'>A inclusão do produto no carrinho não garante a sua reserva, o produto só fica reservado após a conclusão da compra.</h1>
         </div>
-
+    </div>
 
 
         </div>

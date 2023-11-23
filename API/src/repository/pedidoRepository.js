@@ -76,3 +76,32 @@ export async function inserirPedidoItem(idPedido, idProduto, qtd, preco){
 }
 
 
+export async  function consultarTodosPedidos(idCliente) {
+    let comando = `
+    SELECT  tb_pedido.id_pedido,
+            tb_pedido.id_cliente,
+            tb_pedido.id_endereco,
+            tb_pedido.dt_pedido,
+            tb_pedido.cod_nota_fiscal,
+            tb_pedido.tp_frete,
+            tb_pedido.vl_frete,
+            tb_pedido.ds_status,
+            tb_pedido.tp_pagamento,
+            tb_pedido_item.id_pedido_item,
+            tb_pedido_item.id_produto,
+            tb_pedido_item.qtd_itens,
+            tb_pedido_item.vl_produto
+        FROM
+            tb_pedido
+        INNER JOIN
+            tb_pedido_item ON tb_pedido.id_pedido = tb_pedido_item.id_pedido
+        WHERE id_cliente = ?
+
+
+    `
+  
+    const [dados] = await con.query(comando, [idCliente]);
+    return dados;
+  }
+
+

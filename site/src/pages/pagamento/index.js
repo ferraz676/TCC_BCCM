@@ -9,6 +9,7 @@ import storage from 'local-storage';
 import { useNavigate } from 'react-router-dom';
 import { buscarImagem } from '../../api/produtoApi.js'
 import { consultarCliente } from '../../api/clienteApi'
+import { toast } from 'react-toastify';
 
 export default function Pagamento() {
 
@@ -17,6 +18,8 @@ export default function Pagamento() {
   const [itens, setItens] = useState([]);
   const [clientes, setClientes] = useState([]);
   const [idEndereco, setIdEndereco] = useState();
+
+
   async function carregarEndereco() {
     const id = storage('cliente-logado').id;
     const r = await listar(id);
@@ -37,8 +40,19 @@ export default function Pagamento() {
   }
 
   function irPagamento(){
-    storage('endereco-selecionado', {id: idEndereco})
-    navigate('/pagamento2')
+    try{
+      if(idEndereco === 0){
+        toast.error('Adicione um endereço para que possa prosseguir com a compra!')
+      }
+      else{
+        storage('endereco-selecionado', {id: idEndereco})
+        navigate('/pagamento2')
+      }
+      
+    } catch{
+      toast.error('Erro! Por favor, verifique se selecionou o endereço desejado.')
+    }
+    
   }
 
   function calcularSubtotal(){
@@ -101,6 +115,7 @@ export default function Pagamento() {
 
           <div className='endereco'>
             <h2>Endereço para entrega</h2>
+            <p>(Selecione)</p>
           </div>
 
 

@@ -99,25 +99,8 @@ export default function EnderecoEditar() {
             <div className='part2'>
                 <h1>Endereço de Entrega <span> (Especifique a rua, bairro e endereço)</span> </h1>
                 <div className='bloco2'>
-                    <h1>
-                    Rua Alberto Luizia - 978, Jardim novo Horizonte
-                    </h1>
-
-
-
-                <div className='btns'>
-
-                    <div className='bloco3'>
-                        <img src='./assets/images/lapis.png' alt=''/>
-                        <button>Editar</button>
-                    </div>
-
-                    <div className='bloco3'>
-                        <img src='./assets/images/lixeira.png' height={50} alt=''/>
-                        <button>Excluir</button>
-                    </div>
-
-                </div>
+                    
+              
 
 
                 </div>

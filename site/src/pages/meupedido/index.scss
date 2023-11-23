@@ -10,7 +10,6 @@
     display: flex;
     flex-direction: column;
     background-color: #d9d9d9;
-    height: 100vh;
     .ti{
         display: flex;
         margin-top: 4vh;
@@ -30,6 +29,12 @@
     .odio{
         display: flex;
         flex-direction: row;
+        height: 100%;
+    }
+
+    .divQueArrumaTd{
+        display: flex;
+        height: 100%;
     }
 
     .clienteLateral{
@@ -136,8 +141,6 @@
 
     .fim{
         font-size: 2.5vh;
-        margin-top: 20vh;
-        margin-right: vh;
     }
 
 
