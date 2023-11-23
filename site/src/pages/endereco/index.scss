@@ -1,10 +1,10 @@
-.pagina-endereco{
+.pagina-enderecoMeu{
         background-color: #D9D9D9;
         background-image: url('../../../public/assets/images/fundo.png');
         background-repeat: no-repeat;
-        background-size: 25%;
-        background-position-x: 88vh;
-        background-position-y: 170px;
+        background-size: 45%;
+        background-position-x: 77vh;
+        background-position-y: 100px;
     
 
     .divisao{
@@ -43,6 +43,10 @@
             font-size: 20px;
             border: 1px solid black;
             padding: 10px;
+        }
+
+        .enderecoSelect{
+            margin-top: 1vh;
         }
     }
 

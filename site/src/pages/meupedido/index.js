@@ -5,6 +5,7 @@ import Rodape from '../../components/rodape/rodape';
 import { useEffect, useState } from 'react';
 import storage from 'local-storage';
 import { listarPedidos } from '../../api/pedidoApi'
+import { format } from 'date-fns';
 
 
 
@@ -41,15 +42,9 @@ return(
                 <h1>Olá! Acompanhe aqui seus pedidos e seus dados cadastrais.</h1>
                 </div>
 
-
-                <div className='pn'>
-                <input type='text' placeholder='Pedido :'/>
-                <button>Buscar</button>
-                </div>
-
                 {pedidos.map(item =>
 
-                <table className='BordaSimples'>
+                <table key={item} className='BordaSimples'>
                     <tr>
                         <th className='b1'>Pedido</th>
                         <th>Valor</th>
@@ -60,7 +55,7 @@ return(
                         <td className='td1'>
                             <div>
                                 <h1>{item.cod_nota_fiscal}</h1>
-                                <p>{item.dt_pedido}</p>
+                                <p>{format(new Date(item.dt_pedido), 'dd/MM/yyyy')}</p>
                             </div>
                         </td>
 

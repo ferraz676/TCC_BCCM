@@ -99,26 +99,25 @@ endpoints.get("/endereco", async (req, resp) => {
       const { id } = req.params;
       const enderecos = req.body;
       
-      if(!enderecos.cep || enderecos.cep == String)
-          throw new Error("Corrija o CEP");
+      if(!enderecos.cep)
+          throw new Error("CEP não pode ser nulo!");
+
+      else if(enderecos.cep.lenght < 9)
+          throw new Error("CEP incompleto!"); 
+          
+      else if(!enderecos.endereco)
+          throw new Error("Endereço não pode ser nulo!");
+
+      else if(!enderecos.numero)
+          throw new Error("Número não pode ser nulo!");
       
-      if(!enderecos.endereco || enderecos.endereco == Number)
-        throw new Error("Corrija o Endereço!");
+      else if(!enderecos.bairro)
+          throw new Error("Bairro não pode ser nulo!");
       
-      if(!enderecos.numero|| enderecos.numero == String)
-      throw new Error("Corrija o número!");
-      
-      if(!enderecos.bairro || enderecos.bairro == Number)
-      throw new Error("Corrija o Bairro!");
-      
-      const resposta = await alterarEndereco(id, enderecos);
-      
-      if (resposta != 1)
-        throw new Error("Endereço não pôde ser alterado");
-      else
-      
+      else{
+        const resposta = await alterarEndereco(id, enderecos);
         resp.status(204).send();
-  
+      }
     } catch (err){
       resp.status(400).send({
         erro: err.message

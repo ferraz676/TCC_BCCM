@@ -15,7 +15,7 @@ export default function EnderecoEditar() {
   const [enderecos, setEnderecos] = useState([]);
   const [cep, setCep] = useState('');
   const [endereco, setEndereco] = useState('');
-  const [numero, setNumero] = useState(0);
+  const [numero, setNumero] = useState('');
   const [bairro, setBairro] = useState('');
   const [complemento, setComplemento] = useState('');
   const [id, setId] = useState(0);
@@ -49,6 +49,24 @@ export default function EnderecoEditar() {
   }
   }, [])
 
+
+  function mudarCep(alteracao){
+    let novaAlteracao = alteracao.slice(cep.length)
+    novaAlteracao = Number(novaAlteracao)
+    
+    if(alteracao.length < cep.length)
+        setCep(alteracao)
+
+    else if(isNaN(novaAlteracao) === false){
+        if((alteracao.length === 5 && alteracao.length > cep.length)){
+            setCep(`${alteracao}-`)
+        }
+        else if(alteracao.length <= 9){
+            setCep(alteracao)
+        }
+    }
+} 
+
   async function carregarEndereco(){
     const resposta = await buscarPorId(idParam);
     setCep(resposta.cep);
@@ -80,8 +98,6 @@ export default function EnderecoEditar() {
     } catch(err){
       if(err.response)
         toast.error(err.response.data.erro);
-      else
-        toast.error(err.message);
     }
   }
 
@@ -116,7 +132,7 @@ export default function EnderecoEditar() {
 
         <div className=''> 
                 <h1>CEP</h1>
-                <input type='text' value={cep} onChange={e => setCep(e.target.value)}></input>
+                <input type='text' value={cep} onChange={e => mudarCep(e.target.value)}></input>
                 
               </div>
 

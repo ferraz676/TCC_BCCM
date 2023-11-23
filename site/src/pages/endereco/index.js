@@ -66,7 +66,7 @@ export default function Endereco() {
 
 
   return (
-    <div className='pagina-endereco'>
+    <div className='pagina-enderecoMeu'>
       <Cabecalho/>
         
       <div className='divisao'>
@@ -83,7 +83,7 @@ export default function Endereco() {
 
 
                 {enderecos.map(item => 
-              <div key={item.id}>
+              <div className='enderecoSelect' key={item.id}>
                   <h1>
                     {item.endereco} - {item.numero}, {item.bairro}.
                     </h1>

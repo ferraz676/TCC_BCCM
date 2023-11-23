@@ -28,7 +28,7 @@ export default function CabecalhoADM() {
           </div>
 
       <div className='mid'>
-            <Link to='/'><img className='logo' src='/assets/images/logo.png' height={200} alt=''/></Link>
+            <Link to='/teladm'><img className='logo' src='/assets/images/logo.png' height={200} alt=''/></Link>
 
             
         <div className='inpt'>
@@ -39,8 +39,6 @@ export default function CabecalhoADM() {
         <div className='profile'>
             <img src='/assets/images/perfil.png' height={50} alt=''/>
             <p>Seja Bem-vindo, Adm <strong>{usuario}!</strong></p>
-
-
         </div>
       </div>
 

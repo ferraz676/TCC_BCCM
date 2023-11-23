@@ -329,7 +329,7 @@ function alterarCvv(alteracao) {
 
         
 
-        <div className='part-2' style={{height: mostrarCartao ? 740 : 220}}>
+        <div className='part-2' style={{height: mostrarCartao ? 840 : 220}}>
           <div>
             <h1 className='pagam'>2.Pagamento</h1>
             <hr />

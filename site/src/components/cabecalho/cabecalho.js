@@ -19,6 +19,15 @@ export default function Cabecalho() {
       }
     , [])
 
+    function dados(){
+      if(!storage('cliente-logado')){
+        navigate('/login')
+      }
+      else {
+        navigate('/dadosPessoais')
+      }
+    }
+
 
 
     function mostrarCarrinho(){
@@ -51,9 +60,9 @@ export default function Cabecalho() {
         </div>
 
         <div className='profile'>
-          <a href='/dadosPessoais'>
-            <Link to ='/dadosPessoais'></Link>
-            <img  src='/assets/images/perfil.png' height={50} alt=''/>
+          <a >
+            <a></a>
+            <img onClick={dados} src='/assets/images/perfil.png' height={50} alt=''/>
           </a>
             <p>Bem-Vindo,</p>
             {
@@ -75,7 +84,6 @@ export default function Cabecalho() {
 
 
       <div className='low'>
-        <Link to = '/creatina'><img src='/assets/images/barrinhas.png' alt='' height={30}/></Link>
         
         <Link to = '/creatina'> Creatina </Link>
         

@@ -104,4 +104,23 @@ export async  function consultarTodosPedidos(idCliente) {
     return dados;
   }
 
+  export async  function consultarPedidos() {
+    let comando = `
+    SELECT
+            tb_pedido.id_pedido as pedido,
+            tb_pedido.id_cliente as idCliente,
+            tb_pedido.dt_pedido as data,
+            tb_cliente.nm_cliente as cliente,
+            tb_pedido.ds_status as status,
+            tb_pedido.tp_pagamento as tipoPagamento
+        FROM tb_pedido
+        INNER JOIN tb_cliente ON tb_pedido.id_cliente = tb_cliente.id_cliente
+        INNER JOIN tb_pedido_item ON tb_pedido.id_pedido = tb_pedido_item.id_pedido
+        INNER JOIN tb_pagamento_cartao ON tb_pedido.id_pedido = tb_pagamento_cartao.id_pedido;
+    `
+  
+    const [dados] = await con.query(comando);
+    return dados;
+  }
+
 

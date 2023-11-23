@@ -18,3 +18,9 @@ export async function listarPedidos(idCliente){
     const resposta = await api.get(API_URL + `/cliente/${idCliente}/pedido`);
     return resposta.data;
 }
+
+export async function consultarPedidos(){
+
+    const resposta = await api.get(API_URL + '/pedidos/consultar');
+    return resposta.data;
+}

@@ -34,6 +34,7 @@
             padding-top: 5vh;
             margin-left: 10vh;
             margin: 0px;
+            cursor: pointer;
         }
 
 
@@ -107,16 +108,20 @@
 
             img{
                 margin-top: 0px;
+                cursor: pointer;
             }
 
 
             .vrum-vrum{
                 margin-left: 10vh;
+                cursor: pointer !important;
             }
+            
 
             a{
                 text-decoration: none;
                 color: #000;
+            
             }
         }
     }
@@ -129,7 +134,6 @@
         height: 5.2vh;
         align-items: center;
         justify-content: space-around;
-        padding-right: 9vh;
 
         img{
             margin-top: 7px;

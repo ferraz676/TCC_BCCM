@@ -95,7 +95,7 @@ export default function Home() {
           </div>
 
           <div className="f2">
-            <a href="../creatina" className="whey">
+            <a href="../whey" className="whey">
               <img
                 className="wheyzin"
                 src="/assets/images/wheyzin.png"
@@ -105,7 +105,7 @@ export default function Home() {
           </div>
 
           <div className="f3">
-            <a href="../creatina" className="multivitaminico">
+            <a href="../multivitaminico" className="multivitaminico">
               <img
                 className="crea"
                 src="/assets/images/multivitaminico.png"
@@ -115,13 +115,13 @@ export default function Home() {
           </div>
 
           <div className="f4">
-            <a href="../creatina" className="barrinhas">
+            <a href="../barrinha" className="barrinhas">
               <img className="crea" src="/assets/images/barra.png" alt="" />
             </a>
           </div>
 
           <div className="f5">
-            <a href="../creatina" className="anabolizantes">
+            <a href="../anabolizantes" className="anabolizantes">
               <img className="crea" src="/assets/images/bomba.png" alt="" />
             </a>
           </div>

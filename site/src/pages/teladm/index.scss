@@ -4,6 +4,15 @@
     background-size: 30%;
     background-position-x: 137vh;
     background-position-y: 30px;
+    border: 1px solid;
+    height: 100vh;
+    overflow-y: hidden !important;
+
+    .a{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
 
 .ti{
     display: flex;
@@ -199,7 +208,7 @@ margin-left: 21px;
 
 .b{
     background-color: #ACACAC;
-    height: 61.9vh;
+    height: 67.5VH;
 }
 
 

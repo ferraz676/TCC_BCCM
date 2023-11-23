@@ -95,56 +95,46 @@ export default function ConsultaProdutos() {
             </div>
 
             </div>
-    
-            
-            <table class="tabela">
-        <thead className='baba'>
-            <tr>
+
+        <table class="tabela">
+              <thead>
+                  <tr>
                   <th>Id</th>
                   <th>Produto</th>
                   <th>Quantidade</th>
                   <th>Valor Unitário</th>
                   <th>Categoria</th>
                   <th>Marca</th>
-                  <th></th>
-            </tr>
-        </thead>
-        <tbody className='tbody-table'>
+                  
+                  </tr>
+              </thead>
 
           {produtos.map(item =>
 
-          <tr key={item.id} className='tr2' onClick={() => abrirDetalhes(item.id)}>
-            <td>{item.id}</td>
-            <td>{item.produto}</td>
-            <td>{item.quantidade}</td>
-            <td>{item.preco}</td>
-            <td>{item.categoria}</td>
-            <td >{item.marca} 
-
-            <img className='marcaTD'  src='/assets/images/lixeira.png' alt='' height={20} 
-            onClick={e => {
-              e.stopPropagation(); 
-              removerProdutoClick(item.id, item.produto)}} />
-
-            <img className='marcaTD' src='/assets/images/lapis.png' alt='' height={20} 
-            onClick={e => {
-              e.stopPropagation();
-              editarProduto(item.id)}} /></td>
             
-          </tr>
+              <tbody>
+                    <tr key={item.id} onClick={() => abrirDetalhes(item.id)}>
+                      <td>{item.id}</td>
+                      <td>{item.produto}</td>
+                      <td>{item.quantidade}</td>
+                      <td >R${item.preco}</td>
+                      <td>{item.categoria}</td>
+                      <td >{item.marca}</td>
+                      <td className='marcaTDAH'><img src='/assets/images/lixeira.png' alt='' height={20} 
+                          onClick={e => {
+                            e.stopPropagation(); 
+                            removerProdutoClick(item.id, item.produto)}} />
 
-            )}
+                          <img className='marcaTD' src='/assets/images/lapis.png' alt='' height={20} 
+                          onClick={e => {
+                            e.stopPropagation();
+                            editarProduto(item.id)}} /></td>
+                    </tr>
 
-
-
-        </tbody>
-    </table>
-
-
-
-
-
-    
+              </tbody>
+            
+          )}
+            </table>
           </div>
         </div>
     </div>

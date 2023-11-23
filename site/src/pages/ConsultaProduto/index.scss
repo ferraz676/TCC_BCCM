@@ -87,58 +87,46 @@
         right: 24vh;
     }
 
-
-.tabela{
-    margin-left: 0vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid black;
-    width: 180vh;
+    .tabela {
+        width: 120vh;
+        margin: 0 auto;
+        text-align: center;
+        border-collapse: collapse;
+        text-align: left;
+        display: table;
+    }
     
-    thead{
-        border: 1px solid black;
+    /* Estilos para as células de cabeçalho da tabela */
+    .tabela th {
+        border: solid black 1px;
+        color: black;
+        font-weight: bold;
+        padding: 9px;
+        text-align: center;
+        
+    }
+    
+    /* Estilos para as células de dados da tabela */
+    .tabela td {
+        padding: 10px;
+        border: solid black 1px;
+        text-align: center;
+    }
+    
+    /* Estilize linhas alternadas, por exemplo, com uma cor de fundo diferente */
+    .tabela tbody tr:nth-child(odd) {
+        border: solid black 1px;
     }
 
-}
 
-.tabela tbody{
-    display: flex;
-    flex-direction: column;
-    width: 180vh !important;
-    align-items: center;
-    justify-content: space-between;
-}
+    .marcaTDAH{
 
-    /* Estilos para as células de cabeçalho da tabela */
-.tabela th {
-    text-align: center;
-    font-weight: bold;
-    padding: 9px;
-    width:30vh;
-    
-}
-.tabela tr {
-    width:160vh !important;
-    
-}
+        border-color: #d9d9d9 !important;
 
-/* Estilos para as células de dados da tabela */
-.tabela td{
-    width: 100vh;
-    padding: 10px;
-    
-}
-
-.tabela tr{
-    width: 180vh;
-}
-
-.marcaTD{
-    margin-left: 40px;
-    align-items: center;
-}
+        img{
+            padding-left: 2vh;
+        }
+    }
 
 
 
