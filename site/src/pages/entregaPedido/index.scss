@@ -127,13 +127,13 @@
     flex-direction: column;
     background-color: #D9D9D9;
     border: 2px solid black;
-    width: 70vh;
+    width: 80vh !important;
     height: 58.6vh;
     margin-top: -18vh;
     align-items: center;
     justify-content: center;
     gap: 40px;
-    
+    z-index: -1;
 }
 
 
