@@ -1,20 +1,16 @@
 import "./index.scss";
 
-import { Swiper, SwiperSlide} from 'swiper/react';
+import "react-toastify/dist/ReactToastify.css";
+import Cabecalho from "../../components/cabecalho/cabecalho.js";
+import Rodape from "../../components/rodape/rodape.js";
+import { useState } from "react";
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
-
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css/autoplay';
-
-import "react-toastify/dist/ReactToastify.css";
-import Cabecalho from "../../components/cabecalho/cabecalho.js";
-import Rodape from "../../components/rodape/rodape.js";
-import { useState } from "react";
-
-
 
 export default function Home() {
 
