@@ -4,7 +4,10 @@ import "react-toastify/dist/ReactToastify.css";
 import Cabecalho from "../../components/cabecalho/cabecalho.js";
 import Rodape from "../../components/rodape/rodape.js";
 import { useState } from "react";
+
 import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper-bundle.css';
+
 import { Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
