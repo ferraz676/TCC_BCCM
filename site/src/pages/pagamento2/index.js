@@ -64,6 +64,12 @@ export default function Pagamento2(props) {
     setItens(carrinho);
   }
 
+  function mudarNome(alteracao) {
+    if (/^\D+$/.test(alteracao)) {
+        setNome(alteracao);
+    }
+}
+
   function calcularValorTotal(){
     let t = 0;
     for(let item of itens){
@@ -372,7 +378,7 @@ function alterarCvv(alteracao) {
 
             <div className='nomeCartao'>
               <h1>Nome Impresso do Cartão</h1>
-              <input type='text' className='input' value={nome} onChange={e => setNome(e.target.value)}></input>
+              <input type='text' className='input' value={nome} onChange={e => mudarNome(e.target.value)}></input>
             </div>
 
             <div className='nomeCartao'>

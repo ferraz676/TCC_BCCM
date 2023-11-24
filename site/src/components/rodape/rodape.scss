@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: row;
     background-color: #2D5A68;
-    height: 50vh;
+    height: 100%;
 
     .tudo{
         display: flex;
@@ -37,7 +37,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-top: 10vh;
+        margin-top: 5vh;
         color: #fff;
         h1{
             font-size: 3vh;

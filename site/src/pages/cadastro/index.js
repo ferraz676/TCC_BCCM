@@ -47,7 +47,7 @@ function mudarCpf(alteracao){
             setCpf(alteracao)
         }
     }
-}   
+}  
 
 function alterarTelefone(alteracao) {
     let novaAlteracao = alteracao.slice(telefone.length)

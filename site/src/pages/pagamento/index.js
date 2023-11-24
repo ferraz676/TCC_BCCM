@@ -202,7 +202,7 @@ export default function Pagamento() {
             <div className='valor'>
               <p className='vl'>Valor com <strong className='verd-esc'>10% de desconto</strong></p>
             </div>
-
+            
           </div>
 
           <div className='pontos'>

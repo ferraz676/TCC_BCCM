@@ -20,7 +20,7 @@ export default function Login() {
   async function entrarClick() {
     ref.current.continuousStart()
     setCarregando(true);
-
+    
     try {
       const r = await loginAdm(email, senha);
       storage('adm-logado', r)
