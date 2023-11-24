@@ -25,10 +25,11 @@
     margin-top: 5vh;
     align-items: center;
     background-color: #d9d9d9;
-    
+    height: 100%;
+
     .container2{
         background-color: #d9d9d9;
-        margin-top: 5vh;
+        margin-top: 2vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -94,6 +95,7 @@
         border-collapse: collapse;
         text-align: left;
         display: table;
+        margin-bottom: 5vh;
     }
     
     /* Estilos para as células de cabeçalho da tabela */

@@ -47,7 +47,6 @@ return(
                 <table key={item} className='BordaSimples'>
                     <tr>
                         <th className='b1'>Pedido</th>
-                        <th>Valor</th>
                         <th>Status</th>
                         <th className='b2'>Mensagem</th>
                     </tr>
@@ -59,7 +58,6 @@ return(
                             </div>
                         </td>
 
-                        <td>R${item.vl_produto}</td>
 
                         <td>
                             <div>

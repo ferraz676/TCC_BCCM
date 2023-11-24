@@ -73,7 +73,7 @@ export default function Pagamento2(props) {
   function calcularValorTotal(){
     let t = 0;
     for(let item of itens){
-        t = parseFloat(t + frete + item.preco * item.qtd).toFixed(2);
+        t = t + frete + item.preco * item.qtd;
     }
     return t;
   }
@@ -83,18 +83,20 @@ export default function Pagamento2(props) {
   function calcularValorComDesconto(){
     let t = 0;
     for(let item of itens){
-        t = parseFloat(t + frete + item.preco * item.qtd).toFixed(2);
+        t = t + frete + item.preco * item.qtd;
     }
     let desconto = t * (10/100);
     let final = t - desconto;
+    final = final.toFixed(2);
     return final;
   }
 
   function calcularSubtotal(){
     let t = 0;
     for(let item of itens){
-        t = parseFloat(t + item.preco * item.qtd).toFixed(2);
+        t = t + item.preco * item.qtd;
     }
+    t = t.toFixed(2);
     return t;
   }
 

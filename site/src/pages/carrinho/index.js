@@ -14,8 +14,9 @@ export default function Carrinho(props) {
   function calcularValorTotal(){
     let t = 0;
     for(let item of itens){
-        t = parseFloat(t + item.preco * item.qtd).toFixed(2);
+        t += item.preco * item.qtd;
     }
+    t = t.toFixed(2);
     setTotal(t);
   }
 
@@ -77,7 +78,7 @@ export default function Carrinho(props) {
 
           <h2>R$ {total} </h2>
 
-          <h3>Valor com 10% de desconto no boleto ou PIX.</h3>
+          <h3>Valor com 10% de desconto no Crédito ou Débito.</h3>
         </div>
       </div>
 
@@ -100,7 +101,7 @@ export default function Carrinho(props) {
           <button>Escolher outros produtos </button>
         </div>
 
-        <div className="b2">
+        <div className="b3">
           <button onClick={props.esconder}>Fechar carrinho</button>
         </div>
       </div>

@@ -58,8 +58,9 @@ export default function Pagamento() {
   function calcularSubtotal(){
     let t = 0;
     for(let item of itens){
-        t = parseFloat(t + item.preco * item.qtd).toFixed(2);
+        t += item.preco * item.qtd;
     }
+    
     return t;
   }
 
