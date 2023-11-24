@@ -112,13 +112,13 @@ export default function Home() {
           </div>
 
           <div className="f4">
-            <a href="../barrinha" className="barrinhas">
+            <a href="../whey" className="barrinhas">
               <img className="crea" src="/assets/images/barra.png" alt="" />
             </a>
           </div>
 
           <div className="f5">
-            <a href="../anabolizantes" className="anabolizantes">
+            <a href="../anabolizante" className="anabolizantes">
               <img className="crea" src="/assets/images/bomba.png" alt="" />
             </a>
           </div>

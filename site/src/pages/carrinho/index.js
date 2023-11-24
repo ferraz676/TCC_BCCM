@@ -97,9 +97,9 @@ export default function Carrinho(props) {
           <button>Finalizar compra</button>
         </Link>
 
-        <div className="b2">
+        <Link to='/' className="b2">
           <button>Escolher outros produtos </button>
-        </div>
+        </Link>
 
         <div className="b3">
           <button onClick={props.esconder}>Fechar carrinho</button>
