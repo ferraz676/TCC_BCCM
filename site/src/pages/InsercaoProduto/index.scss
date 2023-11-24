@@ -14,7 +14,9 @@
     display: flex;
     flex-direction: column;
     background-color: #d9d9d9;
-    height: 127vh;
+    height: 100%;
+    width: 135vh;
+    overflow-y: hidden !important;
 
     img.imagem-capa {
         height: 300px;
@@ -35,6 +37,8 @@
     .mid{
         display: flex;
         background-color: #d9d9d9;
+        height: 100%;
+        width: 135vh;
 
         .title{
             display: flex;
@@ -55,9 +59,9 @@
             flex-direction: column;
             border: 2px solid black;
             height: 70vh !important;
-            width: 170vh;
+            width: 130vh;
             background-color: #fff;
-            margin-left: 10vh;
+            margin-left: 2vh;
 
             .pt{
                 margin-top: 2vh;
@@ -138,10 +142,6 @@
 
         }
 
-
-
-
-
     }
 
     .tudoo{
@@ -150,7 +150,8 @@
         justify-content: center;
         align-items: center;
         background-color: #d9d9d9;
-        height: 90vh;
+        height: 85vh;
+        
     }
 
 
@@ -159,7 +160,7 @@
         bottom:25vh;
         border: 2px solid black;
         padding: 50px;
-        left: 20vh;
+        left: 10vh;
         border-radius: 20px;
 }
 

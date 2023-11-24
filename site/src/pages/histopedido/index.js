@@ -2,7 +2,6 @@ import './index.scss';
 import { useNavigate } from 'react-router-dom';
 import { consultarPedidos } from '../../api/pedidoApi';
 import { useEffect, useState } from 'react';
-import storage from 'local-storage';
 import { format } from 'date-fns';
 
 export default function Histopedido() {
@@ -41,7 +40,7 @@ export default function Histopedido() {
       </div>
 
 
-      {pedidos.map(item =>
+      
 
       <table class="tabela">
         <thead>
@@ -55,6 +54,9 @@ export default function Histopedido() {
             </tr>
         </thead>
         <tbody>
+
+        {pedidos.map(item =>
+
             <tr>
                 <td>{item.pedido}</td>
                 <td>{format(new Date(item.data), 'dd/MM/yyyy')}</td>
@@ -63,11 +65,11 @@ export default function Histopedido() {
                 <td >{item.tipoPagamento}</td>
                 <td>Confirmado</td>
             </tr>
-
+            )}
         </tbody>
     </table>
 
-    )}
+    
 
     </div>
 
